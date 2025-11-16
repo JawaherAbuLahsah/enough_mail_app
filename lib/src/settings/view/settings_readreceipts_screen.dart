@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -23,38 +25,49 @@ class SettingsReadReceiptsScreen extends HookConsumerWidget {
     void onReadReceiptDisplaySettingChanged(ReadReceiptDisplaySetting? value) =>
         _onReadReceiptDisplaySettingChanged(value, ref);
 
-    return BasePage(
-      title: localizations.settingsReadReceipts,
-      content: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.readReceiptsSettingsIntroduction,
-                  style: theme.textTheme.bodySmall,
-                ),
-                PlatformRadioListTile<ReadReceiptDisplaySetting>(
-                  value: ReadReceiptDisplaySetting.always,
-                  groupValue: readReceiptDisplaySetting,
-                  onChanged: onReadReceiptDisplaySettingChanged,
-                  title: Text(localizations.readReceiptOptionAlways),
-                ),
-                PlatformRadioListTile<ReadReceiptDisplaySetting>(
-                  value: ReadReceiptDisplaySetting.never,
-                  groupValue: readReceiptDisplaySetting,
-                  onChanged: onReadReceiptDisplaySettingChanged,
-                  title: Text(localizations.readReceiptOptionNever),
-                ),
-                // PlatformRadioListTile<ReadReceiptDisplaySetting>(
-                //   value: ReadReceiptDisplaySetting.forContacts,
-                //   groupValue: readReceiptDisplaySetting,
-                //   onChanged: onReadReceiptDisplaySettingChanged,
-                //   title: Text(localizations.readReceiptOptionForContacts),
-                // ),
-              ],
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.settingsReadReceipts,
+        content: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    localizations.readReceiptsSettingsIntroduction,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  PlatformRadioListTile<ReadReceiptDisplaySetting>(
+                    value: ReadReceiptDisplaySetting.always,
+                    groupValue: readReceiptDisplaySetting,
+                    onChanged: onReadReceiptDisplaySettingChanged,
+                    title: Text(localizations.readReceiptOptionAlways),
+                  ),
+                  PlatformRadioListTile<ReadReceiptDisplaySetting>(
+                    value: ReadReceiptDisplaySetting.never,
+                    groupValue: readReceiptDisplaySetting,
+                    onChanged: onReadReceiptDisplaySettingChanged,
+                    title: Text(localizations.readReceiptOptionNever),
+                  ),
+                  // PlatformRadioListTile<ReadReceiptDisplaySetting>(
+                  //   value: ReadReceiptDisplaySetting.forContacts,
+                  //   groupValue: readReceiptDisplaySetting,
+                  //   onChanged: onReadReceiptDisplaySettingChanged,
+                  //   title: Text(localizations.readReceiptOptionForContacts),
+                  // ),
+                ],
+              ),
             ),
           ),
         ),

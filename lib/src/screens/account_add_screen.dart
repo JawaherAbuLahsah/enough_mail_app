@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
+import '../../enough_mail_app.dart';
 import '../account/model.dart';
 import '../account/provider.dart';
 import '../extensions/extensions.dart';
@@ -18,6 +19,7 @@ import '../logger.dart';
 import '../mail/provider.dart';
 import '../oauth/oauth.dart';
 import '../routes/routes.dart';
+import '../util/direction_helper.dart';
 import '../util/modal_bottom_sheet_helper.dart';
 import '../util/validator.dart';
 import '../widgets/account_hoster_selector.dart';
@@ -138,37 +140,50 @@ class _AccountAddScreenState extends ConsumerState<AccountAddScreen> {
   Widget build(BuildContext context) {
     // print('build: current step=$_currentStep');
     final localizations = ref.text;
-
-    return BasePage(
-      title: localizations.addAccountTitle,
-      content: Column(
-        children: [
-          Expanded(
-            child: PlatformStepper(
-              onStepContinue: _isContinueAvailable
-                  ? () async {
-                      final step = _currentStep + 1;
-                      await _onStepProgressed(step);
-                    }
-                  : null,
-              onStepCancel: () => context.pop(),
-              currentStep: _currentStep,
-              onStepTapped: (index) {
-                if (index != _currentStep && index <= _progressedSteps) {
-                  setState(() {
-                    _currentStep = index;
-                    _isContinueAvailable = true;
-                  });
-                }
-              },
-              steps: [
-                _buildEmailStep(context, localizations),
-                _buildPasswordStep(context, localizations),
-                _buildAccountSetupStep(context, localizations),
-              ],
+    final textDirection = DirectionHelper().getDirection(ref);
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.addAccountTitle,
+        content: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 150,
             ),
-          ),
-        ],
+            Image.asset(
+              'assets/images/one.png',
+              height: 100,
+              fit: BoxFit.cover,
+              package: 'enough_mail_app',
+            ),
+            Expanded(
+              child: PlatformStepper(
+                onStepContinue: _isContinueAvailable
+                    ? () async {
+                        final step = _currentStep + 1;
+                        await _onStepProgressed(step);
+                      }
+                    : null,
+                onStepCancel: () => context.pop(),
+                currentStep: _currentStep,
+                onStepTapped: (index) {
+                  if (index != _currentStep && index <= _progressedSteps) {
+                    setState(() {
+                      _currentStep = index;
+                      _isContinueAvailable = true;
+                    });
+                  }
+                },
+                steps: [
+                  _buildEmailStep(context, localizations),
+                  _buildPasswordStep(context, localizations),
+                  _buildAccountSetupStep(context, localizations),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

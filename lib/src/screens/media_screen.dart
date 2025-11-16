@@ -20,6 +20,7 @@ import '../models/message_source.dart';
 import '../routes/routes.dart';
 import '../settings/provider.dart';
 import '../settings/theme/icon_service.dart';
+import '../util/direction_helper.dart';
 import '../util/localized_dialog_helper.dart';
 import 'base.dart';
 
@@ -35,76 +36,80 @@ class InteractiveMediaScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final localizations = ref.text;
     final iconService = IconService.instance;
-
-    return BasePage(
-      title: mediaWidget.mediaProvider.name,
-      content: mediaWidget,
-      appBarActions: [
-        DensePlatformIconButton(
-          icon: Icon(iconService.messageActionForward),
-          onPressed: () => _forward(context),
-        ),
-        DensePlatformIconButton(
-          icon: Icon(iconService.share),
-          onPressed: _share,
-        ),
-        if (mediaWidget.mediaProvider.isText &&
-            ref.read(settingsProvider).enableDeveloperMode)
-          PlatformPopupMenuButton<_OverflowMenuChoice>(
-            onSelected: (_OverflowMenuChoice result) async {
-              switch (result) {
-                case _OverflowMenuChoice.showAsEmail:
-                  final provider = mediaWidget.mediaProvider;
-                  var showErrorMessage = true;
-                  try {
-                    MimeMessage? mime;
-                    if (provider is TextMediaProvider) {
-                      mime = MimeMessage.parseFromText(provider.text);
-                    } else if (provider is MemoryMediaProvider) {
-                      mime = MimeMessage.parseFromData(provider.data);
+    final textDirection = DirectionHelper().getDirection(ref);
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: mediaWidget.mediaProvider.name,
+        content: mediaWidget,
+        appBarActions: [
+          DensePlatformIconButton(
+            icon: Icon(iconService.messageActionForward),
+            onPressed: () => _forward(context),
+          ),
+          DensePlatformIconButton(
+            icon: Icon(iconService.share),
+            onPressed: _share,
+          ),
+          if (mediaWidget.mediaProvider.isText &&
+              ref.read(settingsProvider).enableDeveloperMode)
+            PlatformPopupMenuButton<_OverflowMenuChoice>(
+              onSelected: (_OverflowMenuChoice result) async {
+                switch (result) {
+                  case _OverflowMenuChoice.showAsEmail:
+                    final provider = mediaWidget.mediaProvider;
+                    var showErrorMessage = true;
+                    try {
+                      MimeMessage? mime;
+                      if (provider is TextMediaProvider) {
+                        mime = MimeMessage.parseFromText(provider.text);
+                      } else if (provider is MemoryMediaProvider) {
+                        mime = MimeMessage.parseFromData(provider.data);
+                      }
+                      if (mime != null) {
+                        final account = ref.read(currentAccountProvider);
+                        if (account is RealAccount) {
+                          final source = SingleMessageSource(
+                            null,
+                            account: account,
+                          );
+                          final message = Message(mime, source, 0)
+                            ..isEmbedded = true;
+                          source.singleMessage = message;
+                          showErrorMessage = false;
+                          unawaited(
+                            context.pushNamed(Routes.mailDetails,
+                                extra: message),
+                          );
+                        }
+                      }
+                    } catch (e, s) {
+                      if (kDebugMode) {
+                        print('Unable to convert text into mime: $e $s');
+                      }
                     }
-                    if (mime != null) {
-                      final account = ref.read(currentAccountProvider);
-                      if (account is RealAccount) {
-                        final source = SingleMessageSource(
-                          null,
-                          account: account,
-                        );
-                        final message = Message(mime, source, 0)
-                          ..isEmbedded = true;
-                        source.singleMessage = message;
-                        showErrorMessage = false;
-                        unawaited(
-                          context.pushNamed(Routes.mailDetails, extra: message),
+                    if (showErrorMessage) {
+                      if (context.mounted) {
+                        await LocalizedDialogHelper.showTextDialog(
+                          ref,
+                          localizations.errorTitle,
+                          localizations.developerShowAsEmailFailed,
                         );
                       }
                     }
-                  } catch (e, s) {
-                    if (kDebugMode) {
-                      print('Unable to convert text into mime: $e $s');
-                    }
-                  }
-                  if (showErrorMessage) {
-                    if (context.mounted) {
-                      await LocalizedDialogHelper.showTextDialog(
-                        ref,
-                        localizations.errorTitle,
-                        localizations.developerShowAsEmailFailed,
-                      );
-                    }
-                  }
 
-                  break;
-              }
-            },
-            itemBuilder: (BuildContext context) => [
-              PlatformPopupMenuItem<_OverflowMenuChoice>(
-                value: _OverflowMenuChoice.showAsEmail,
-                child: Text(localizations.developerShowAsEmail),
-              ),
-            ],
-          ),
-      ],
+                    break;
+                }
+              },
+              itemBuilder: (BuildContext context) => [
+                PlatformPopupMenuItem<_OverflowMenuChoice>(
+                  value: _OverflowMenuChoice.showAsEmail,
+                  child: Text(localizations.developerShowAsEmail),
+                ),
+              ],
+            ),
+        ],
+      ),
     );
   }
 

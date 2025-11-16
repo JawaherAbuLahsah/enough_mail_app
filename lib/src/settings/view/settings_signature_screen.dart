@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -51,58 +53,69 @@ class SettingsSignatureScreen extends HookConsumerWidget {
       }
     }
 
-    return BasePage(
-      title: localizations.signatureSettingsTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(localizations.signatureSettingsComposeActionsInfo),
-                for (final action in ComposeAction.values)
-                  PlatformCheckboxListTile(
-                    value: signatureEnabledFor[action],
-                    onChanged: (value) {
-                      if (value != null) {
-                        // TODO(RV): check if this is actually updated
-                        signatureEnabledFor[action] = value;
-                        ref.read(settingsProvider.notifier).update(
-                              ref.read(settingsProvider).copyWith(
-                                    signatureActions: value
-                                        ? signatureActions + [action]
-                                        : signatureActions
-                                            .where((a) => a != action)
-                                            .toList(),
-                                  ),
-                            );
-                      }
-                    },
-                    title: Text(getActionName(action)),
-                  ),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.signatureSettingsTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(localizations.signatureSettingsComposeActionsInfo),
+                  for (final action in ComposeAction.values)
+                    PlatformCheckboxListTile(
+                      value: signatureEnabledFor[action],
+                      onChanged: (value) {
+                        if (value != null) {
+                          // TODO(RV): check if this is actually updated
+                          signatureEnabledFor[action] = value;
+                          ref.read(settingsProvider.notifier).update(
+                                ref.read(settingsProvider).copyWith(
+                                      signatureActions: value
+                                          ? signatureActions + [action]
+                                          : signatureActions
+                                              .where((a) => a != action)
+                                              .toList(),
+                                    ),
+                              );
+                        }
+                      },
+                      title: Text(getActionName(action)),
+                    ),
 
-                const Divider(),
-                const SignatureWidget(), //  global signature
-                if (accounts.length > 1) ...[
                   const Divider(),
-                  if (accountsWithSignature.isNotEmpty)
-                    for (final account in accountsWithSignature) ...[
-                      Text(account.name, style: theme.textTheme.titleMedium),
-                      SignatureWidget(
-                        account: account,
-                      ),
-                      const Divider(),
-                    ],
-                  Text(localizations.signatureSettingsAccountInfo),
-                  PlatformTextButton(
-                    onPressed: () {
-                      context.pushNamed(Routes.settingsAccounts);
-                    },
-                    child: Text(localizations.settingsActionAccounts),
-                  ),
+                  const SignatureWidget(), //  global signature
+                  if (accounts.length > 1) ...[
+                    const Divider(),
+                    if (accountsWithSignature.isNotEmpty)
+                      for (final account in accountsWithSignature) ...[
+                        Text(account.name, style: theme.textTheme.titleMedium),
+                        SignatureWidget(
+                          account: account,
+                        ),
+                        const Divider(),
+                      ],
+                    Text(localizations.signatureSettingsAccountInfo),
+                    PlatformTextButton(
+                      onPressed: () {
+                        context.pushNamed(Routes.settingsAccounts);
+                      },
+                      child: Text(localizations.settingsActionAccounts),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

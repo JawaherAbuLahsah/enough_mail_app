@@ -10,6 +10,7 @@ import '../account/model.dart';
 import '../account/provider.dart';
 import '../localization/extension.dart';
 import '../mail/provider.dart';
+import '../util/direction_helper.dart';
 import '../util/localized_dialog_helper.dart';
 import '../widgets/password_field.dart';
 import 'base.dart';
@@ -47,13 +48,16 @@ class AccountServerDetailsScreen extends ConsumerWidget {
       return const MailScreenForDefaultAccount();
     }
     final editor = AccountServerDetailsEditor(account: account);
-
-    return BasePage(
-      title: title ?? account.name,
-      content: editor,
-      appBarActions: const [
-        _SaveButton(),
-      ],
+    final textDirection = DirectionHelper().getDirection(ref);
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: title ?? account.name,
+        content: editor,
+        appBarActions: const [
+          _SaveButton(),
+        ],
+      ),
     );
   }
 }

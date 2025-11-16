@@ -6,7 +6,7 @@ part of 'provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$defaultColorSeedHash() => r'c2bdee6a44fad5bfcada3d31af099906bb24c988';
+String _$defaultColorSeedHash() => r'343953663e0211ceec8a78378c43d64def7e1476';
 
 /// The default color provider
 ///

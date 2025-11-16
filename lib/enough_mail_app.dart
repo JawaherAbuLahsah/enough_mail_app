@@ -2,6 +2,7 @@ export 'package:enough_mail/enough_mail.dart';
 
 export 'src/account/account.dart';
 export 'src/app.dart';
+export 'src/background/background.dart';
 export 'src/contact/contact.dart';
 export 'src/localization/app_localizations.g.dart';
 export 'src/localization/extension.dart';

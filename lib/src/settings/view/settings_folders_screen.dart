@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_mail/enough_mail.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
@@ -31,50 +33,61 @@ class SettingsFoldersScreen extends ConsumerWidget {
     void onFolderNameSettingChanged(FolderNameSetting? value) =>
         _onFolderNameSettingChanged(context, value, ref);
 
-    return BasePage(
-      title: localizations.settingsFolders,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.folderNamesIntroduction,
-                  style: theme.textTheme.bodySmall,
-                ),
-                PlatformRadioListTile<FolderNameSetting>(
-                  value: FolderNameSetting.localized,
-                  groupValue: folderNameSetting,
-                  onChanged: onFolderNameSettingChanged,
-                  title: Text(localizations.folderNamesSettingLocalized),
-                ),
-                PlatformRadioListTile<FolderNameSetting>(
-                  value: FolderNameSetting.server,
-                  groupValue: folderNameSetting,
-                  onChanged: onFolderNameSettingChanged,
-                  title: Text(localizations.folderNamesSettingServer),
-                ),
-                PlatformRadioListTile<FolderNameSetting>(
-                  value: FolderNameSetting.custom,
-                  groupValue: folderNameSetting,
-                  onChanged: onFolderNameSettingChanged,
-                  title: Text(localizations.folderNamesSettingCustom),
-                ),
-                if (folderNameSetting == FolderNameSetting.custom) ...[
-                  const Divider(),
-                  PlatformTextButtonIcon(
-                    icon: Icon(CommonPlatformIcons.edit),
-                    label: Text(localizations.folderNamesEditAction),
-                    onPressed: () => _editFolderNames(context, settings, ref),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.settingsFolders,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    localizations.folderNamesIntroduction,
+                    style: theme.textTheme.bodySmall,
                   ),
+                  PlatformRadioListTile<FolderNameSetting>(
+                    value: FolderNameSetting.localized,
+                    groupValue: folderNameSetting,
+                    onChanged: onFolderNameSettingChanged,
+                    title: Text(localizations.folderNamesSettingLocalized),
+                  ),
+                  PlatformRadioListTile<FolderNameSetting>(
+                    value: FolderNameSetting.server,
+                    groupValue: folderNameSetting,
+                    onChanged: onFolderNameSettingChanged,
+                    title: Text(localizations.folderNamesSettingServer),
+                  ),
+                  PlatformRadioListTile<FolderNameSetting>(
+                    value: FolderNameSetting.custom,
+                    groupValue: folderNameSetting,
+                    onChanged: onFolderNameSettingChanged,
+                    title: Text(localizations.folderNamesSettingCustom),
+                  ),
+                  if (folderNameSetting == FolderNameSetting.custom) ...[
+                    const Divider(),
+                    PlatformTextButtonIcon(
+                      icon: Icon(CommonPlatformIcons.edit),
+                      label: Text(localizations.folderNamesEditAction),
+                      onPressed: () => _editFolderNames(context, settings, ref),
+                    ),
+                  ],
+                  const Divider(
+                    height: 8,
+                  ),
+                  const FolderManagement(),
                 ],
-                const Divider(
-                  height: 8,
-                ),
-                const FolderManagement(),
-              ],
+              ),
             ),
           ),
         ),

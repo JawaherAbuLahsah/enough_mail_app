@@ -524,6 +524,15 @@ class _ComposeScreenState extends ConsumerState<ComposeScreen> {
             : localizations.composeTitleNew;
     final htmlEditorApi = _htmlEditorApi;
 
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+
     return WillPopScope(
       onWillPop: () async {
         await _populateMessageBuilder(storeComposeDataForResume: true);
@@ -546,259 +555,263 @@ class _ComposeScreenState extends ConsumerState<ComposeScreen> {
       //     undo: _returnToCompose,
       //   );
       // },
-      child: PlatformScaffold(
-        material: (context, platform) =>
-            MaterialScaffoldData(drawer: const AppDrawer()),
-        body: CustomScrollView(
-          slivers: [
-            EnoughPlatformSliverAppBar(
-              title: Text(titleText),
-              pinned: true,
-              stretch: true,
-              actions: [
-                AddAttachmentPopupButton(
-                  composeData: widget.data,
-                  update: () => setState(
-                    () {},
+
+      child: Directionality(
+        textDirection: textDirection,
+        child: PlatformScaffold(
+          material: (context, platform) =>
+              MaterialScaffoldData(drawer: const AppDrawer()),
+          body: CustomScrollView(
+            slivers: [
+              EnoughPlatformSliverAppBar(
+                title: Text(titleText),
+                pinned: true,
+                stretch: true,
+                actions: [
+                  AddAttachmentPopupButton(
+                    composeData: widget.data,
+                    update: () => setState(
+                      () {},
+                    ),
+                  ),
+                  PlatformIconButton(
+                    icon: const Icon(Icons.send),
+                    onPressed: () => _send(localizations),
+                  ),
+                  PlatformPopupMenuButton<_OverflowMenuChoice>(
+                    onSelected: (result) {
+                      switch (result) {
+                        case _OverflowMenuChoice.showSourceCode:
+                          _showSourceCode();
+                          break;
+                        case _OverflowMenuChoice.saveAsDraft:
+                          _saveAsDraft();
+                          break;
+                        case _OverflowMenuChoice.requestReadReceipt:
+                          _requestReadReceipt();
+                          break;
+                        case _OverflowMenuChoice.convertToPlainTextEditor:
+                          _convertToPlainTextEditor();
+                          break;
+                        case _OverflowMenuChoice.convertToHtmlEditor:
+                          _convertToHtmlEditor();
+                          break;
+                      }
+                    },
+                    itemBuilder: (context) => [
+                      PlatformPopupMenuItem<_OverflowMenuChoice>(
+                        value: _OverflowMenuChoice.saveAsDraft,
+                        child: Text(localizations.composeSaveDraftAction),
+                      ),
+                      PlatformPopupMenuItem<_OverflowMenuChoice>(
+                        value: _OverflowMenuChoice.requestReadReceipt,
+                        child:
+                            Text(localizations.composeRequestReadReceiptAction),
+                      ),
+                      if (_composeMode == ComposeMode.html)
+                        PlatformPopupMenuItem<_OverflowMenuChoice>(
+                          value: _OverflowMenuChoice.convertToPlainTextEditor,
+                          child: Text(
+                            localizations.composeConvertToPlainTextEditorAction,
+                          ),
+                        )
+                      else
+                        PlatformPopupMenuItem<_OverflowMenuChoice>(
+                          value: _OverflowMenuChoice.convertToHtmlEditor,
+                          child: Text(
+                            localizations.composeConvertToHtmlEditorAction,
+                          ),
+                        ),
+                      if (ref.read(settingsProvider).enableDeveloperMode)
+                        PlatformPopupMenuItem<_OverflowMenuChoice>(
+                          value: _OverflowMenuChoice.showSourceCode,
+                          child: Text(localizations.viewSourceAction),
+                        ),
+                    ],
+                  ),
+                ], // actions
+              ),
+              SliverToBoxAdapter(
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        localizations.detailsHeaderFrom,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      // SenderDropdown(
+                      //   from: widget.data.messageBuilder.from,
+                      //   onChanged:
+                      PlatformDropdownButton<Sender>(
+                        material: (context, platform) =>
+                            MaterialDropdownButtonData(
+                          isExpanded: true,
+                        ),
+                        items: _senders
+                            .map(
+                              (s) => DropdownMenuItem<Sender>(
+                                value: s,
+                                child: Text(
+                                  s.toString(),
+                                  overflow: TextOverflow.fade,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (s) async {
+                          if (s != null) {
+                            // (s) {
+                            final builder = widget.data.messageBuilder
+                              ..from = [s.address];
+                            final lastSignature = _signature;
+                            _from = s;
+                            final newSignature = _signature;
+                            if (newSignature != lastSignature) {
+                              await _htmlEditorApi?.replaceAll(
+                                lastSignature,
+                                newSignature,
+                              );
+                            }
+                            if (_isReadReceiptRequested) {
+                              builder.requestReadReceipt(
+                                recipient: _from.address,
+                              );
+                            }
+                            ref.read(currentAccountProvider.notifier).state =
+                                s.account;
+                            setState(() {
+                              _realAccount = s.account;
+                            });
+
+                            await _checkAccountContactManager(_from.account);
+                          }
+                        },
+                        value: _from,
+                        hint: Text(localizations.composeSenderHint),
+                      ),
+                      RecipientInputField(
+                        contactManager: _from.account.contactManager,
+                        addresses: _toRecipients,
+                        autofocus: _focus == _Autofocus.to,
+                        labelText: localizations.detailsHeaderTo,
+                        hintText: localizations.composeRecipientHint,
+                        additionalSuffixIcon: PlatformTextButton(
+                          child: Text(localizations.detailsHeaderCc),
+                          onPressed: () => setState(
+                            () => _isCcBccVisible = !_isCcBccVisible,
+                          ),
+                        ),
+                      ),
+                      if (_isCcBccVisible) ...[
+                        RecipientInputField(
+                          addresses: _ccRecipients,
+                          contactManager: _from.account.contactManager,
+                          labelText: localizations.detailsHeaderCc,
+                          hintText: localizations.composeRecipientHint,
+                        ),
+                        RecipientInputField(
+                          addresses: _bccRecipients,
+                          contactManager: _from.account.contactManager,
+                          labelText: localizations.detailsHeaderBcc,
+                          hintText: localizations.composeRecipientHint,
+                        ),
+                      ],
+                      TextEditor(
+                        controller: _subjectController,
+                        autofocus: _focus == _Autofocus.subject,
+                        decoration: InputDecoration(
+                          labelText: localizations.composeSubjectLabel,
+                          hintText: localizations.composeSubjectHint,
+                        ),
+                        cupertinoShowLabel: false,
+                      ),
+                      if (widget.data.messageBuilder.attachments.isNotEmpty ||
+                          (_downloadAttachmentsFuture != null)) ...[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: AttachmentComposeBar(
+                            composeData: widget.data,
+                            isDownloading: _downloadAttachmentsFuture != null,
+                          ),
+                        ),
+                        const Divider(
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ],
                   ),
                 ),
-                PlatformIconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () => _send(localizations),
-                ),
-                PlatformPopupMenuButton<_OverflowMenuChoice>(
-                  onSelected: (result) {
-                    switch (result) {
-                      case _OverflowMenuChoice.showSourceCode:
-                        _showSourceCode();
-                        break;
-                      case _OverflowMenuChoice.saveAsDraft:
-                        _saveAsDraft();
-                        break;
-                      case _OverflowMenuChoice.requestReadReceipt:
-                        _requestReadReceipt();
-                        break;
-                      case _OverflowMenuChoice.convertToPlainTextEditor:
-                        _convertToPlainTextEditor();
-                        break;
-                      case _OverflowMenuChoice.convertToHtmlEditor:
-                        _convertToHtmlEditor();
-                        break;
-                    }
-                  },
-                  itemBuilder: (context) => [
-                    PlatformPopupMenuItem<_OverflowMenuChoice>(
-                      value: _OverflowMenuChoice.saveAsDraft,
-                      child: Text(localizations.composeSaveDraftAction),
-                    ),
-                    PlatformPopupMenuItem<_OverflowMenuChoice>(
-                      value: _OverflowMenuChoice.requestReadReceipt,
-                      child:
-                          Text(localizations.composeRequestReadReceiptAction),
-                    ),
-                    if (_composeMode == ComposeMode.html)
-                      PlatformPopupMenuItem<_OverflowMenuChoice>(
-                        value: _OverflowMenuChoice.convertToPlainTextEditor,
-                        child: Text(
-                          localizations.composeConvertToPlainTextEditorAction,
-                        ),
-                      )
-                    else
-                      PlatformPopupMenuItem<_OverflowMenuChoice>(
-                        value: _OverflowMenuChoice.convertToHtmlEditor,
-                        child: Text(
-                          localizations.composeConvertToHtmlEditorAction,
-                        ),
-                      ),
-                    if (ref.read(settingsProvider).enableDeveloperMode)
-                      PlatformPopupMenuItem<_OverflowMenuChoice>(
-                        value: _OverflowMenuChoice.showSourceCode,
-                        child: Text(localizations.viewSourceAction),
-                      ),
-                  ],
-                ),
-              ], // actions
-            ),
-            SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      localizations.detailsHeaderFrom,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    // SenderDropdown(
-                    //   from: widget.data.messageBuilder.from,
-                    //   onChanged:
-                    PlatformDropdownButton<Sender>(
-                      material: (context, platform) =>
-                          MaterialDropdownButtonData(
-                        isExpanded: true,
-                      ),
-                      items: _senders
-                          .map(
-                            (s) => DropdownMenuItem<Sender>(
-                              value: s,
-                              child: Text(
-                                s.toString(),
-                                overflow: TextOverflow.fade,
-                              ),
-                            ),
-                          )
-                          .toList(),
-                      onChanged: (s) async {
-                        if (s != null) {
-                          // (s) {
-                          final builder = widget.data.messageBuilder
-                            ..from = [s.address];
-                          final lastSignature = _signature;
-                          _from = s;
-                          final newSignature = _signature;
-                          if (newSignature != lastSignature) {
-                            await _htmlEditorApi?.replaceAll(
-                              lastSignature,
-                              newSignature,
-                            );
-                          }
-                          if (_isReadReceiptRequested) {
-                            builder.requestReadReceipt(
-                              recipient: _from.address,
-                            );
-                          }
-                          ref.read(currentAccountProvider.notifier).state =
-                              s.account;
-                          setState(() {
-                            _realAccount = s.account;
-                          });
-
-                          await _checkAccountContactManager(_from.account);
-                        }
-                      },
-                      value: _from,
-                      hint: Text(localizations.composeSenderHint),
-                    ),
-                    RecipientInputField(
-                      contactManager: _from.account.contactManager,
-                      addresses: _toRecipients,
-                      autofocus: _focus == _Autofocus.to,
-                      labelText: localizations.detailsHeaderTo,
-                      hintText: localizations.composeRecipientHint,
-                      additionalSuffixIcon: PlatformTextButton(
-                        child: Text(localizations.detailsHeaderCc),
-                        onPressed: () => setState(
-                          () => _isCcBccVisible = !_isCcBccVisible,
-                        ),
-                      ),
-                    ),
-                    if (_isCcBccVisible) ...[
-                      RecipientInputField(
-                        addresses: _ccRecipients,
-                        contactManager: _from.account.contactManager,
-                        labelText: localizations.detailsHeaderCc,
-                        hintText: localizations.composeRecipientHint,
-                      ),
-                      RecipientInputField(
-                        addresses: _bccRecipients,
-                        contactManager: _from.account.contactManager,
-                        labelText: localizations.detailsHeaderBcc,
-                        hintText: localizations.composeRecipientHint,
-                      ),
-                    ],
-                    TextEditor(
-                      controller: _subjectController,
-                      autofocus: _focus == _Autofocus.subject,
-                      decoration: InputDecoration(
-                        labelText: localizations.composeSubjectLabel,
-                        hintText: localizations.composeSubjectHint,
-                      ),
-                      cupertinoShowLabel: false,
-                    ),
-                    if (widget.data.messageBuilder.attachments.isNotEmpty ||
-                        (_downloadAttachmentsFuture != null)) ...[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: AttachmentComposeBar(
-                          composeData: widget.data,
-                          isDownloading: _downloadAttachmentsFuture != null,
-                        ),
-                      ),
-                      const Divider(
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ],
-                ),
               ),
-            ),
-            if (_isReadReceiptRequested)
+              if (_isReadReceiptRequested)
+                SliverToBoxAdapter(
+                  child: PlatformCheckboxListTile(
+                    value: true,
+                    title: Text(localizations.composeRequestReadReceiptAction),
+                    onChanged: (value) {
+                      _removeReadReceiptRequest();
+                    },
+                  ),
+                ),
+              if (_composeMode == ComposeMode.html && htmlEditorApi != null)
+                SliverHeaderHtmlEditorControls(
+                  editorApi: htmlEditorApi,
+                  suffix: EditorArtExtensionButton(editorApi: htmlEditorApi),
+                )
+              else if (_composeMode == ComposeMode.plainText &&
+                  _plainTextEditorApi != null)
+                SliverHeaderTextEditorControls(
+                  editorApi: _plainTextEditorApi,
+                ),
               SliverToBoxAdapter(
-                child: PlatformCheckboxListTile(
-                  value: true,
-                  title: Text(localizations.composeRequestReadReceiptAction),
-                  onChanged: (value) {
-                    _removeReadReceiptRequest();
-                  },
-                ),
-              ),
-            if (_composeMode == ComposeMode.html && htmlEditorApi != null)
-              SliverHeaderHtmlEditorControls(
-                editorApi: htmlEditorApi,
-                suffix: EditorArtExtensionButton(editorApi: htmlEditorApi),
-              )
-            else if (_composeMode == ComposeMode.plainText &&
-                _plainTextEditorApi != null)
-              SliverHeaderTextEditorControls(
-                editorApi: _plainTextEditorApi,
-              ),
-            SliverToBoxAdapter(
-              child: FutureBuilder<String>(
-                future: _loadMailTextFuture,
-                builder: (widget, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.none:
-                    case ConnectionState.waiting:
-                    case ConnectionState.active:
-                      return const Center(child: PlatformProgressIndicator());
-                    case ConnectionState.done:
-                      if (_composeMode == ComposeMode.html) {
-                        final text = snapshot.data ?? '<p></p>';
+                child: FutureBuilder<String>(
+                  future: _loadMailTextFuture,
+                  builder: (widget, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.none:
+                      case ConnectionState.waiting:
+                      case ConnectionState.active:
+                        return const Center(child: PlatformProgressIndicator());
+                      case ConnectionState.done:
+                        if (_composeMode == ComposeMode.html) {
+                          final text = snapshot.data ?? '<p></p>';
 
-                        return HtmlEditor(
-                          onCreated: (api) {
-                            setState(() {
-                              _htmlEditorApi = api;
-                            });
-                          },
-                          enableDarkMode:
-                              Theme.of(context).brightness == Brightness.dark,
-                          initialContent: text,
-                          minHeight: 400,
-                        );
-                      } else {
-                        // compose mode is plainText
-                        _plainTextController.text = snapshot.data ?? '';
-
-                        return Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: TextEditor(
-                            controller: _plainTextController,
-                            minLines: 10,
-                            maxLines: null,
+                          return HtmlEditor(
                             onCreated: (api) {
                               setState(() {
-                                _plainTextEditorApi = api;
+                                _htmlEditorApi = api;
                               });
                             },
-                          ),
-                        );
-                      }
-                  }
-                },
+                            enableDarkMode:
+                                Theme.of(context).brightness == Brightness.dark,
+                            initialContent: text,
+                            minHeight: 400,
+                          );
+                        } else {
+                          // compose mode is plainText
+                          _plainTextController.text = snapshot.data ?? '';
+
+                          return Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: TextEditor(
+                              controller: _plainTextController,
+                              minLines: 10,
+                              maxLines: null,
+                              onCreated: (api) {
+                                setState(() {
+                                  _plainTextEditorApi = api;
+                                });
+                              },
+                            ),
+                          );
+                        }
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

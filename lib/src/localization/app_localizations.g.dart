@@ -5,9 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'app_localizations_de.g.dart';
+import 'app_localizations_ar.g.dart';
 import 'app_localizations_en.g.dart';
-import 'app_localizations_es.g.dart';
+
+// ignore_for_file: type=lint
 
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
@@ -61,7 +62,8 @@ import 'app_localizations_es.g.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -69,7 +71,8 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -81,7 +84,8 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -91,14 +95,13 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('de'),
-    Locale('es')
+    Locale('ar')
   ];
 
   /// Default signature text
   ///
   /// In en, this message translates to:
-  /// **'Sent with Maily'**
+  /// **'Sent with SAM'**
   String get signature;
 
   /// Generic cancel action
@@ -182,31 +185,31 @@ abstract class AppLocalizations {
   /// Message shown on splash screen while loading
   ///
   /// In en, this message translates to:
-  /// **'Maily starting...'**
+  /// **'SAM starting...'**
   String get splashLoading1;
 
   /// Message shown on splash screen while loading
   ///
   /// In en, this message translates to:
-  /// **'Getting your Maily engine ready...'**
+  /// **'Getting your SAM engine ready...'**
   String get splashLoading2;
 
   /// Message shown on splash screen while loading
   ///
   /// In en, this message translates to:
-  /// **'Launching Maily in 10, 9, 8...'**
+  /// **'Launching SAM in 10, 9, 8...'**
   String get splashLoading3;
 
   /// Welcome panel title
   ///
   /// In en, this message translates to:
-  /// **'Maily'**
+  /// **'SAM'**
   String get welcomePanel1Title;
 
   /// Welcome message shown on first panel
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Maily, your friendly and fast email helper!'**
+  /// **'Welcome to SAM, your friendly and fast email helper!'**
   String get welcomePanel1Text;
 
   /// Welcome panel title
@@ -536,7 +539,7 @@ abstract class AppLocalizations {
   /// Menu entry for about.
   ///
   /// In en, this message translates to:
-  /// **'About Maily'**
+  /// **'About SAM'**
   String get drawerEntryAbout;
 
   /// Menu entry for settings.
@@ -1028,7 +1031,7 @@ abstract class AppLocalizations {
   /// Legal info shown on initial welcome screen and later in about. [PP] is replaced with the legalesePrivacyPolicy text and [TC] with legaleseTermsAndConditions.
   ///
   /// In en, this message translates to:
-  /// **'By using Maily you agree to our [PP] and to our [TC].'**
+  /// **'By using SAM you agree to our [PP] and to our [TC].'**
   String get legaleseUsage;
 
   /// Translation of privacy policy
@@ -1046,7 +1049,7 @@ abstract class AppLocalizations {
   /// Legal info shown in about dialog.
   ///
   /// In en, this message translates to:
-  /// **'Maily is free software published under the GNU General Public License.'**
+  /// **'SAM is free software published under the GNU General Public License.'**
   String get aboutApplicationLegalese;
 
   /// Action to suggest a feature.
@@ -1064,7 +1067,7 @@ abstract class AppLocalizations {
   /// Action to help developing.
   ///
   /// In en, this message translates to:
-  /// **'Help developing Maily'**
+  /// **'Help developing SAM'**
   String get feedbackActionHelpDeveloping;
 
   /// Title of feedback settings screen.
@@ -1076,7 +1079,7 @@ abstract class AppLocalizations {
   /// Intro for feedback settings screen.
   ///
   /// In en, this message translates to:
-  /// **'Thank you for testing Maily!'**
+  /// **'Thank you for testing SAM!'**
   String get feedbackIntro;
 
   /// Request to provide device and app information when reporting a problem.
@@ -1142,7 +1145,7 @@ abstract class AppLocalizations {
   /// Option for how to launch URLs.
   ///
   /// In en, this message translates to:
-  /// **'How should Maily open links?'**
+  /// **'How should SAM open links?'**
   String get settingsSecurityLaunchModeLabel;
 
   /// Option for how to launch URLs.
@@ -1154,7 +1157,7 @@ abstract class AppLocalizations {
   /// Option for how to launch URLs.
   ///
   /// In en, this message translates to:
-  /// **'Open links in Maily'**
+  /// **'Open links in SAM'**
   String get settingsSecurityLaunchModeInApp;
 
   /// Settings action to manage accounts.
@@ -1220,7 +1223,7 @@ abstract class AppLocalizations {
   /// Folder name setting option.
   ///
   /// In en, this message translates to:
-  /// **'Names given by Maily'**
+  /// **'Names given by SAM'**
   String get folderNamesSettingLocalized;
 
   /// Folder name setting option.
@@ -1436,25 +1439,25 @@ abstract class AppLocalizations {
   /// iOS-specific unlock reason.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Maily with Face ID.'**
+  /// **'Unlock SAM with Face ID.'**
   String get securityUnlockWithFaceId;
 
   /// iOS-specific unlock reason.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Maily with Touch ID.'**
+  /// **'Unlock SAM with Touch ID.'**
   String get securityUnlockWithTouchId;
 
   /// Generic unlock reason.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Maily.'**
+  /// **'Unlock SAM.'**
   String get securityUnlockReason;
 
   /// Generic unlock disable reason.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Maily to turn off lock.'**
+  /// **'Unlock SAM to turn off lock.'**
   String get securityUnlockDisableReason;
 
   /// Message when biometric authentication is not available.
@@ -1466,19 +1469,19 @@ abstract class AppLocalizations {
   /// Label of biometric authentication lock feature.
   ///
   /// In en, this message translates to:
-  /// **'Lock Maily'**
+  /// **'Lock SAM'**
   String get securityUnlockLabel;
 
   /// Title to explain lock feature via biometric authentication.
   ///
   /// In en, this message translates to:
-  /// **'Lock Maily'**
+  /// **'Lock SAM'**
   String get securityUnlockDescriptionTitle;
 
   /// Text explaining lock feature via biometric authentication.
   ///
   /// In en, this message translates to:
-  /// **'You can choose to lock access to Maily, so that others cannot read your email even when they have access to your device.'**
+  /// **'You can choose to lock access to SAM, so that others cannot read your email even when they have access to your device.'**
   String get securityUnlockDescriptionText;
 
   /// Lock timing option.
@@ -1502,13 +1505,13 @@ abstract class AppLocalizations {
   /// Title of lock screen.
   ///
   /// In en, this message translates to:
-  /// **'Maily is locked'**
+  /// **'SAM is locked'**
   String get lockScreenTitle;
 
   /// Text on lock screen.
   ///
   /// In en, this message translates to:
-  /// **'Maily is locked, please authenticate to proceed.'**
+  /// **'SAM is locked, please authenticate to proceed.'**
   String get lockScreenIntro;
 
   /// Action to unlock on lock screen.
@@ -1688,7 +1691,7 @@ abstract class AppLocalizations {
   /// Info about not being able to connect to the named service. Most common causes are temporary network problems or a changed password.
   ///
   /// In en, this message translates to:
-  /// **'Maily could not connect {name}.'**
+  /// **'SAM could not connect {name}.'**
   String editAccountFailureToConnectInfo(String name);
 
   /// Action to retry connecting to service again.
@@ -1815,7 +1818,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Your account {accountName} might support so called + aliases like {example}.\nA + alias helps you to protect your identity and helps you against spam.\nTo test this, a test message will be sent to this generated address. If it arrives, your provider supports + aliases and you can easily generate them on demand when writing a new mail message.'**
-  String editAccountTestPlusAliasStepIntroductionText(String accountName, String example);
+  String editAccountTestPlusAliasStepIntroductionText(
+      String accountName, String example);
 
   /// Title while testing concept of + aliases.
   ///
@@ -1934,8 +1938,9 @@ abstract class AppLocalizations {
   /// Error details when no connection to server could be established at all
   ///
   /// In en, this message translates to:
-  /// **'Maily cannot reach the specified mail server. Please check your incoming server setting \"{incomingHost}\" and your outgoing server setting \"{outgoingHost}\".'**
-  String accountDetailsErrorHostProblem(String incomingHost, String outgoingHost);
+  /// **'SAM cannot reach the specified mail server. Please check your incoming server setting \"{incomingHost}\" and your outgoing server setting \"{outgoingHost}\".'**
+  String accountDetailsErrorHostProblem(
+      String incomingHost, String outgoingHost);
 
   /// Error details when login fails
   ///
@@ -2306,7 +2311,7 @@ abstract class AppLocalizations {
   /// Label for language setting dropdown screen
   ///
   /// In en, this message translates to:
-  /// **'Choose the language for Maily:'**
+  /// **'Choose the language for SAM:'**
   String get languageSettingLabel;
 
   /// Option to use the system's settings
@@ -2318,7 +2323,7 @@ abstract class AppLocalizations {
   /// Title of dialog to confirm when switching the language
   ///
   /// In en, this message translates to:
-  /// **'Use English for Maily?'**
+  /// **'Use English for SAM?'**
   String get languageSettingConfirmationTitle;
 
   /// Query to be confirmed by user when switching the language
@@ -2330,13 +2335,13 @@ abstract class AppLocalizations {
   /// Info text after having specified the language.
   ///
   /// In en, this message translates to:
-  /// **'Maily is now shown in English.'**
+  /// **'SAM is now shown in English.'**
   String get languageSetInfo;
 
-  /// Info text after choosing the system's language for Maily.
+  /// Info text after choosing the system's language for SAM.
   ///
   /// In en, this message translates to:
-  /// **'Maily will now use the system\'s language or English if the system\'s language is not supported.'**
+  /// **'SAM will now use the system\'s language or English if the system\'s language is not supported.'**
   String get languageSystemSetInfo;
 
   /// Title of swipe setting screen
@@ -2624,7 +2629,7 @@ abstract class AppLocalizations {
   /// Explanation of extensions
   ///
   /// In en, this message translates to:
-  /// **'With extensions e-mail service providers, companies and developers can adapt Maily with useful functionalities.'**
+  /// **'With extensions e-mail service providers, companies and developers can adapt SAM with useful functionalities.'**
   String get extensionsIntro;
 
   /// Label for launching a website with more information
@@ -3066,7 +3071,8 @@ abstract class AppLocalizations {
   String get durationEmpty;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -3075,26 +3081,25 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['de', 'en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['ar', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'de': return AppLocalizationsDe();
-    case 'en': return AppLocalizationsEn();
-    case 'es': return AppLocalizationsEs();
+    case 'ar':
+      return AppLocalizationsAr();
+    case 'en':
+      return AppLocalizationsEn();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

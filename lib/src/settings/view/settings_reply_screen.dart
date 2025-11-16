@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -28,33 +30,44 @@ class SettingsReplyScreen extends ConsumerWidget {
       settingsProvider.select((value) => value.replyFormatPreference),
     );
 
-    return BasePage(
-      title: localizations.replySettingsTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(localizations.replySettingsIntro),
-                for (final preference in ReplyFormatPreference.values)
-                  PlatformRadioListTile<ReplyFormatPreference>(
-                    value: preference,
-                    groupValue: currentPreference,
-                    onChanged: (value) async {
-                      if (value != null) {
-                        final settings = ref.read(settingsProvider);
-                        await ref.read(settingsProvider.notifier).update(
-                              settings.copyWith(replyFormatPreference: value),
-                            );
-                      }
-                    },
-                    title: Text(
-                      getFormatPreferenceName(preference),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.replySettingsTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(localizations.replySettingsIntro),
+                  for (final preference in ReplyFormatPreference.values)
+                    PlatformRadioListTile<ReplyFormatPreference>(
+                      value: preference,
+                      groupValue: currentPreference,
+                      onChanged: (value) async {
+                        if (value != null) {
+                          final settings = ref.read(settingsProvider);
+                          await ref.read(settingsProvider.notifier).update(
+                                settings.copyWith(replyFormatPreference: value),
+                              );
+                        }
+                      },
+                      title: Text(
+                        getFormatPreferenceName(preference),
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

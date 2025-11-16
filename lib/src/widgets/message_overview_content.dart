@@ -37,7 +37,7 @@ class MessageOverviewContent extends ConsumerWidget {
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 1),
       color: msg.isFlagged ? theme.colorScheme.secondary : null,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,9 +91,8 @@ class MessageOverviewContent extends ConsumerWidget {
             subject,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontWeight: msg.isSeen ? FontWeight.normal : FontWeight.bold,
-            ),
+                fontWeight: msg.isSeen ? FontWeight.normal : FontWeight.bold,
+                fontSize: 15),
           ),
         ],
       ),

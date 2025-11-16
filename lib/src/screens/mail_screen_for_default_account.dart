@@ -1,7 +1,8 @@
-import 'package:flutter/widgets.dart';
+import '../util/custom_line_indicator_bottom_navbar.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../account/provider.dart';
+import '../../enough_mail_app.dart';
 import 'screens.dart';
 
 /// Shows the inbox of the default account

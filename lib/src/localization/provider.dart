@@ -18,6 +18,7 @@ class CurrentAppLocalization extends _$CurrentAppLocalization {
     final locale = languageTag != null
         ? Locale(languageTag)
         : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
     state = resolve(locale);
     final binding = WidgetsBinding.instance;
     final existingObserver = _observer;

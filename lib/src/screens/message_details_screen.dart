@@ -22,6 +22,7 @@ import '../routes/routes.dart';
 import '../settings/model.dart';
 import '../settings/provider.dart';
 import '../settings/theme/icon_service.dart';
+import '../util/direction_helper.dart';
 import '../util/localized_dialog_helper.dart';
 import '../widgets/attachment_chip.dart';
 import '../widgets/empty_message.dart';
@@ -80,62 +81,65 @@ class _DetailsScreenState extends ConsumerState<MessageDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = ref.text;
-
+    final textDirection = DirectionHelper().getDirection(ref);
     return ListenableBuilder(
       listenable: _current,
-      builder: (context, child) => BasePage(
-        title: _current.mimeMessage.decodeSubject() ??
-            localizations.subjectUndefined,
-        appBarActions: [
-          //PlatformIconButton(icon: Icon(Icons.reply), onPressed: reply),
-          PlatformPopupMenuButton<_OverflowMenuChoice>(
-            onSelected: (_OverflowMenuChoice result) {
-              switch (result) {
-                case _OverflowMenuChoice.showContents:
-                  context.pushNamed(Routes.mailContents, extra: _current);
-                  break;
-                case _OverflowMenuChoice.showSourceCode:
-                  _showSourceCode();
-                  break;
-              }
-            },
-            itemBuilder: (BuildContext context) => [
-              PlatformPopupMenuItem<_OverflowMenuChoice>(
-                value: _OverflowMenuChoice.showContents,
-                child: Text(localizations.viewContentsAction),
-              ),
-              if (ref.read(settingsProvider).enableDeveloperMode)
+      builder: (context, child) => Directionality(
+        textDirection: textDirection,
+        child: BasePage(
+          title: _current.mimeMessage.decodeSubject() ??
+              localizations.subjectUndefined,
+          appBarActions: [
+            //PlatformIconButton(icon: Icon(Icons.reply), onPressed: reply),
+            PlatformPopupMenuButton<_OverflowMenuChoice>(
+              onSelected: (_OverflowMenuChoice result) {
+                switch (result) {
+                  case _OverflowMenuChoice.showContents:
+                    context.pushNamed(Routes.mailContents, extra: _current);
+                    break;
+                  case _OverflowMenuChoice.showSourceCode:
+                    _showSourceCode();
+                    break;
+                }
+              },
+              itemBuilder: (BuildContext context) => [
                 PlatformPopupMenuItem<_OverflowMenuChoice>(
-                  value: _OverflowMenuChoice.showSourceCode,
-                  child: Text(localizations.viewSourceAction),
+                  value: _OverflowMenuChoice.showContents,
+                  child: Text(localizations.viewContentsAction),
                 ),
-            ],
-          ),
-        ],
-        bottom: MessageActions(message: _current),
-        content: PageView.builder(
-          controller: _pageController,
-          itemCount: _source.size,
-          itemBuilder: (context, index) => FutureBuilder<Message>(
-            future: _getMessageAt(index),
-            builder: (context, snapshot) {
-              final data = snapshot.data;
-              if (data == null) {
-                return const EmptyMessage();
-              }
+                if (ref.read(settingsProvider).enableDeveloperMode)
+                  PlatformPopupMenuItem<_OverflowMenuChoice>(
+                    value: _OverflowMenuChoice.showSourceCode,
+                    child: Text(localizations.viewSourceAction),
+                  ),
+              ],
+            ),
+          ],
+          bottom: MessageActions(message: _current),
+          content: PageView.builder(
+            controller: _pageController,
+            itemCount: _source.size,
+            itemBuilder: (context, index) => FutureBuilder<Message>(
+              future: _getMessageAt(index),
+              builder: (context, snapshot) {
+                final data = snapshot.data;
+                if (data == null) {
+                  return const EmptyMessage();
+                }
 
-              return _MessageContent(
-                data,
-                blockExternalContents: _blockExternalContents(index),
-              );
+                return _MessageContent(
+                  data,
+                  blockExternalContents: _blockExternalContents(index),
+                );
+              },
+            ),
+            onPageChanged: (index) async {
+              final current = await _getMessageAt(index);
+              setState(() {
+                _current = current;
+              });
             },
           ),
-          onPageChanged: (index) async {
-            final current = await _getMessageAt(index);
-            setState(() {
-              _current = current;
-            });
-          },
         ),
       ),
     );

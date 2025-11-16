@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_mail/enough_mail.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
@@ -58,50 +60,62 @@ class SettingsDefaultSenderScreen extends ConsumerWidget {
       TextLink(aliasInfo.substring(asIndex + '[AS]'.length)),
     ];
 
-    return BasePage(
-      title: localizations.defaultSenderSettingsTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.defaultSenderSettingsLabel,
-                  style: theme.textTheme.bodySmall,
-                ),
-                FittedBox(
-                  child: PlatformDropdownButton<MailAddress>(
-                    value: defaultSender,
-                    onChanged: (value) async {
-                      final settings = ref.read(settingsProvider);
-                      await ref.read(settingsProvider.notifier).update(
-                            settings.copyWith(defaultSender: value),
-                          );
-                    },
-                    selectedItemBuilder: (context) => senders
-                        .map(
-                          (sender) => Text(sender?.toString() ?? firstAccount),
-                        )
-                        .toList(),
-                    items: senders
-                        .map(
-                          (sender) => DropdownMenuItem(
-                            value: sender,
-                            child: Text(sender?.toString() ?? firstAccount),
-                          ),
-                        )
-                        .toList(),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.defaultSenderSettingsTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    localizations.defaultSenderSettingsLabel,
+                    style: theme.textTheme.bodySmall,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: TextWithNamedLinks(
-                    parts: aliasInfoParts,
+                  FittedBox(
+                    child: PlatformDropdownButton<MailAddress>(
+                      value: defaultSender,
+                      onChanged: (value) async {
+                        final settings = ref.read(settingsProvider);
+                        await ref.read(settingsProvider.notifier).update(
+                              settings.copyWith(defaultSender: value),
+                            );
+                      },
+                      selectedItemBuilder: (context) => senders
+                          .map(
+                            (sender) =>
+                                Text(sender?.toString() ?? firstAccount),
+                          )
+                          .toList(),
+                      items: senders
+                          .map(
+                            (sender) => DropdownMenuItem(
+                              value: sender,
+                              child: Text(sender?.toString() ?? firstAccount),
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: TextWithNamedLinks(
+                      parts: aliasInfoParts,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

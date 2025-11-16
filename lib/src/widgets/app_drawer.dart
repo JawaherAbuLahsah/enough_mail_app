@@ -1,11 +1,15 @@
+import 'dart:ui';
+
 import 'package:badges/badges.dart' as badges;
 import 'package:collection/collection.dart';
 import 'package:enough_mail/enough_mail.dart';
+import '../screens/mail_screen_for_default_account.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../enough_mail_app.dart';
 import '../account/model.dart';
 import '../account/provider.dart';
 import '../extensions/extension_action_tile.dart';
@@ -13,7 +17,7 @@ import '../localization/app_localizations.g.dart';
 import '../localization/extension.dart';
 import '../routes/routes.dart';
 import '../settings/theme/icon_service.dart';
-import '../util/localized_dialog_helper.dart';
+import '../util/direction_helper.dart';
 import 'mailbox_tree.dart';
 
 /// Displays the base navigation drawer with all accounts
@@ -30,67 +34,72 @@ class AppDrawer extends ConsumerWidget {
     final currentAccount = ref.watch(currentAccountProvider);
     final hasAccountsWithErrors = ref.watch(hasAccountWithErrorProvider);
 
-    return PlatformDrawer(
-      child: SafeArea(
-        child: Column(
-          children: [
-            Material(
-              elevation: 18,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: _buildAccountHeader(
-                  context,
-                  currentAccount,
-                  accounts,
-                  theme,
-                ),
-              ),
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Material(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildAccountSelection(
-                        context,
-                        accounts,
-                        currentAccount,
-                        localizations,
-                        hasAccountsWithErrors: hasAccountsWithErrors,
-                      ),
-                      _buildFolderTree(context, currentAccount),
-                      if (currentAccount is RealAccount)
-                        ExtensionActionTile.buildSideMenuForAccount(
-                          context,
-                          currentAccount,
-                        ),
-                      const Divider(),
-                      PlatformListTile(
-                        leading: Icon(iconService.about),
-                        title: Text(localizations.drawerEntryAbout),
-                        onTap: () {
-                          LocalizedDialogHelper.showAbout(
-                            ref,
-                          );
-                        },
-                      ),
-                    ],
+    final textDirection = DirectionHelper().getDirection(ref);
+
+    return Directionality(
+      textDirection: textDirection,
+      child: PlatformDrawer(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Material(
+                elevation: 18,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: _buildAccountHeader(
+                    context,
+                    currentAccount,
+                    accounts,
+                    theme,
                   ),
                 ),
               ),
-            ),
-            Material(
-              elevation: 18,
-              child: PlatformListTile(
-                leading: Icon(iconService.settings),
-                title: Text(localizations.drawerEntrySettings),
-                onTap: () {
-                  context.pushNamed(Routes.settings);
-                },
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Material(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildAccountSelection(
+                          context,
+                          accounts,
+                          currentAccount,
+                          localizations,
+                          hasAccountsWithErrors: hasAccountsWithErrors,
+                        ),
+                        _buildFolderTree(context, currentAccount),
+                        if (currentAccount is RealAccount)
+                          ExtensionActionTile.buildSideMenuForAccount(
+                            context,
+                            currentAccount,
+                          ),
+                        // const Divider(),
+                        // PlatformListTile(
+                        //   leading: Icon(iconService.about),
+                        //   title: Text(localizations.drawerEntryAbout),
+                        //   onTap: () {
+                        //     LocalizedDialogHelper.showAbout(
+                        //       ref,
+                        //     );
+                        //   },
+                        // ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ],
+              Material(
+                elevation: 18,
+                child: PlatformListTile(
+                  leading: Icon(iconService.settings),
+                  title: Text(localizations.drawerEntrySettings),
+                  onTap: () {
+                    context.pushNamed(Routes.settings);
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -247,6 +256,7 @@ class AppDrawer extends ConsumerWidget {
         context.pop();
       }
     }
+
     if (mailbox.isInbox) {
       context.goNamed(
         Routes.mailForAccount,

@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../enough_mail_app.dart';
 import '../../localization/extension.dart';
 import '../../screens/base.dart';
 import 'model.dart';
@@ -33,15 +36,26 @@ class SettingsScreen extends ConsumerWidget {
       );
     }
 
-    return BasePage(
-      title: localizations.settingsTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: settingEntries.map(buildEntry).toList(),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.settingsTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: settingEntries.map(buildEntry).toList(),
+              ),
             ),
           ),
         ),

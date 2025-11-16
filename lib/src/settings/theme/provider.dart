@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../app_lifecycle/provider.dart';
@@ -10,7 +11,7 @@ part 'provider.g.dart';
 
 /// The default color provider
 @Riverpod(keepAlive: true)
-Color defaultColorSeed(DefaultColorSeedRef ref) => Colors.green;
+Color defaultColorSeed(DefaultColorSeedRef ref) => Color(0xff6167f7);
 
 /// Provides the settings
 @Riverpod(keepAlive: true)
@@ -78,11 +79,13 @@ class ThemeFinder extends _$ThemeFinder {
   static ThemeData _generateMaterialTheme(Brightness brightness, Color color) =>
       color is MaterialColor
           ? ThemeData(
+              textTheme: GoogleFonts.cairoTextTheme(),
               brightness: brightness,
               primarySwatch: color,
               useMaterial3: false,
             )
           : ThemeData(
+              textTheme: GoogleFonts.cairoTextTheme(),
               brightness: brightness,
               colorSchemeSeed: color,
               useMaterial3: true,

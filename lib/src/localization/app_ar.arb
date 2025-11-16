@@ -1,0 +1,2441 @@
+{
+  "@@locale": "ar",
+  "signature": "مرسل باستخدام SAM",
+  "@signature": {
+    "description": "النص الافتراضي للتوقيع"
+  },
+  "actionCancel": "إلغاء",
+  "@actionCancel": {
+    "description": "إجراء عام للإلغاء"
+  },
+  "actionOk": "موافق",
+  "@actionOk": {
+    "description": "إجراء عام للموافقة"
+  },
+  "actionDone": "تم",
+  "@actionDone": {
+    "description": "إجراء عام للانتهاء"
+  },
+  "actionNext": "التالي",
+  "@actionNext": {
+    "description": "إجراء عام للانتقال إلى التالي"
+  },
+  "actionSkip": "تخطي",
+  "@actionSkip": {
+    "description": "إجراء عام للتخطي"
+  },
+  "actionUndo": "تراجع",
+  "@actionUndo": {
+    "description": "إجراء عام للتراجع"
+  },
+  "actionDelete": "حذف",
+  "@actionDelete": {
+    "description": "إجراء عام للحذف"
+  },
+  "actionAccept": "قبول",
+  "@actionAccept": {
+    "description": "إجراء عام للقبول"
+  },
+  "actionDecline": "رفض",
+  "@actionDecline": {
+    "description": "إجراء عام للرفض"
+  },
+  "actionEdit": "تعديل",
+  "@actionEdit": {
+    "description": "إجراء عام للتعديل"
+  },
+  "actionAddressCopy": "نسخ",
+  "@actionAddressCopy": {
+    "description": "إجراء النسخ لعناوين البريد الإلكتروني"
+  },
+  "actionAddressCompose": "رسالة جديدة",
+  "@actionAddressCompose": {
+    "description": "إجراء كتابة لعناوين البريد الإلكتروني"
+  },
+  "actionAddressSearch": "بحث",
+  "@actionAddressSearch": {
+    "description": "إجراء البحث لعناوين البريد الإلكتروني"
+  },
+  "splashLoading1": "SAM قيد التشغيل...",
+  "@splashLoading1": {
+    "description": "الرسالة التي تظهر في شاشة التحميل"
+  },
+  "splashLoading2": "جارٍ تجهيز محرك SAM...",
+  "@splashLoading2": {
+    "description": "الرسالة التي تظهر في شاشة التحميل"
+  },
+  "splashLoading3": "تشغيل SAM خلال 10، 9، 8...",
+  "@splashLoading3": {
+    "description": "الرسالة التي تظهر في شاشة التحميل"
+  },
+  "welcomePanel1Title": "SAM",
+  "@welcomePanel1Title": {
+    "description": "عنوان لوحة الترحيب"
+  },
+  "welcomePanel1Text": "مرحبًا بك في SAM، مساعد البريد الإلكتروني السريع والصديق!",
+  "@welcomePanel1Text": {
+    "description": "رسالة الترحيب التي تظهر في اللوحة الأولى"
+  },
+  "welcomePanel2Title": "الحسابات",
+  "@welcomePanel2Title": {
+    "description": "عنوان لوحة الترحيب"
+  },
+  "welcomePanel2Text": "قم بإدارة عدد غير محدود من حسابات البريد الإلكتروني. اقرأ وابحث عن الرسائل في جميع حساباتك مرة واحدة.",
+  "@welcomePanel2Text": {
+    "description": "رسالة الترحيب التي تظهر في اللوحة الثانية"
+  },
+  "welcomePanel3Title": "السحب والضغط المطول",
+  "@welcomePanel3Title": {
+    "description": "عنوان لوحة الترحيب"
+  },
+  "welcomePanel3Text": "اسحب رسائلك لحذفها أو لوضع علامة عليها كمقروءة. اضغط مطولاً على رسالة لتحديد وإدارة عدة رسائل.",
+  "@welcomePanel3Text": {
+    "description": "رسالة الترحيب التي تظهر في اللوحة الثالثة"
+  },
+  "welcomePanel4Title": "حافظ على صندوق الوارد نظيفًا",
+  "@welcomePanel4Title": {
+    "description": "عنوان لوحة الترحيب"
+  },
+  "welcomePanel4Text": "قم بإلغاء الاشتراك في النشرات الإخبارية بنقرة واحدة فقط.",
+  "@welcomePanel4Text": {
+    "description": "رسالة الترحيب التي تظهر في اللوحة الرابعة"
+  },
+  "welcomeActionSignIn": "سجّل الدخول إلى حساب بريدك الإلكتروني",
+  "@welcomeActionSignIn": {
+    "description": "زر يُظهر خيار تسجيل الدخول"
+  },
+  "homeSearchHint": "بحثك",
+  "@homeSearchHint": {
+    "description": "التلميح الذي يظهر في حقل البحث الفارغ"
+  },
+  "homeActionsShowAsStack": "عرض ككومة",
+  "@homeActionsShowAsStack": {
+    "description": "إجراء لعرض الرسائل ككومة"
+  },
+  "homeActionsShowAsList": "عرض كقائمة",
+  "@homeActionsShowAsList": {
+    "description": "إجراء لعرض الرسائل كقائمة"
+  },
+  "homeEmptyFolderMessage": "كل شيء جاهز!\n\nلا توجد رسائل في هذا المجلد.",
+  "@homeEmptyFolderMessage": {
+    "description": "الرسالة التي تظهر عندما لا توجد رسائل في المجلد"
+  },
+  "homeEmptySearchMessage": "لم يتم العثور على رسائل.",
+  "@homeEmptySearchMessage": {
+    "description": "الرسالة التي تظهر عند عدم العثور على رسائل في استعلام البحث"
+  },
+  "homeDeleteAllTitle": "تأكيد",
+  "@homeDeleteAllTitle": {
+    "description": "عنوان مربع حوار التأكيد عند حذف جميع الرسائل"
+  },
+  "homeDeleteAllQuestion": "هل تريد حقًا حذف جميع الرسائل؟",
+  "@homeDeleteAllQuestion": {
+    "description": "السؤال في مربع حوار التأكيد عند حذف جميع الرسائل"
+  },
+  "homeDeleteAllAction": "حذف الكل",
+  "@homeDeleteAllAction": {
+    "description": "إجراء للنقر لحذف جميع الرسائل (يجب أن يكون قصيرًا)."
+  },
+  "homeDeleteAllScrubOption": "تنظيف الرسائل",
+  "@homeDeleteAllScrubOption": {
+    "description": "خيار لإزالة الرسائل المحذوفة من القرص."
+  },
+  "homeDeleteAllSuccess": "تم حذف جميع الرسائل.",
+  "@homeDeleteAllSuccess": {
+    "description": "الرسالة التي تظهر بعد حذف جميع الرسائل."
+  },
+  "homeMarkAllSeenAction": "قراءة الكل",
+  "@homeMarkAllSeenAction": {
+    "description": "إجراء للنقر لجعل جميع الرسائل مقروءة (يجب أن يكون قصيرًا)."
+  },
+  "homeMarkAllUnseenAction": "عدم قراءة الكل",
+  "@homeMarkAllUnseenAction": {
+    "description": "إجراء للنقر لجعل جميع الرسائل غير مقروءة (يجب أن يكون قصيرًا)."
+  },
+  "homeFabTooltip": "رسالة جديدة",
+  "@homeFabTooltip": {
+    "description": "تلميح للزر العائم 'كتابة رسالة جديدة'."
+  },
+  "homeLoadingMessageSourceTitle": "جارٍ التحميل...",
+  "@homeLoadingMessageSourceTitle": {
+    "description": "العنوان الذي يظهر أثناء تحميل الرسائل نفسها."
+  },
+  "homeLoading": "جارٍ تحميل {name}...",
+  "@homeLoading": {
+    "description": "الرسالة التي تظهر أثناء تحميل الرسالة.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "البريد الوارد"
+      }
+    }
+  },
+  "swipeActionToggleRead": "وضع علامة كمقروء/غير مقروء",
+  "@swipeActionToggleRead": {
+    "description": "إجراء السحب لوضع علامة على الرسالة كمقروءة/غير مقروءة."
+  },
+  "swipeActionDelete": "حذف",
+  "@swipeActionDelete": {
+    "description": "إجراء السحب لحذف رسالة."
+  },
+  "swipeActionMarkJunk": "وضع علامة كبريد غير هام",
+  "@swipeActionMarkJunk": {
+    "description": "إجراء السحب لنقل الرسالة إلى البريد غير الهام."
+  },
+  "swipeActionArchive": "أرشفة",
+  "@swipeActionArchive": {
+    "description": "إجراء السحب لنقل الرسالة إلى الأرشيف."
+  },
+  "swipeActionFlag": "تبديل العلامة",
+  "@swipeActionFlag": {
+    "description": "إجراء السحب لوضع علامة على الرسالة أو إزالة العلامة."
+  },
+  "multipleMovedToJunk": "{number,plural, =1{تم وضع علامة على رسالة واحدة كبريد غير هام} other{تم وضع علامة على {number} رسائل كبريد غير هام}}",
+  "@multipleMovedToJunk": {
+    "description": "الرسالة التي تظهر بعد نقل الرسائل إلى البريد غير الهام. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "multipleMovedToInbox": "{number,plural, =1{تم نقل رسالة واحدة إلى البريد الوارد} other{تم نقل {number} رسائل إلى البريد الوارد}}",
+  "@multipleMovedToInbox": {
+    "description": "الرسالة التي تظهر بعد نقل الرسائل من البريد غير الهام أو المهملات أو الأرشيف إلى البريد الوارد. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+},
+ "multipleMovedToArchive": "{number,plural, =1{تم أرشفة رسالة واحدة} other{تم أرشفة {number} رسائل}}",
+ "@multipleMovedToArchive": {
+   "description": "الرسالة التي تظهر بعد نقل الرسائل إلى الأرشيف. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+   "placeholders": {
+     "number": {
+       "type": "int",
+       "example": "2",
+       "format": "compactLong"
+     }
+   }
+ },
+ "multipleMovedToTrash": "{number,plural, =1{تم حذف رسالة واحدة} other{تم حذف {number} رسائل}}",
+ "@multipleMovedToTrash": {
+   "description": "الرسالة التي تظهر بعد نقل الرسائل إلى المهملات. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+   "placeholders": {
+     "number": {
+       "type": "int",
+       "example": "2",
+       "format": "compactLong"
+     }
+   }
+ },
+ "multipleSelectionNeededInfo": "يرجى تحديد الرسائل أولاً.",
+ "@multipleSelectionNeededInfo": {
+   "description": "معلومة قصيرة تظهر عندما يتم تشغيل إجراء على عدة رسائل دون اختيار رسالة واحدة على الأقل أولاً."
+ },
+ "multipleSelectionActionFailed": "تعذر تنفيذ الإجراء\nالتفاصيل: {details}",
+ "@multipleSelectionActionFailed": {
+   "description": "رسالة خطأ عندما يفشل الإجراء المحدد.",
+   "placeholders": {
+     "details": {
+       "type": "String",
+       "example": "لم يتم العثور على صندوق البريد"
+     }
+   }
+ },
+ "multipleMoveTitle":  "{number,plural, =1{نقل رسالة} other{نقل {number} رسائل}}",
+ "@multipleMoveTitle": {
+   "description": "عنوان مربع الحوار لنقل عدة رسائل. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+   "placeholders": {
+     "number": {
+       "type": "int",
+       "example": "2",
+       "format": "compactLong"
+     }
+   }
+ },
+ "messageActionMultipleMarkSeen": "وضع علامة كمقروء",
+ "@messageActionMultipleMarkSeen": {
+   "description": "إجراء لعدة رسائل."
+ },
+ "messageActionMultipleMarkUnseen": "وضع علامة كغير مقروء",
+ "@messageActionMultipleMarkUnseen": {
+   "description": "إجراء لعدة رسائل."
+ },
+ "messageActionMultipleMarkFlagged": "تمييز الرسائل",
+ "@messageActionMultipleMarkFlagged": {
+   "description": "إجراء لعدة رسائل."
+ },
+ "messageActionMultipleMarkUnflagged": "إلغاء تمييز الرسائل",
+ "@messageActionMultipleMarkUnflagged": {
+   "description": "إجراء لعدة رسائل."
+ },
+ "messageActionViewInSafeMode": "عرض بدون محتوى خارجي",
+ "@messageActionMultipleViewInSafeMode": {
+   "description": "إجراء لعرض الرسالة."
+ },
+ "emailSenderUnknown": "<لا يوجد مرسل>",
+ "@emailSenderUnknown": {
+   "description": "يظهر كبديل عندما لا يكون هناك مرسل معروف للرسالة."
+ },
+ "dateRangeFuture": "المستقبل",
+ "@dateRangeFuture": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeTomorrow": "غدًا",
+ "@dateRangeTomorrow": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeToday": "اليوم",
+ "@dateRangeToday": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeYesterday": "أمس",
+ "@dateRangeYesterday": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeCurrentWeek": "هذا الأسبوع",
+ "@dateRangeCurrentWeek": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeLastWeek": "الأسبوع الماضي",
+ "@dateRangeLastWeek": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeCurrentMonth": "هذا الشهر",
+ "@dateRangeCurrentMonth": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeLastMonth": "الشهر الماضي",
+ "@dateRangeLastMonth": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeCurrentYear": "هذا العام",
+ "@dateRangeCurrentYear": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateRangeLongAgo": "منذ زمن طويل",
+ "@dateRangeLongAgo": {
+   "description": "عنوان نطاق التاريخ."
+ },
+ "dateUndefined": "غير محدد",
+ "@dateUndefined": {
+   "description": "تاريخ غير معروف."
+ },
+ "dateDayToday": "اليوم",
+ "@dateDayToday": {
+   "description": "تاريخ الرسالة هو اليوم."
+ },
+ "dateDayYesterday": "أمس",
+ "@dateDayYesterday": {
+   "description": "تاريخ الرسالة هو أمس."
+ },
+ "dateDayLastWeekday": "الأسبوع الماضي {day}",
+ "@dateDayLastWeekday": {
+   "description": "تاريخ الرسالة هو يوم عمل حديث.",
+   "placeholders": {
+     "day": {
+       "type": "String",
+       "example": "الثلاثاء"
+     }
+   }
+ },
+ "drawerEntryAbout": "حول SAM",
+ "@drawerEntryAbout": {
+   "description": "إدخال القائمة حول التطبيق."
+ },
+ "drawerEntrySettings": "الإعدادات",
+ "@drawerEntrySettings": {
+   "description": "إدخال القائمة للإعدادات."
+ },
+ "drawerAccountsSectionTitle": "{number,plural, =1{حساب واحد} other{{number} حسابات}}",
+ "@drawerAccountsSectionTitle": {
+   "description": "العنوان الظاهر لقائمة الحسابات المنسدلة. يتم تنسيق الرسالة باستخدام صيغة الجمع في JSON.",
+   "placeholders": {
+     "number": {
+       "type": "int",
+       "example": "2",
+       "format": "compactLong"
+     }
+   }
+ },
+ "drawerEntryAddAccount": "إضافة حساب",
+ "@drawerEntryAddAccount": {
+   "description": "إدخال القائمة لإضافة حساب جديد."
+ },
+ "unifiedAccountName": "الحساب الموحد",
+ "@unifiedAccountName": {
+   "description": "اسم الحساب الموحد."
+ },
+ "unifiedFolderInbox": "الوارد الموحد",
+ "@unifiedFolderInbox": {
+   "description": "اسم مجلد الوارد في الحساب الموحد."
+ },
+ "unifiedFolderSent": "الصادر الموحد",
+ "@unifiedFolderSent": {
+   "description": "اسم مجلد الصادر في الحساب الموحد."
+ },
+ "unifiedFolderDrafts": "المسودات الموحدة",
+ "@unifiedFolderDrafts": {
+   "description": "اسم مجلد المسودات في الحساب الموحد."
+ },
+ "unifiedFolderTrash": "المهملات الموحدة",
+ "@unifiedFolderTrash": {
+   "description": "اسم مجلد المهملات في الحساب الموحد."
+ },
+ "unifiedFolderArchive": "الأرشيف الموحد",
+ "@unifiedFolderArchive": {
+   "description": "اسم مجلد الأرشيف في الحساب الموحد."
+ },
+ "unifiedFolderJunk": "الرسائل غير المرغوب فيها الموحدة",
+ "@unifiedFolderJunk": {
+   "description": "اسم مجلد الرسائل غير المرغوب فيها في الحساب الموحد."
+ },
+ "folderInbox": "الوارد",
+ "@folderInbox": {
+   "description": "اسم المجلد."
+ },
+ "folderSent": "الصادر",
+ "@folderSent": {
+   "description": "اسم المجلد."
+ },
+ "folderDrafts": "المسودات",
+ "@folderDrafts": {
+   "description": "اسم المجلد."
+ },
+ "folderTrash": "المهملات",
+ "@folderTrash": {
+   "description": "اسم المجلد."
+ },
+ "folderArchive": "الأرشيف",
+ "@folderArchive": {
+   "description": "اسم المجلد."
+ },
+ "folderJunk": "غير المرغوب فيه",
+ "@folderJunk": {
+   "description": "اسم المجلد."
+ },
+ "folderUnknown": "غير معروف",
+ "@folderUnknown": {
+   "description": "اسم المجلد لمصدر الرسائل الذي ليس لديه اسم."
+ },
+ "viewContentsAction": "عرض المحتوى",
+ "@viewContentsAction": {
+   "description": "عرض محتوى الرسالة في شاشة منفصلة."
+ },
+ "viewSourceAction": "عرض المصدر",
+ "@viewSourceAction": {
+   "description": "عرض الشيفرة المصدرية للرسالة."
+ },
+ "detailsErrorDownloadInfo": "تعذر تنزيل الرسالة.",
+ "@detailsErrorDownloadInfo": {
+   "description": "معلومة تظهر عند فشل تنزيل البريد الإلكتروني."
+ },
+  "detailsErrorDownloadRetry": "إعادة المحاولة",
+  "@detailsErrorDownloadRetry": {
+    "description": "إجراء إعادة المحاولة يظهر عند تعذر تنزيل البريد الإلكتروني."
+  },
+  "detailsHeaderFrom": "من",
+  "@detailsHeaderFrom": {
+    "description": "تسمية للمرسل (المرسلين) للبريد الإلكتروني."
+  },
+  "detailsHeaderTo": "إلى",
+  "@detailsHeaderTo": {
+    "description": "تسمية للمستلم (المستلمين) [إلى] للبريد الإلكتروني."
+  },
+  "detailsHeaderCc": "نسخة إلى",
+  "@detailsHeaderCc": {
+    "description": "تسمية للمستلم (المستلمين) [نسخة إلى] - نسخة كربونية - للبريد الإلكتروني."
+  },
+  "detailsHeaderBcc": "نسخة مخفية",
+  "@detailsHeaderBcc": {
+    "description": "تسمية للمستلم (المستلمين) [نسخة مخفية] - نسخة كربونية مخفية - للبريد الإلكتروني."
+  },
+  "detailsHeaderDate": "التاريخ",
+  "@detailsHeaderDate": {
+    "description": "تسمية لتاريخ البريد الإلكتروني."
+  },
+  "subjectUndefined": "<بدون موضوع>",
+  "@subjectUndefined": {
+    "description": "يُعرض بدلاً من الموضوع عندما يكون غير محدد."
+  },
+  "detailsActionShowImages": "عرض الصور",
+  "@detailsActionShowImages": {
+    "description": "إجراء لعرض الصور. يظهر فقط عند حظر الصور الخارجية."
+  },
+  "detailsNewsletterActionUnsubscribe": "إلغاء الاشتراك",
+  "@detailsNewsletterActionUnsubscribe": {
+    "description": "إجراء يظهر للنشرة الإخبارية القابلة للإلغاء."
+  },
+  "detailsNewsletterActionResubscribe": "إعادة الاشتراك",
+  "@detailsNewsletterActionResubscribe": {
+    "description": "إجراء يظهر بعد إلغاء الاشتراك في النشرة الإخبارية القابلة لإعادة الاشتراك."
+  },
+  "detailsNewsletterStatusUnsubscribed": "تم إلغاء الاشتراك",
+  "@detailsNewsletterStatusUnsubscribed": {
+    "description": "الحالة المعروضة للنشرة الإخبارية التي تم إلغاء الاشتراك فيها."
+  },
+  "detailsNewsletterUnsubscribeDialogTitle": "إلغاء الاشتراك",
+  "@detailsNewsletterUnsubscribeDialogTitle": {
+    "description": "عنوان مربع الحوار لإلغاء الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterUnsubscribeDialogQuestion": "هل تريد إلغاء الاشتراك في القائمة البريدية {listName}؟",
+  "@detailsNewsletterUnsubscribeDialogQuestion": {
+    "description": "سؤال مربع الحوار لإلغاء الاشتراك في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsNewsletterUnsubscribeDialogAction": "إلغاء الاشتراك",
+  "@detailsNewsletterUnsubscribeDialogAction": {
+    "description": "إجراء مربع الحوار لإلغاء الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterUnsubscribeSuccessTitle": "تم إلغاء الاشتراك",
+  "@detailsNewsletterUnsubscribeSuccessTitle": {
+    "description": "عنوان مربع الحوار بعد إلغاء الاشتراك في النشرة الإخبارية بنجاح."
+  },
+  "detailsNewsletterUnsubscribeSuccessMessage": "لقد تم إلغاء اشتراكك الآن في القائمة البريدية {listName}.",
+  "@detailsNewsletterUnsubscribeSuccessMessage": {
+    "description": "تأكيد نصي بعد إلغاء الاشتراك بنجاح في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsNewsletterUnsubscribeFailureTitle": "لم يتم إلغاء الاشتراك",
+  "@detailsNewsletterUnsubscribeFailureTitle": {
+    "description": "عنوان مربع الحوار بعد فشل إلغاء الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterUnsubscribeFailureMessage": "عذرًا، لم أتمكن من إلغاء اشتراكك في {listName} تلقائيًا.",
+  "@detailsNewsletterUnsubscribeFailureMessage": {
+    "description": "تأكيد نصي بعد فشل إلغاء الاشتراك في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsNewsletterResubscribeDialogTitle": "إعادة الاشتراك",
+  "@detailsNewsletterResubscribeDialogTitle": {
+    "description": "عنوان مربع الحوار لإعادة الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterResubscribeDialogQuestion": "هل تريد الاشتراك في هذه القائمة البريدية {listName} مرة أخرى؟",
+  "@detailsNewsletterResubscribeDialogQuestion": {
+    "description": "سؤال مربع الحوار لإعادة الاشتراك في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsNewsletterResubscribeDialogAction": "الاشتراك",
+  "@detailsNewsletterResubscribeDialogAction": {
+    "description": "إجراء مربع الحوار لإعادة الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterResubscribeSuccessTitle": "تم الاشتراك",
+  "@detailsNewsletterResubscribeSuccessTitle": {
+    "description": "عنوان مربع الحوار بعد إعادة الاشتراك في النشرة الإخبارية بنجاح."
+  },
+  "detailsNewsletterResubscribeSuccessMessage": "لقد تم الاشتراك مرة أخرى في القائمة البريدية {listName}.",
+  "@detailsNewsletterResubscribeSuccessMessage": {
+    "description": "تأكيد نصي بعد الاشتراك مرة أخرى بنجاح في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsNewsletterResubscribeFailureTitle": "لم يتم الاشتراك",
+  "@detailsNewsletterResubscribeFailureTitle": {
+    "description": "عنوان مربع الحوار بعد فشل إعادة الاشتراك في النشرة الإخبارية."
+  },
+  "detailsNewsletterResubscribeFailureMessage": "عذرًا، ولكن طلب الاشتراك قد فشل في القائمة البريدية {listName}.",
+  "@detailsNewsletterResubscribeFailureMessage": {
+    "description": "تأكيد نصي بعد فشل إعادة الاشتراك في النشرة الإخبارية.",
+    "placeholders": {
+      "listName": {
+        "type": "String",
+        "example": "اسم القائمة"
+      }
+    }
+  },
+  "detailsSendReadReceiptAction": "إرسال إشعار القراءة",
+  "@detailsSendReadReceiptAction": {
+    "description": "إجراء لإرسال إشعار القراءة للبريد الإلكتروني المعروض."
+  },
+  "detailsReadReceiptSentStatus": "تم إرسال إشعار القراءة ✔",
+  "@detailsReadReceiptSentStatus": {
+    "description": "الحالة بعد إرسال إشعار القراءة للبريد الإلكتروني المعروض."
+  },
+  "detailsReadReceiptSubject": "إشعار القراءة",
+  "@detailsReadReceiptSubject": {
+    "description": "موضوع الرسالة لإشعارات القراءة."
+  },
+  "attachmentActionOpen": "فتح",
+  "@attachmentActionOpen": {
+    "description": "إجراء لفتح المرفقات بدون عارض تفاعلي."
+  },
+  "attachmentDecodeError": "هذا المرفق يحتوي على تنسيق أو ترميز غير مدعوم.\nالتفاصيل: ${details}",
+  "@attachmentDecodeError": {
+    "description": "النص المعروض عندما لا يمكن فك تشفير المرفق المحمل.",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "استثناء التنسيق"
+      }
+    }
+  },
+  "attachmentDownloadError": "تعذر تحميل هذا المرفق.\nالتفاصيل: ${details}",
+  "@attachmentDownloadError": {
+    "description": "النص المعروض عندما يتعذر تحميل المرفق.",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "لم يتم العثور"
+      }
+    }
+  },
+  "messageActionReply": "رد",
+  "@messageActionReply": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionReplyAll": "الرد على الجميع",
+  "@messageActionReplyAll": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionForward": "إعادة التوجيه",
+  "@messageActionForward": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionForwardAsAttachment": "إعادة التوجيه كمرفق",
+  "@messageActionForwardAsAttachment": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionForwardAttachments": "{number,plural, =1{إعادة توجيه مرفق} other{إعادة توجيه {number} مرفقات}}",
+  "@messageActionForwardAttachments": {
+    "description": "إجراء لرسالة واحدة لإعادة توجيه عدد معين من المرفقات.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "messagesActionForwardAttachments": "إعادة توجيه المرفقات",
+  "@messagesActionForwardAttachments": {
+    "description": "إجراء لعدة رسائل مختارة لإعادة توجيه جميع المرفقات."
+  },
+  "messageActionDelete": "حذف",
+  "@messageActionDelete": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionMoveToInbox": "نقل إلى البريد الوارد",
+  "@messageActionMoveToInbox": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionMove": "نقل",
+  "@messageActionMove": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageStatusSeen": "تمت قراءتها",
+  "@messageStatusSeen": {
+    "description": "حالة الرسالة الواحدة."
+  },
+  "messageStatusUnseen": "غير مقروءة",
+  "@messageStatusUnseen": {
+    "description": "حالة الرسالة الواحدة."
+  },
+  "messageStatusFlagged": "تم وضع علامة عليها",
+  "@messageStatusFlagged": {
+    "description": "حالة الرسالة الواحدة."
+  },
+  "messageStatusUnflagged": "لم يتم وضع علامة عليها",
+  "@messageStatusUnflagged": {
+    "description": "حالة الرسالة الواحدة."
+  },
+  "messageActionMarkAsJunk": "وضع في البريد المزعج",
+  "@messageActionMarkAsJunk": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionMarkAsNotJunk": "إزالة من البريد المزعج",
+  "@messageActionMarkAsNotJunk": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionArchive": "أرشفة",
+  "@messageActionArchive": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionUnarchive": "نقل إلى البريد الوارد",
+  "@messageActionUnarchive": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionRedirect": "إعادة توجيه",
+  "@messageActionRedirect": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "messageActionAddNotification": "إضافة إشعار",
+  "@messageActionAddNotification": {
+    "description": "إجراء لرسالة واحدة."
+  },
+  "resultDeleted": "تم الحذف",
+  "@resultDeleted": {
+    "description": "رسالة قصيرة ناجحة بعد حذف الرسالة(ات)."
+  },
+  "resultMovedToJunk": "تم وضعها في البريد المزعج",
+  "@resultMovedToJunk": {
+    "description": "رسالة قصيرة ناجحة بعد نقل الرسالة(ات) إلى البريد المزعج."
+  },
+  "resultMovedToInbox": "تم النقل إلى البريد الوارد",
+  "@resultMovedToInbox": {
+    "description": "رسالة قصيرة ناجحة بعد نقل الرسالة(ات) إلى البريد الوارد."
+  },
+  "resultArchived": "تم الأرشفة",
+  "@resultArchived": {
+    "description": "رسالة قصيرة ناجحة بعد نقل الرسالة(ات) إلى الأرشيف."
+  },
+  "resultRedirectedSuccess": "تم إعادة توجيه الرسالة 👍",
+  "@resultRedirectedSuccess": {
+    "description": "رسالة قصيرة ناجحة بعد إعادة توجيه الرسالة إلى المستلم(ين) الجدد."
+  },
+  "resultRedirectedFailure": "تعذر إعادة توجيه الرسالة.\n\nرد الخادم بالتفاصيل التالية: \"{details}\"",
+  "@resultRedirectedFailure": {
+    "description": "رسالة قصيرة فاشلة بعد فشل إعادة توجيه الرسالة إلى المستلم(ين) الجدد.",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "المستلم غير صالح"
+      }
+    }
+  },
+  "redirectTitle": "إعادة توجيه",
+  "@redirectTitle": {
+    "description": "عنوان مربع الحوار لإعادة التوجيه."
+  },
+  "redirectInfo": "إعادة توجيه هذه الرسالة إلى المستلم(ين) التاليين. لا يؤدي إعادة التوجيه إلى تغيير الرسالة.",
+  "@redirectInfo": {
+    "description": "شرح قصير لإجراء إعادة التوجيه في مربع الحوار لإعادة التوجيه."
+  },
+  "redirectEmailInputRequired": "يجب عليك إضافة عنوان بريد إلكتروني صالح واحد على الأقل.",
+  "@redirectEmailInputRequired": {
+    "description": "معلومة عند الرغبة في إعادة التوجيه ولكن لم يتم إدخال عنوان."
+  },
+  "searchQueryDescription": "البحث في {folder}...",
+  "@searchQueryDescription": {
+    "description": "وصف للبحث داخل المجلد المعطى.",
+    "placeholders": {
+      "folder": {
+        "type": "String",
+        "example": "البريد الوارد"
+      }
+    }
+  },
+  "searchQueryTitle": "بحث عن \"{query}\"",
+  "@searchQueryTitle": {
+    "description": "عنوان للبحث مع الاستعلام المعطى.",
+    "placeholders": {
+      "query": {
+        "type": "String",
+        "example": "اسم المرسل"
+      }
+    }
+  },
+  "legaleseUsage": "باستخدام SAM أنت توافق على [PP] و [TC].",
+  "@legaleseUsage": {
+    "description": "معلومات قانونية تظهر في شاشة الترحيب الأولية ولاحقًا في قسم 'عن'. يتم استبدال [PP] بنص سياسة الخصوصية و [TC] بشروط الاستخدام."
+  },
+  "legalesePrivacyPolicy": "سياسة الخصوصية",
+  "@legalesePrivacyPolicy": {
+    "description": "ترجمة سياسة الخصوصية"
+  },
+  "legaleseTermsAndConditions": "الشروط والأحكام",
+  "@legaleseTermsAndConditions": {
+    "description": "ترجمة الشروط والأحكام"
+  },
+  "aboutApplicationLegalese": "SAM هو برنامج مجاني منشور بموجب رخصة جنو العامة.",
+  "@aboutApplicationLegalese": {
+    "description": "معلومات قانونية تظهر في مربع الحوار عن التطبيق."
+  },
+  "feedbackActionSuggestFeature": "اقتراح ميزة",
+  "@feedbackActionSuggestFeature": {
+    "description": "إجراء لاقتراح ميزة."
+  },
+  "feedbackActionReportProblem": "الإبلاغ عن مشكلة",
+  "@feedbackActionReportProblem": {
+    "description": "إجراء للإبلاغ عن مشكلة."
+  },
+  "feedbackActionHelpDeveloping": "مساعدة في تطوير SAM",
+  "@feedbackActionHelpDeveloping": {
+    "description": "إجراء للمساعدة في التطوير."
+  },
+  "feedbackTitle": "التعليقات",
+  "@feedbackTitle": {
+    "description": "عنوان شاشة إعدادات التعليقات."
+  },
+  "feedbackIntro": "شكرًا لاختبارك SAM!",
+  "@feedbackIntro": {
+    "description": "مقدمة لشاشة إعدادات التعليقات."
+  },
+  "feedbackProvideInfoRequest": "يرجى تقديم هذه المعلومات عند الإبلاغ عن مشكلة:",
+  "@feedbackProvideInfoRequest": {
+    "description": "طلب تقديم معلومات الجهاز والتطبيق عند الإبلاغ عن مشكلة."
+  },
+  "feedbackResultInfoCopied": "تم النسخ إلى الحافظة",
+  "@feedbackResultInfoCopied": {
+    "description": "معلومة تظهر بعد نسخ معلومات الجهاز والتطبيق إلى الحافظة."
+  },
+  "accountsTitle": "الحسابات",
+  "@accountsTitle": {
+    "description": "عنوان شاشة إعدادات الحسابات."
+  },
+  "accountsActionReorder": "إعادة ترتيب الحسابات",
+  "@accountActionReorder": {
+    "description": "إجراء لبدء إعادة ترتيب الحسابات."
+  },
+  "settingsTitle": "الإعدادات",
+  "@settingsTitle": {
+    "description": "عنوان شاشة الإعدادات الأساسية."
+  },
+  "settingsSecurityBlockExternalImages": "حظر الصور الخارجية",
+  "@settingsSecurityBlockExternalImages": {
+    "description": "خيار إعدادات لحظر الخيارات الخارجية."
+  },
+  "settingsSecurityBlockExternalImagesDescriptionTitle": "الصور الخارجية",
+  "@settingsSecurityBlockExternalImagesDescriptionTitle": {
+    "description": "عنوان مربع الحوار الذي يعرض معلومات إضافية حول خيار 'حظر الصور الخارجية'."
+  },
+  "settingsSecurityBlockExternalImagesDescriptionText": "قد تحتوي رسائل البريد الإلكتروني على صور إما مدمجة أو مستضافة على خوادم خارجية. الصور الخارجية يمكن أن تكشف معلومات للمرسل، مثل معرفة إذا كنت قد فتحت الرسالة. يتيح لك هذا الخيار حظر هذه الصور الخارجية، مما يقلل من خطر الكشف عن معلومات حساسة. يمكنك دائمًا اختيار تحميل هذه الصور بشكل فردي عند قراءة الرسالة.",
+  "@settingsSecurityBlockExternalImagesDescriptionText": {
+    "description": "نص مربع الحوار الذي يعرض معلومات إضافية حول خيار 'حظر الصور الخارجية'."
+  },
+  "settingsSecurityMessageRenderingHtml": "عرض محتويات الرسالة بالكامل",
+  "@settingsSecurityMessageRenderingHtml": {
+    "description": "خيار لكيفية عرض الرسائل."
+  },
+  "settingsSecurityMessageRenderingPlainText": "عرض النص فقط للرسائل",
+  "@settingsSecurityMessageRenderingPlainText": {
+    "description": "خيار لكيفية عرض الرسائل."
+  },
+  "settingsSecurityLaunchModeLabel": "كيف يجب على SAM فتح الروابط؟",
+  "@settingsSecurityLaunchModeLabel": {
+    "description": "خيار لكيفية فتح الروابط."
+  },
+  "settingsSecurityLaunchModeExternal": "فتح الروابط خارجيًا",
+  "@settingsSecurityLaunchModeExternal": {
+    "description": "خيار لكيفية فتح الروابط."
+  },
+  "settingsSecurityLaunchModeInApp": "فتح الروابط في SAM",
+  "@settingsSecurityLaunchModeInApp": {
+    "description": "خيار لكيفية فتح الروابط."
+  },
+  "settingsActionAccounts": "إدارة الحسابات",
+  "@settingsActionAccounts": {
+    "description": "إجراء إعدادات لإدارة الحسابات."
+  },
+  "settingsActionDesign": "المظهر",
+  "@settingsActionDesign": {
+    "description": "إجراء إعدادات لإدارة تصميم التطبيق."
+  },
+  "settingsActionFeedback": "تقديم ملاحظات",
+  "@settingsActionFeedback": {
+    "description": "إجراء إعدادات لتقديم ملاحظات حول التطبيق."
+  },
+  "settingsActionWelcome": "عرض الترحيب",
+  "@settingsActionWelcome": {
+    "description": "إجراء إعدادات لعرض شاشة الترحيب مرة أخرى."
+  },
+  "settingsReadReceipts": "إيصالات القراءة",
+  "@settingsReadReceipts": {
+    "description": "إجراء إعدادات لتخصيص إيصالات القراءة."
+  },
+  "readReceiptsSettingsIntroduction": "هل ترغب في عرض طلبات إيصال القراءة؟",
+  "@readReceiptsSettingsIntroduction": {
+    "description": "نص تقديمي لإدارة طلبات إيصال القراءة."
+  },
+  "readReceiptOptionAlways": "دائمًا",
+  "@readReceiptOptionAlways": {
+    "description": "خيار لعرض طلبات إيصال القراءة."
+  },
+  "readReceiptOptionNever": "أبدًا",
+  "@readReceiptOptionNever": {
+    "description": "خيار لعرض طلبات إيصال القراءة."
+  },
+  "settingsFolders": "المجلدات",
+  "@settingsFolders": {
+    "description": "إجراء إعدادات لتخصيص المجلدات."
+  },
+  "folderNamesIntroduction": "ما هي الأسماء التي تفضلها لمجلداتك؟",
+  "@folderNamesIntroduction": {
+    "description": "مقدمة لإعداد أسماء المجلدات."
+  },
+  "folderNamesSettingLocalized": "الأسماء التي يقدمها SAM",
+  "@folderNamesSettingLocalized": {
+    "description": "خيار إعداد اسم المجلد."
+  },
+  "folderNamesSettingServer": "الأسماء التي يقدمها الخادم",
+  "@folderNamesSettingServer": {
+    "description": "خيار إعداد اسم المجلد."
+  },
+  "folderNamesSettingCustom": "أسمائي المخصصة",
+  "@folderNamesSettingCustom": {
+    "description": "خيار إعداد اسم المجلد."
+  },
+  "folderNamesEditAction": "تحرير الأسماء المخصصة",
+  "@folderNamesEditAction": {
+    "description": "إجراء لتحديد أسماء المجلدات المخصصة."
+  },
+  "folderNamesCustomTitle": "الأسماء المخصصة",
+  "@folderNamesCustomTitle": {
+    "description": "عنوان مربع الحوار لتحديد أسماء المجلدات المخصصة."
+  },
+  "folderAddAction": "إنشاء مجلد",
+  "@folderAddAction": {
+    "description": "إجراء لإنشاء مجلد جديد."
+  },
+  "folderAddTitle": "إنشاء مجلد",
+  "@folderAddTitle": {
+    "description": "عنوان مربع الحوار عند إنشاء مجلد جديد."
+  },
+  "folderAddNameLabel": "الاسم",
+  "@folderAddNameLabel": {
+    "description": "التسمية لحقل إدخال اسم المجلد."
+  },
+  "folderAddNameHint": "اسم المجلد الجديد",
+  "@folderAddNameHint": {
+    "description": "تلميح لحقل إدخال اسم المجلد."
+  },
+  "folderAccountLabel": "الحساب",
+  "@folderAddAccountLabel": {
+    "description": "التسمية لاختيار الحساب الحالي."
+  },
+  "folderMailboxLabel": "المجلد",
+  "@folderAddParentFolderLabel": {
+    "description": "التسمية لاختيار المجلد الحالي."
+  },
+  "folderAddResultSuccess": "تم إنشاء المجلد 😊",
+  "@folderAddResultSuccess": {
+    "description": "معلومة لعرض نجاح الإنشاء."
+  },
+  "folderAddResultFailure": "لم يتم إنشاء المجلد.\n\nاستجاب الخادم بالتفاصيل التالية: {details}",
+  "@folderAddResultFailure": {
+    "description": "معلومة لعرض خطأ في إنشاء المجلد.",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "اسم غير صالح"
+      }
+    }
+  },
+  "folderDeleteAction": "حذف",
+  "@folderDeleteAction": {
+    "description": "إجراء لحذف مجلد موجود."
+  },
+  "folderDeleteConfirmTitle": "تأكيد",
+  "@folderDeleteConfirmTitle": {
+    "description": "عنوان مربع الحوار لتأكيد حذف المجلد."
+  },
+  "folderDeleteConfirmText": "هل تريد حقًا حذف المجلد {name}؟",
+  "@folderDeleteConfirmText": {
+    "description": "نص مربع الحوار لتأكيد حذف المجلد.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "مجلدي المخصص"
+      }
+    }
+  },
+  "folderDeleteResultSuccess": "تم حذف المجلد.",
+  "@folderDeleteResultSuccess": {
+    "description": "معلومة لعرض نجاح الحذف."
+  },
+  "folderDeleteResultFailure": "لم يتم حذف المجلد.\n\nاستجاب الخادم بالتفاصيل التالية: {details}",
+  "@folderDeleteResultFailure": {
+    "description": "معلومة لعرض خطأ في حذف المجلد.",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "اسم غير صالح"
+      }
+    }
+  },
+  "settingsDevelopment": "إعدادات التطوير",
+  "@settingsDevelopment": {
+    "description": "إجراء إعدادات لتحديد خيارات التطوير."
+  },
+  "developerModeTitle": "وضع التطوير",
+  "@developerModeTitle": {
+    "description": "عنوان قسم وضع التطوير."
+  },
+  "developerModeIntroduction": "إذا قمت بتمكين وضع التطوير، ستتمكن من عرض الشيفرة المصدرية للرسائل وتحويل المرفقات النصية إلى رسائل.",
+  "@developerModeIntroduction": {
+    "description": "نص يوضح وضع التطوير."
+  },
+  "developerModeEnable": "تمكين وضع التطوير",
+  "@developerModeEnable": {
+    "description": "نص في خانة الاختيار لتمكين وضع التطوير."
+  },
+  "developerShowAsEmail": "تحويل النص إلى بريد إلكتروني",
+  "@developerShowAsEmail": {
+    "description": "إجراء لتحويل النص إلى بريد إلكتروني."
+  },
+  "developerShowAsEmailFailed": "لا يمكن تحويل هذا النص إلى رسالة MIME.",
+  "@developerShowAsEmailFailed": {
+    "description": "النص الذي يظهر عندما لا يمكن تحويل النص إلى بريد إلكتروني."
+  },
+  "designTitle": "إعدادات التصميم",
+  "@designTitle": {
+    "description": "عنوان شاشة إعدادات التصميم."
+  },
+  "designSectionThemeTitle": "السمة",
+  "@designSectionThemeTitle": {
+    "description": "عنوان قسم السمة في شاشة إعدادات التصميم."
+  },
+  "designThemeOptionLight": "فاتح",
+  "@designThemeOptionLight": {
+    "description": "خيار السمة."
+  },
+  "designThemeOptionDark": "داكن",
+  "@designThemeOptionDark": {
+    "description": "خيار السمة."
+  },
+  "designThemeOptionSystem": "النظام",
+  "@designThemeOptionSystem": {
+    "description": "خيار السمة."
+  },
+  "designThemeOptionCustom": "مخصص",
+  "@designThemeOptionCustom": {
+    "description": "خيار السمة."
+  },
+  "designSectionCustomTitle": "تمكين السمة الداكنة",
+  "@designSectionCustomTitle": {
+    "description": "عنوان قسم الخيار المخصص للسمة في شاشة إعدادات التصميم."
+  },
+  "designThemeCustomStart": "من {time}",
+  "@designThemeCustomStart": {
+    "description": "وقت بداية إعداد السمة المخصصة.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "10 مساءً"
+      }
+    }
+  },
+  "designThemeCustomEnd": "حتى {time}",
+  "@designThemeCustomEnd": {
+    "description": "وقت نهاية إعداد السمة المخصصة.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "7 صباحًا"
+      }
+    }
+  },
+  "designSectionColorTitle": "نظام الألوان",
+  "@designSectionColorTitle": {
+    "description": "عنوان قسم الألوان في شاشة إعدادات التصميم."
+  },
+  "securitySettingsTitle": "الأمان",
+  "@securitySettingsTitle": {
+    "description": "عنوان شاشة إعدادات الأمان."
+  },
+  "securitySettingsIntro": "قم بتكييف إعدادات الأمان وفقًا لاحتياجاتك الشخصية.",
+  "@securitySettingsIntro": {
+    "description": "مقدمة شاشة إعدادات الأمان."
+  },
+  "securityUnlockWithFaceId": "افتح SAM باستخدام Face ID.",
+  "@securityUnlockWithFaceId": {
+    "description": "سبب فتح خاص بـ iOS."
+  },
+  "securityUnlockWithTouchId": "افتح SAM باستخدام Touch ID.",
+  "@securityUnlockWithTouchId": {
+    "description": "سبب فتح خاص بـ iOS."
+  },
+  "securityUnlockReason": "افتح SAM.",
+  "@securityUnlockReason": {
+    "description": "سبب فتح عام."
+  },
+  "securityUnlockDisableReason": "افتح SAM لإيقاف القفل.",
+  "@securityUnlockDisableReason": {
+    "description": "سبب تعطيل فتح عام."
+  },
+  "securityUnlockNotAvailable": "جهازك لا يدعم المصادقة البيومترية، ربما تحتاج إلى إعداد خيارات الفتح أولاً.",
+  "@securityUnlockNotAvailable": {
+    "description": "رسالة عند عدم توفر المصادقة البيومترية."
+  },
+  "securityUnlockLabel": "قفل SAM",
+  "@securityUnlockLabel": {
+    "description": "تسمية ميزة قفل المصادقة البيومترية."
+  },
+  "securityUnlockDescriptionTitle": "قفل SAM",
+  "@securityUnlockDescriptionTitle": {
+    "description": "عنوان لشرح ميزة القفل عبر المصادقة البيومترية."
+  },
+  "securityUnlockDescriptionText": "يمكنك اختيار قفل الوصول إلى SAM، حتى لا يتمكن الآخرون من قراءة بريدك الإلكتروني حتى لو كان لديهم وصول إلى جهازك.",
+  "@securityUnlockDescriptionText": {
+    "description": "نص يشرح ميزة القفل عبر المصادقة البيومترية."
+  },
+  "securityLockImmediately": "قفل فورًا",
+  "@securityLockImmediately": {
+    "description": "خيار توقيت القفل."
+  },
+  "securityLockAfter5Minutes": "قفل بعد 5 دقائق",
+  "@securityLockAfter5Minutes": {
+    "description": "خيار توقيت القفل."
+  },
+  "securityLockAfter30Minutes": "قفل بعد 30 دقيقة",
+  "@securityLockAfter30Minutes": {
+    "description": "خيار توقيت القفل."
+  },
+  "lockScreenTitle": "SAM قفل",
+  "@lockScreenTitle": {
+    "description": "عنوان شاشة القفل."
+  },
+  "lockScreenIntro": "تم قفل SAM، يرجى المصادقة للمتابعة.",
+  "@lockScreenIntro": {
+    "description": "النص في شاشة القفل."
+  },
+  "lockScreenUnlockAction": "فتح",
+  "@lockScreenUnlockAction": {
+    "description": "إجراء لفتح شاشة القفل."
+  },
+  "addAccountTitle": "إضافة حساب",
+  "@addAccountTitle": {
+    "description": "عنوان شاشة إضافة الحساب."
+  },
+  "addAccountEmailLabel": "البريد الإلكتروني",
+  "@addAccountEmailLabel": {
+    "description": "التسمية ورأس القسم لحقل إدخال عنوان البريد الإلكتروني."
+  },
+  "addAccountEmailHint": "يرجى إدخال عنوان بريدك الإلكتروني",
+  "@addAccountEmailHint": {
+    "description": "نص التلميح لحقل إدخال البريد الإلكتروني."
+  },
+  "addAccountResolvingSettingsLabel": "جاري حل إعدادات {email}...",
+  "@addAccountResolvingSettingsLabel": {
+    "description": "التسمية المعروضة أثناء حل الإعدادات لعنوان البريد الإلكتروني المحدد.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "addAccountResolvedSettingsWrongAction": "ليس على {provider}؟",
+  "@addAccountResolvedSettingsWrongAction": {
+    "description": "نص الزر المعروض للمستخدم لتحرير إعدادات الخادم يدويًا عندما تم حل الإعدادات بنجاح ولكن تبين أن اسم المزود مختلف عن المتوقع.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "gmail"
+      }
+    }
+  },
+  "addAccountResolvingSettingsFailedInfo": "تعذر حل {email}. يرجى العودة لتغييره أو إعداد الحساب يدويًا.",
+  "@addAccountResolvingSettingsFailedInfo": {
+    "description": "المعلومات المعروضة بعد فشل حل الإعدادات لعنوان البريد الإلكتروني المحدد.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "addAccountEditManuallyAction": "تحرير يدويًا",
+  "@addAccountEditManuallyAction": {
+    "description": "إجراء يظهر بعد أن تعذر اكتشاف إعدادات الحساب تلقائيًا."
+  },
+  "addAccountPasswordLabel": "كلمة المرور",
+  "@addAccountPasswordLabel": {
+    "description": "التسمية ورأس القسم لحقل إدخال كلمة المرور."
+  },
+  "addAccountPasswordHint": "يرجى إدخال كلمة المرور الخاصة بك",
+  "@addAccountPasswordHint": {
+    "description": "نص التلميح لحقل إدخال كلمة المرور."
+  },
+  "addAccountApplicationPasswordRequiredInfo": "يتطلب هذا المزود منك إعداد كلمة مرور خاصة بالتطبيق.",
+  "@addAccountApplicationPasswordRequiredInfo": {
+    "description": "النص المعروض عندما يتطلب مزود البريد الإلكتروني إعداد كلمات مرور خاصة بالتطبيق."
+  },
+  "addAccountApplicationPasswordRequiredButton": "إنشاء كلمة مرور خاصة بالتطبيق",
+  "@addAccountApplicationPasswordRequiredButton": {
+    "description": "نص الزر لإنشاء كلمة مرور خاصة بالتطبيق."
+  },
+  "addAccountApplicationPasswordRequiredAcknowledged": "لدي كلمة مرور خاصة بالتطبيق بالفعل",
+  "@addAccountApplicationPasswordRequiredAcknowledged": {
+    "description": "تأكيد من المستخدم للاعتراف بأن كلمة مرور خاصة بالتطبيق مطلوبة."
+  },
+  "addAccountVerificationStep": "التحقق",
+  "@addAccountVerificationStep": {
+    "description": "رأس القسم لخطوة التحقق/تسجيل الدخول."
+  },
+  "addAccountSetupAccountStep": "إعداد الحساب",
+  "@addAccountSetupAccountStep": {
+    "description": "رأس القسم لخطوة إعداد الحساب."
+  },
+  "addAccountVerifyingSettingsLabel": "جاري التحقق من إعدادات {email}...",
+  "@addAccountVerifyingSettingsLabel": {
+    "description": "المعلومات المعروضة أثناء التحقق من إعدادات الحساب للبريد الإلكتروني المحدد.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "addAccountVerifyingSuccessInfo": "تم تسجيل الدخول بنجاح إلى {email}.",
+  "@addAccountVerifyingSuccessInfo": {
+    "description": "المعلومات المعروضة بعد التحقق من إعدادات الحساب للبريد الإلكتروني المحدد.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "addAccountVerifyingFailedInfo": "عذرًا، ولكن هناك مشكلة. يرجى التحقق من بريدك الإلكتروني {email} وكلمة المرور.",
+  "@addAccountVerifyingFailedInfo": {
+    "description": "المعلومات المعروضة بعد فشل التحقق من إعدادات الحساب للبريد الإلكتروني المحدد.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "addAccountOauthOptionsText": "تسجيل الدخول باستخدام {provider} أو إنشاء كلمة مرور خاصة بالتطبيق.",
+  "@addAccountOauthOptionsText": {
+    "description": "المعلومات المعروضة عند فشل عملية OAuth ويمكن للمستخدم المحاولة مرة أخرى أو استخدام كلمة مرور خاصة بالتطبيق.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Mailbox.org"
+      }
+    }
+  },
+  "addAccountOauthSignIn": "تسجيل الدخول باستخدام {provider}",
+  "@addAccountOauthSignIn": {
+    "description": "تسمية الزر لتسجيل الدخول عبر OAuth مع المزود المحدد.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Mailbox.org"
+      }
+    }
+  },
+  "addAccountOauthSignInGoogle": "تسجيل الدخول باستخدام Google",
+  "@addAccountOauthSignInGoogle": {
+    "description": "تسمية الزر لتسجيل الدخول عبر OAuth مع Google."
+  },
+  "addAccountOauthSignInWithAppPassword": "بدلاً من ذلك، أنشئ كلمة مرور خاصة بالتطبيق لتسجيل الدخول.",
+  "@addAccountOauthSignInWithAppPassword": {
+    "description": "المعلومات لإعداد كلمة مرور خاصة بالتطبيق."
+  },
+  "accountAddImapAccessSetupMightBeRequired": "قد يتطلب موفر الخدمة لديك إعداد الوصول لتطبيقات البريد الإلكتروني يدويًا.",
+  "@accountAddImapAccessSetupMightBeRequired": {
+    "description": "المعلومات المعروضة عندما يفشل تسجيل الدخول لمزود يعرف أنه يتطلب تفعيل الوصول لـ IMAP يدويًا."
+  },
+  "addAccountSetupImapAccessButtonLabel": "إعداد الوصول للبريد الإلكتروني",
+  "@addAccountSetupImapAccessButtonLabel": {
+    "description": "تسمية الزر لفتح الموقع مع التعليمات."
+  },
+  "addAccountNameOfUserLabel": "اسمك",
+  "@addAccountNameOfUserLabel": {
+    "description": "التسمية لحقل إدخال اسم المستخدم."
+  },
+  "addAccountNameOfUserHint": "الاسم الذي يراه المستلمون",
+  "@addAccountNameOfUserHint": {
+    "description": "نصيحة لحقل إدخال اسم المستخدم."
+  },
+  "addAccountNameOfAccountLabel": "اسم الحساب",
+  "@addAccountNameOfAccountLabel": {
+    "description": "التسمية لحقل إدخال اسم الحساب."
+  },
+  "addAccountNameOfAccountHint": "يرجى إدخال اسم حسابك",
+  "@addAccountNameOfAccountHint": {
+    "description": "نصيحة لحقل إدخال اسم الحساب."
+  },
+  "editAccountTitle": "تحرير {name}",
+  "@editAccountTitle": {
+    "description": "عنوان الشاشة عند تحرير الحساب بالاسم المحدد.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountFailureToConnectInfo": "تعذر على SAM الاتصال بـ {name}.",
+  "@editAccountFailureToConnectInfo": {
+    "description": "معلومات حول عدم القدرة على الاتصال بالخدمة المسماة. الأسباب الأكثر شيوعًا هي مشكلات الشبكة المؤقتة أو تغيير كلمة المرور.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountFailureToConnectRetryAction": "إعادة المحاولة",
+  "@editAccountFailureToConnectRetryAction": {
+    "description": "إجراء لإعادة محاولة الاتصال بالخدمة."
+  },
+  "editAccountFailureToConnectChangePasswordAction": "تغيير كلمة المرور",
+  "@editAccountFailureToConnectChangePasswordAction": {
+    "description": "إجراء لتغيير كلمة المرور للخدمة."
+  },
+  "editAccountFailureToConnectFixedTitle": "متصل",
+  "@editAccountFailureToConnectFixedTitle": {
+    "description": "عنوان الحوار الذي يظهر بعد الاتصال بحساب فشل الاتصال به مرة أخرى بنجاح."
+  },
+  "editAccountFailureToConnectFixedInfo": "تم الاتصال بالحساب مرة أخرى.",
+  "@editAccountFailureToConnectFixedInfo": {
+    "description": "رسالة الحوار التي تظهر بعد الاتصال بحساب فشل الاتصال به مرة أخرى بنجاح."
+  },
+  "editAccountIncludeInUnifiedLabel": "تضمين في الحساب الموحد",
+  "@editAccountIncludeInUnifiedLabel": {
+    "description": "تسمية لاختيار هذا الحساب في/خارج الحساب الموحد."
+  },
+  "editAccountAliasLabel": "عناوين البريد الإلكتروني البديلة لـ {email}:",
+  "@editAccountAliasLabel": {
+    "description": "تسمية لأي عناوين بديلة تم تحديدها للبريد الإلكتروني المعطى.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "someone@domain.com"
+      }
+    }
+  },
+  "editAccountNoAliasesInfo": "ليس لديك أي عناوين بديلة معروفة لهذا الحساب بعد.",
+  "@editAccountNoAliasesInfo": {
+    "description": "معلومات عند عدم تحديد أي عناوين بديلة لهذا الحساب."
+  },
+  "editAccountAliasRemoved": "تم إزالة {email} alias",
+  "@editAccountAliasRemoved": {
+    "description": "المعلومات المعروضة بعد إزالة اسم مستعار."
+  },
+  "editAccountAddAliasAction": "إضافة اسم مستعار",
+  "@editAccountAddAliasAction": {
+    "description": "نص الزر لإضافة اسم مستعار لهذا الحساب."
+  },
+  "editAccountPlusAliasesSupported": "يدعم + aliases",
+  "@editAccountPlusAliasesSupported": {
+    "description": "المعلومات المعروضة عندما يدعم هذا الحساب + aliases."
+  },
+  "editAccountCheckPlusAliasAction": "اختبار دعم + aliases",
+  "@editAccountCheckPlusAliasAction": {
+    "description": "نص الزر لاختبار ما إذا كان الحساب يدعم + aliases."
+  },
+  "editAccountBccMyself": "BCC لنفسي",
+  "@editAccountBccMyself": {
+    "description": "تسمية مربع الاختيار لتمكين ميزة BCC-لنفسك."
+  },
+  "editAccountBccMyselfDescriptionTitle": "BCC لنفسي",
+  "@editAccountBccMyselfDescriptionTitle": {
+    "description": "عنوان التنبيه لشرح ميزة BCC-لنفسك."
+  },
+  "editAccountBccMyselfDescriptionText": "يمكنك إرسال الرسائل تلقائيًا إلى نفسك عن كل رسالة ترسلها من هذا الحساب باستخدام ميزة \"BCC لنفسي\". عادةً ما لا يكون هذا مطلوبًا أو مرغوبًا لأن جميع الرسائل المرسلة يتم تخزينها في مجلد \"البريد الصادر\" على أي حال.",
+  "@editAccountBccMyselfDescriptionText": {
+    "description": "شرح لميزة BCC-لنفسك."
+  },
+  "editAccountServerSettingsAction": "تحرير إعدادات الخادم",
+  "@editAccountServerSettingsAction": {
+    "description": "نص الزر لتحرير إعدادات الخادم لهذا الحساب."
+  },
+  "editAccountDeleteAccountAction": "حذف الحساب",
+  "@editAccountDeleteAccountAction": {
+    "description": "نص الزر لحذف هذا الحساب."
+  },
+  "editAccountDeleteAccountConfirmationTitle": "تأكيد",
+  "@editAccountDeleteAccountConfirmationTitle": {
+    "description": "عنوان حوار التأكيد عند حذف هذا الحساب."
+  },
+  "editAccountDeleteAccountConfirmationQuery": "هل تريد حذف الحساب {name}؟",
+  "@editAccountDeleteAccountConfirmationQuery": {
+    "description": "طلب لتأكيد عند حذف هذا الحساب.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountTestPlusAliasTitle": "+ Aliases لـ {name}",
+  "@editAccountTestPlusAliasTitle": {
+    "description": "عنوان الحوار الذي يظهر أثناء اختبار دعم + alias",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountTestPlusAliasStepIntroductionTitle": "مقدمة",
+  "@editAccountTestPlusAliasStepIntroductionTitle": {
+    "description": "عنوان لتقديم مفهوم + aliases."
+  },
+  "editAccountTestPlusAliasStepIntroductionText": "قد يدعم حسابك {accountName} ما يسمى بـ + aliases مثل {example}.\nيساعدك + alias على حماية هويتك ويحميك من البريد المزعج.\nلاختبار ذلك، سيتم إرسال رسالة اختبار إلى هذا العنوان الذي تم إنشاؤه. إذا وصلت، فهذا يعني أن مزود الخدمة يدعم + aliases ويمكنك إنشاؤها بسهولة عند كتابة رسالة جديدة.",
+  "@editAccountTestPlusAliasStepIntroductionText": {
+    "description": "نص لتقديم مفهوم + aliases.",
+    "placeholders": {
+      "accountName": {
+        "type": "String",
+        "example": "domain.com"
+      },
+      "example": {
+        "type": "String",
+        "example": "someone+example@domain.com"
+      }
+    }
+  },
+  "editAccountTestPlusAliasStepTestingTitle": "الاختبار",
+  "@editAccountTestPlusAliasStepTestingTitle": {
+    "description": "عنوان أثناء اختبار مفهوم + aliases."
+  },
+  "editAccountTestPlusAliasStepResultTitle": "النتيجة",
+  "@editAccountTestPlusAliasStepResultTitle": {
+    "description": "عنوان بعد اختبار مفهوم + aliases."
+  },
+  "editAccountTestPlusAliasStepResultSuccess": "حسابك {name} يدعم + aliases.",
+  "@editAccountTestPlusAliasStepResultSuccess": {
+    "description": "النتيجة عندما يدعم الحساب + aliases",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountTestPlusAliasStepResultNoSuccess": "حسابك {name} لا يدعم + aliases.",
+  "@editAccountTestPlusAliasStepResultNoSuccess": {
+    "description": "النتيجة عندما لا يدعم الحساب + aliases",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "editAccountAddAliasTitle": "إضافة اسم مستعار",
+  "@editAccountAddAliasTitle": {
+    "description": "عنوان عند إضافة اسم مستعار جديد."
+  },
+  "editAccountEditAliasTitle": "تحرير الاسم المستعار",
+  "@editAccountEditAliasTitle": {
+    "description": "عنوان عند تحرير الاسم المستعار."
+  },
+  "editAccountAliasAddAction": "إضافة",
+  "@editAccountAliasAddAction": {
+    "description": "إجراء عند إضافة اسم مستعار جديد."
+  },
+  "editAccountAliasUpdateAction": "تحديث",
+  "@editAccountAliasUpdateAction": {
+    "description": "إجراء عند تحرير الاسم المستعار."
+  },
+  "editAccountEditAliasNameLabel": "اسم الاسم المستعار",
+  "@editAccountEditAliasNameLabel": {
+    "description": "تسمية حقل إدخال اسم الاسم المستعار."
+  },
+  "editAccountEditAliasEmailLabel": "البريد الإلكتروني للاسم المستعار",
+  "@editAccountEditAliasEmailLabel": {
+    "description": "تسمية حقل إدخال البريد الإلكتروني للاسم المستعار."
+  },
+  "editAccountEditAliasEmailHint": "عنوان بريدك الإلكتروني المستعار",
+  "@editAccountEditAliasEmailHint": {
+    "description": "تلميح لحقل إدخال البريد الإلكتروني للاسم المستعار."
+  },
+  "editAccountEditAliasDuplicateError": "هناك بالفعل اسم مستعار مع {email}.",
+  "@editAccountEditAliasDuplicateError": {
+    "description": "خطأ عندما يكون البريد الإلكتروني للاسم المستعار معروفًا بالفعل",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "you@domain.com"
+      }
+    }
+  },
+  "editAccountEnableLogging": "تمكين السجل",
+ "@editAccountEnableLogging": {
+   "description": "علامة خيار وضع المطور لتمكين السجل."
+ },
+ "editAccountLoggingEnabled": "تم تمكين السجل، يرجى إعادة التشغيل",
+ "@editAccountLoggingEnabled": {
+   "description": "رسالة قصيرة تظهر بعد تمكين السجل."
+ },
+ "editAccountLoggingDisabled": "تم تعطيل السجل، يرجى إعادة التشغيل",
+ "@editAccountLoggingDisabled": {
+   "description": "رسالة قصيرة تظهر بعد تعطيل السجل."
+ },
+ "accountDetailsFallbackTitle": "إعدادات الخادم",
+ "@accountDetailsFallbackTitle": {
+   "description": "عنوان يظهر عندما لا يتم تعيين اسم الحساب."
+ },
+ "errorTitle": "خطأ",
+ "@errorTitle": {
+   "description": "عنوان لواجهات الخطأ."
+ },
+ "accountProviderStepTitle": "مزود خدمة البريد الإلكتروني",
+ "@accountProviderStepTitle": {
+   "description": "خطوة لاختيار مزود الخدمة."
+ },
+ "accountProviderCustom": "خدمة بريد إلكتروني أخرى",
+ "@accountProviderCustom": {
+   "description": "عندما لا يتم اختيار مزود قياسي."
+ },
+ "accountDetailsErrorHostProblem": "لا يمكن لـ SAM الوصول إلى خادم البريد المحدد. يرجى التحقق من إعداد الخادم الوارد \"{incomingHost}\" وإعداد الخادم الصادر \"{outgoingHost}\".",
+ "@accountDetailsErrorHostProblem": {
+   "description": "تفاصيل الخطأ عندما لا يمكن الاتصال بالخادم على الإطلاق.",
+   "placeholders": {
+     "incomingHost": {
+       "type": "String",
+       "example": "imap@domain.com"
+     },
+     "outgoingHost": {
+       "type": "String",
+       "example": "smtp@domain.com"
+     }
+   }
+ },
+ "accountDetailsErrorLoginProblem": "تعذر تسجيل الدخول. يرجى التحقق من اسم المستخدم \"{userName}\" وكلمة المرور \"{password}\".",
+ "@accountDetailsErrorLoginProblem": {
+   "description": "تفاصيل الخطأ عند فشل تسجيل الدخول.",
+   "placeholders": {
+     "userName": {
+       "type": "String",
+       "example": "email@domain.com"
+     },
+     "password": {
+       "type": "String",
+       "example": "secret"
+     }
+   }
+ },
+ "accountDetailsUserNameLabel": "اسم المستخدم",
+ "@accountDetailsUserNameLabel": {
+   "description": "تسمية لحقل إدخال اسم المستخدم."
+ },
+ "accountDetailsUserNameHint": "اسم المستخدم الخاص بك، إذا كان مختلفًا عن البريد الإلكتروني",
+ "@accountDetailsUserNameHint": {
+   "description": "تلميح لحقل إدخال اسم المستخدم."
+ },
+ "accountDetailsPasswordLabel": "كلمة مرور تسجيل الدخول",
+ "@accountDetailsPasswordLabel": {
+   "description": "تسمية لحقل إدخال كلمة المرور."
+ },
+ "accountDetailsPasswordHint": "كلمة المرور الخاصة بك",
+ "@accountDetailsPasswordHint": {
+   "description": "تلميح لحقل إدخال كلمة المرور."
+ },
+ "accountDetailsBaseSectionTitle": "الإعدادات الأساسية",
+ "@accountDetailsBaseSectionTitle": {
+   "description": "عنوان قسم الإعدادات الأساسية."
+ },
+ "accountDetailsIncomingLabel": "الخادم الوارد",
+ "@accountDetailsIncomingLabel": {
+   "description": "تسمية لحقل نطاق الخادم الوارد."
+ },
+ "accountDetailsIncomingHint": "نطاق مثل imap.domain.com",
+ "@accountDetailsIncomingHint": {
+   "description": "تلميح لحقل نطاق الخادم الوارد."
+ },
+ "accountDetailsOutgoingLabel": "الخادم الصادر",
+ "@accountDetailsOutgoingLabel": {
+   "description": "تسمية لحقل نطاق الخادم الصادر."
+ },
+ "accountDetailsOutgoingHint": "نطاق مثل smtp.domain.com",
+ "@accountDetailsOutgoingHint": {
+   "description": "تلميح لحقل نطاق الخادم الصادر."
+ },
+ "accountDetailsAdvancedIncomingSectionTitle": "إعدادات متقدمة للخادم الوارد",
+ "@accountDetailsAdvancedIncomingSectionTitle": {
+   "description": "عنوان قسم الإعدادات المتقدمة للخادم الوارد."
+ },
+ "accountDetailsIncomingServerTypeLabel": "نوع الوارد:",
+ "@accountDetailsIncomingServerTypeLabel": {
+   "description": "تسمية للقائمة المنسدلة لنوع الخادم."
+ },
+ "accountDetailsOptionAutomatic": "تلقائي",
+ "@accountDetailsOptionAutomatic": {
+   "description": "الخيار عندما يجب اكتشاف نوع/أمان الخادم تلقائيًا."
+ },
+ "accountDetailsIncomingSecurityLabel": "أمان الوارد:",
+ "@accountDetailsIncomingSecurityLabel": {
+   "description": "تسمية للقائمة المنسدلة لأمان الخادم الوارد."
+ },
+ "accountDetailsSecurityOptionNone": "عادي (دون تشفير)",
+  "@accountDetailsSecurityOptionNone": {
+    "description": "تسمية لخيار الأمان بدون تشفير."
+  },
+  "accountDetailsIncomingPortLabel": "منفذ الوارد",
+  "@accountDetailsIncomingPortLabel": {
+    "description": "تسمية لحقل إدخال منفذ الوارد."
+  },
+  "accountDetailsPortHint": "اتركه فارغًا لتحديده تلقائيًا",
+  "@accountDetailsPortHint": {
+    "description": "تلميح لحقل إدخال المنفذ."
+  },
+  "accountDetailsIncomingUserNameLabel": "اسم المستخدم الوارد",
+  "@accountDetailsIncomingUserNameLabel": {
+    "description": "تسمية لحقل إدخال اسم المستخدم الوارد."
+  },
+  "accountDetailsAlternativeUserNameHint": "اسم المستخدم الخاص بك، إذا كان مختلفًا عن أعلاه",
+  "@accountDetailsAlternativeUserNameHint": {
+    "description": "تسمية لحقل إدخال اسم المستخدم البديل."
+  },
+  "accountDetailsIncomingPasswordLabel": "كلمة المرور الواردة",
+  "@accountDetailsIncomingPasswordLabel": {
+    "description": "تسمية لحقل إدخال كلمة المرور الواردة."
+  },
+  "accountDetailsAlternativePasswordHint": "كلمة المرور الخاصة بك، إذا كانت مختلفة عن أعلاه",
+  "@accountDetailsAlternativePasswordHint": {
+    "description": "تسمية لحقل إدخال كلمة المرور البديلة."
+  },
+  "accountDetailsAdvancedOutgoingSectionTitle": "الإعدادات المتقدمة للصادر",
+  "@accountDetailsAdvancedOutgoingSectionTitle": {
+    "description": "عنوان قسم إعدادات الصادر المتقدمة."
+  },
+  "accountDetailsOutgoingServerTypeLabel": "نوع الصادر:",
+  "@accountDetailsOutgoingServerTypeLabel": {
+    "description": "تسمية لاختيار نوع الخادم."
+  },
+  "accountDetailsOutgoingSecurityLabel": "أمان الصادر:",
+  "@accountDetailsOutgoingSecurityLabel": {
+    "description": "تسمية لاختيار أمان الخادم."
+  },
+  "accountDetailsOutgoingPortLabel": "منفذ الصادر",
+  "@accountDetailsOutgoingPortLabel": {
+    "description": "تسمية لحقل إدخال منفذ الصادر."
+  },
+  "accountDetailsOutgoingUserNameLabel": "اسم المستخدم الصادر",
+  "@accountDetailsOutgoingUserNameLabel": {
+    "description": "تسمية لحقل إدخال اسم المستخدم الصادر."
+  },
+  "accountDetailsOutgoingPasswordLabel": "كلمة المرور الصادرة",
+  "@accountDetailsOutgoingPasswordLabel": {
+    "description": "تسمية لحقل إدخال كلمة المرور الصادرة."
+  },
+  "composeTitleNew": "رسالة جديدة",
+  "@composeTitleNew": {
+    "description": "عنوان شاشة التأليف عند إنشاء رسالة جديدة."
+  },
+  "composeTitleForward": "إعادة توجيه",
+  "@composeTitleForward": {
+    "description": "عنوان شاشة التأليف عند إعادة توجيه رسالة."
+  },
+  "composeTitleReply": "رد",
+  "@composeTitleReply": {
+    "description": "عنوان شاشة التأليف عند الرد على رسالة."
+  },
+  "composeEmptyMessage": "رسالة فارغة",
+  "@composeEmptyMessage": {
+    "description": "نص الرسالة لرسالة بدون نص."
+  },
+  "composeWarningNoSubject": "لم تحدد موضوعًا. هل تريد إرسال الرسالة بدون موضوع؟",
+  "@composeWarningNoSubject": {
+    "description": "تحذير يظهر عند محاولة إرسال رسالة بدون موضوع."
+  },
+  "composeActionSentWithoutSubject": "إرسال",
+  "@composeActionSentWithoutSubject": {
+    "description": "إجراء لإرسال رسالة بدون موضوع."
+  },
+  "composeMailSendSuccess": "تم إرسال البريد 😊",
+  "@composeMailSendSuccess": {
+    "description": "إشعار يظهر بعد إرسال البريد بنجاح."
+  },
+  "composeSendErrorInfo": "آسف، لم يتمكن بريدك من الإرسال. تلقينا الخطأ التالي:\n{details}.",
+  "@composeSendErrorInfo": {
+    "description": "خطأ يظهر عندما لا يمكن إرسال البريد الإلكتروني",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "554-رفض بسبب قيود السياسات."
+      }
+    }
+  },
+  "composeRequestReadReceiptAction": "طلب إيصال القراءة",
+  "@composeRequestReadReceiptAction": {
+    "description": "إجراء لطلب إيصال القراءة لهذه الرسالة"
+  },
+  "composeSaveDraftAction": "حفظ كمسودة",
+  "@composeSaveDraftAction": {
+    "description": "إجراء لحفظ رسالة كمسودة"
+  },
+  "composeMessageSavedAsDraft": "تم حفظ المسودة",
+  "@composeMessageSavedAsDraft": {
+    "description": "معلومة تظهر عندما يتم حفظ الرسالة كمسودة بنجاح"
+  },
+  "composeMessageSavedAsDraftErrorInfo": "لم يتم حفظ مسودتك مع الخطأ التالي:\n{details}",
+  "@composeMessageSavedAsDraftErrorInfo": {
+    "description": "معلومة تظهر عندما لا يمكن حفظ الرسالة كمسودة",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "عنوان غير صالح: XX"
+      }
+    }
+  },
+  "composeConvertToPlainTextEditorAction": "تحويل إلى نص عادي",
+  "@composeConvertToPlainTextEditorAction": {
+    "description": "إجراء لكتابة رسالة بنص عادي بدلاً من رسالة HTML"
+  },
+  "composeConvertToHtmlEditorAction": "تحويل إلى رسالة غنية (HTML)",
+  "@composeConvertToHtmlEditorAction": {
+    "description": "إجراء لكتابة رسالة HTML بدلاً من رسالة نصية"
+  },
+  "composeContinueEditingAction": "استمرار التحرير",
+  "@composeContinueEditingAction": {
+    "description": "إجراء للعودة إلى شاشة التأليف عندما لا يمكن حفظ المسودة"
+  },
+  "composeCreatePlusAliasAction": "إنشاء + alias جديد...",
+  "@composeCreatePlusAliasAction": {
+    "description": "إجراء لإنشاء + alias جديد كمرسل"
+  },
+  "composeSenderHint": "المرسل",
+  "@composeSenderHint": {
+    "description": "تلميح لحقل إدخال المرسل"
+  },
+  "composeRecipientHint": "البريد الإلكتروني للمستلم",
+  "@composeRecipientHint": {
+    "description": "تلميح لحقل إدخال المستلم"
+  },
+  "composeSubjectLabel": "الموضوع",
+  "@composeSubjectLabel": {
+    "description": "تسمية لحقل إدخال الموضوع"
+  },
+  "composeSubjectHint": "موضوع الرسالة",
+  "@composeSubjectHint": {
+    "description": "تلميح لحقل إدخال الموضوع"
+  },
+  "composeAddAttachmentAction": "إضافة",
+  "@composeAddAttachmentAction": {
+    "description": "إجراء لإضافة مرفق - يجب أن يكون مختصرًا!"
+  },
+  "composeRemoveAttachmentAction": "إزالة {name}",
+  "@composeRemoveAttachmentAction": {
+    "description": "إجراء لإزالة مرفق",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "funny.png"
+      }
+    }
+  },
+  "composeLeftByMistake": "هل تركت عن طريق الخطأ؟",
+  "@composeLeftByMistake": {
+    "description": "معلومة تظهر بعد مغادرة شاشة التأليف للسماح بالعودة بسهولة"
+  },
+  "attachTypeFile": "ملف",
+  "@attachTypeFile": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypePhoto": "صورة",
+  "@attachTypePhoto": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeVideo": "فيديو",
+  "@attachTypeVideo": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeAudio": "صوت",
+  "@attachTypeAudio": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeLocation": "موقع",
+  "@attachTypeLocation": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeGif": "صورة متحركة Gif",
+  "@attachTypeGif": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeGifSearch": "بحث في GIPHY",
+  "@attachTypeGifSearch": {
+    "description": "نص للبحث في خدمة GIPHY عن صور متحركة"
+  },
+  "attachTypeSticker": "ملصق",
+  "@attachTypeSticker": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "attachTypeStickerSearch": "بحث في GIPHY",
+  "@attachTypeStickerSearch": {
+    "description": "نص للبحث في خدمة GIPHY عن ملصقات"
+  },
+  "attachTypeAppointment": "موعد",
+  "@attachTypeAppointment": {
+    "description": "نوع المرفق لإضافته"
+  },
+  "languageSettingTitle": "اللغة",
+  "@languageSettingTitle": {
+    "description": "عنوان شاشة إعداد اللغة"
+  },
+  "languageSettingLabel": "اختر اللغة لـ SAM:",
+  "@languageSettingLabel": {
+    "description": "تسمية لقائمة اختيار إعداد اللغة"
+  },
+  "languageSettingSystemOption": "لغة النظام",
+  "@languageSettingSystemOption": {
+    "description": "اختيار لاستخدام إعدادات النظام"
+  },
+  "languageSettingConfirmationTitle": "استخدام اللغة العربية لـ SAM؟",
+  "@languageSettingConfirmationTitle": {
+    "description": "عنوان مربع حوار للتأكيد عند تغيير اللغة"
+  },
+  "languageSettingConfirmationQuery": "يرجى التأكيد لاستخدام اللغة العربية كاختيارك للغة.",
+  "@languageSettingConfirmationQuery": {
+    "description": "استفسار ليتم تأكيده من قبل المستخدم عند تغيير اللغة"
+  },
+  "languageSetInfo": "SAM is now shown in Arabic.",
+  "@languageSetInfo": {
+    "description": "نص إعلامي بعد تحديد اللغة."
+  },
+  "languageSystemSetInfo": "سيتم الآن استخدام  لغة النظام أو العربية إذا لم تكن لغة النظام مدعومة.",
+  "@languageSystemSetInfo": {
+    "description": "نص إعلامي بعد اختيار لغة النظام ."
+  },
+  "swipeSettingTitle": "إيماءات السحب",
+  "@swipeSettingTitle": {
+    "description": "عنوان شاشة إعدادات الإيماءات"
+  },
+  "swipeSettingLeftToRightLabel": "السحب من اليسار لليمين",
+  "@swipeSettingLeftToRightLabel": {
+    "description": "تسمية لإيماءة السحب"
+  },
+  "swipeSettingRightToLeftLabel": "السحب من اليمين لليسار",
+  "@swipeSettingRightToLeftLabel": {
+    "description": "تسمية لإيماءة السحب"
+  },
+  "swipeSettingChangeAction": "تغيير",
+  "@swipeSettingChangeAction": {
+    "description": "إجراء لتغيير إيماءة السحب"
+  },
+  "signatureSettingsTitle": "التوقيع",
+  "@signatureSettingsTitle": {
+    "description": "عنوان شاشة إعدادات التوقيع"
+  },
+  "signatureSettingsComposeActionsInfo": "تمكين التوقيع للرسائل التالية:",
+  "@signatureSettingsComposeActionsInfo": {
+    "description": "النص الذي يظهر قبل اختيار أنواع الرسائل للتوقيع (جديدة، إعادة توجيه، رد)."
+  },
+  "signatureSettingsAccountInfo": "يمكنك تحديد توقيعات خاصة بالحساب في إعدادات الحساب.",
+  "@signatureSettingsAccountInfo": {
+    "description": "نص إعلامي قبل عرض الرابط إلى إعدادات الحساب."
+  },
+  "signatureSettingsAddForAccount": "إضافة توقيع لـ {account}",
+  "@signatureSettingsAddForAccount": {
+    "description": "إجراء لإضافة توقيع خاص بالحساب.",
+    "placeholders": {
+      "account": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "defaultSenderSettingsTitle": "المرسل الافتراضي",
+  "@defaultSenderSettingsTitle": {
+    "description": "عنوان شاشة إعدادات المرسل الافتراضي"
+  },
+  "defaultSenderSettingsLabel": "حدد المرسل للرسائل الجديدة.",
+  "@defaultSenderSettingsLabel": {
+    "description": "وصف شاشة إعدادات المرسل الافتراضي"
+  },
+  "defaultSenderSettingsFirstAccount": "أول حساب ({email})",
+  "@defaultSenderSettingsFirstAccount": {
+    "description": "المرسل الافتراضي هو المرسل من الحساب الأول",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "email@domain.com"
+      }
+    }
+  },
+  "defaultSenderSettingsAliasInfo": "يمكنك إعداد عناوين البريد الإلكتروني المستعارة في [AS].",
+  "@defaultSenderSettingsAliasInfo": {
+    "description": "معلومات عن إمكانية إعداد العناوين المستعارة للبريد الإلكتروني في إعدادات الحساب. [AS] هو المكان حيث يتم تضمين defaultSenderSettingsAliasAccountSettings كرابط."
+  },
+  "defaultSenderSettingsAliasAccountSettings": "إعدادات الحساب",
+  "@defaultSenderSettingsAliasAccountSettings": {
+    "description": "نص الرابط إلى إعدادات الحساب."
+  },
+  "replySettingsTitle": "تنسيق الرسائل",
+  "@replySettingsTitle": {
+    "description": "عنوان إعدادات الرد."
+  },
+  "replySettingsIntro": "ما هو التنسيق الذي ترغب في الرد أو إعادة توجيه البريد الإلكتروني به بشكل افتراضي؟",
+  "@replySettingsIntro": {
+    "description": "نص تقديم إعدادات الرد."
+  },
+  "replySettingsFormatHtml": "دائمًا بتنسيق غني (HTML)",
+  "@replySettingsFormatHtml": {
+    "description": "خيار إعدادات الرد."
+  },
+  "replySettingsFormatSameAsOriginal": "استخدام نفس تنسيق البريد الإلكتروني الأصلي",
+  "@replySettingsFormatSameAsOriginal": {
+    "description": "خيار إعدادات الرد."
+  },
+  "replySettingsFormatPlainText": "دائمًا نص فقط",
+  "@replySettingsFormatPlainText": {
+    "description": "خيار إعدادات الرد."
+  },
+  "moveTitle": "نقل الرسالة",
+  "@moveTitle": {
+    "description": "عنوان مربع الحوار لنقل الرسالة إلى صندوق البريد."
+  },
+  "moveSuccess": "تم نقل الرسالة إلى {mailbox}.",
+  "@moveSuccess": {
+    "description": "رسالة بعد نقل الرسالة بنجاح.",
+    "placeholders": {
+      "mailbox": {
+        "type": "String",
+        "example": "صندوق الوارد"
+      }
+    }
+  },
+  "editorArtInputLabel": "مدخلاتك",
+  "@editorArtInputLabel": {
+    "description": "تسمية حقل الإدخال عند إدراج نص منسق"
+  },
+  "editorArtInputHint": "أدخل النص هنا",
+  "@editorArtInputHint": {
+    "description": "تلميح حقل الإدخال عند إدراج نص منسق"
+  },
+  "editorArtWaitingForInputHint": "في انتظار الإدخال...",
+  "@editorArtWaitingForInputHint": {
+    "description": "النص المعروض أثناء انتظار الإدخال"
+  },
+  "fontSerifBold": "سيريف عريض",
+  "@fontSerifBold": {
+    "description": "اسم الخط"
+  },
+  "fontSerifItalic": "سيريف مائل",
+  "@fontSerifItalic": {
+    "description": "اسم الخط"
+  },
+  "fontSerifBoldItalic": "سيريف عريض مائل",
+  "@fontSerifBoldItalic": {
+    "description": "اسم الخط"
+  },
+  "fontSans": "سانس",
+  "@fontSans": {
+    "description": "اسم الخط"
+  },
+  "fontSansBold": "سانس عريض",
+  "@fontSansBold": {
+    "description": "اسم الخط"
+  },
+  "fontSansItalic": "سانس مائل",
+  "@fontSansItalic": {
+    "description": "اسم الخط"
+  },
+  "fontSansBoldItalic": "سانس عريض مائل",
+  "@fontSansBoldItalic": {
+    "description": "اسم الخط"
+  },
+  "fontScript": "سكريبت",
+  "@fontScript": {
+    "description": "اسم الخط"
+  },
+  "fontScriptBold": "سكريبت عريض",
+  "@fontScriptBold": {
+    "description": "اسم الخط"
+  },
+  "fontFraktur": "فراكتر",
+  "@fontFraktur": {
+    "description": "اسم الخط"
+  },
+  "fontFrakturBold": "فراكتر عريض",
+  "@fontFrakturBold": {
+    "description": "اسم الخط"
+  },
+  "fontMonospace": "مونو سباس",
+  "@fontMonospace": {
+    "description": "اسم الخط"
+  },
+  "fontFullwidth": "عرض كامل",
+  "@fontFullwidth": {
+    "description": "اسم الخط"
+  },
+  "fontDoublestruck": "مزدوج الخط",
+  "@fontDoublestruck": {
+    "description": "اسم الخط"
+  },
+  "fontCapitalized": "حروف كبيرة",
+  "@fontCapitalized": {
+    "description": "اسم الخط"
+  },
+  "fontCircled": "مخطط دائري",
+  "@fontCircled": {
+    "description": "اسم الخط"
+  },
+  "fontParenthesized": "مخطط بين قوسين",
+  "@fontParenthesized": {
+    "description": "اسم الخط"
+  },
+  "fontUnderlinedSingle": "تحت خط",
+  "@fontUnderlinedSingle": {
+    "description": "اسم الخط"
+  },
+  "fontUnderlinedDouble": "تحت خط مزدوج",
+  "@fontUnderlinedDouble": {
+    "description": "اسم الخط"
+  },
+  "fontStrikethroughSingle": "تخطيط عبر الخط",
+  "@fontStrikethroughSingle": {
+    "description": "اسم الخط"
+  },
+  "fontCrosshatch": "خطوط متقاطعة",
+  "@fontCrosshatch": {
+    "description": "اسم الخط"
+  },
+  "accountLoadError": "تعذر الاتصال بحسابك {name}. هل تم تغيير كلمة المرور؟",
+  "@accountLoadError": {
+    "description": "الرسالة المعروضة عندما يتعذر تحميل حساب واحد.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "domain.com"
+      }
+    }
+  },
+  "accountLoadErrorEditAction": "تعديل الحساب",
+ "@accountLoadErrorEditAction": {
+   "description": "إجراء لتحرير الحساب"
+ },
+ "extensionsTitle": "الإضافات",
+ "@extensionsTitle": {
+   "description": "عنوان قسم الإضافات في إعدادات التطوير"
+ },
+ "extensionsIntro": "من خلال الإضافات، يمكن لمقدمي خدمات البريد الإلكتروني والشركات والمطورين تخصيص SAM مع وظائف مفيدة.",
+ "@extensionsIntro": {
+   "description": "شرح الإضافات"
+ },
+ "extensionsLearnMoreAction": "تعلم المزيد عن الإضافات",
+ "@extensionsLearnMoreAction": {
+   "description": "تسمية لفتح موقع ويب يحتوي على مزيد من المعلومات"
+ },
+ "extensionsReloadAction": "إعادة تحميل الإضافات",
+ "@extensionsReloadAction": {
+   "description": "إجراء لتحديث الإضافات"
+ },
+ "extensionDeactivateAllAction": "إلغاء تنشيط جميع الإضافات",
+ "@extensionDeactivateAllAction": {
+   "description": "إجراء لتعطيل / تفريغ أي إضافة"
+ },
+ "extensionsManualAction": "تحميل يدويًا",
+ "@extensionsManualAction": {
+   "description": "إجراء لتحميل الإضافة يدويًا"
+ },
+ "extensionsManualUrlLabel": "رابط الإضافة",
+ "@extensionsManualUrlLabel": {
+   "description": "تسمية لحقل إدخال عنوان URL"
+ },
+ "extensionsManualLoadingError": "تعذر تنزيل الإضافة من \"{url}\".",
+ "@extensionsManualLoadingError": {
+   "description": "الرسالة المعروضة عند عدم تحميل الإضافات.",
+   "placeholders": {
+     "url": {
+       "type": "String",
+       "example": "https://domain.com/.SAM.json"
+     }
+   }
+ },
+ "icalendarAcceptTentatively": "مبدئيًا",
+ "@icalendarAcceptTentatively": {
+   "description": "إجراء لقبول دعوة icalendar مبدئيًا"
+ },
+ "icalendarActionChangeParticipantStatus": "تغيير",
+ "@icalendarActionChangeParticipantStatus": {
+   "description": "إجراء لتغيير حالة مشارك في دعوة icalendar"
+ },
+ "icalendarLabelSummary": "العنوان",
+ "@icalendarLabelSummary": {
+   "description": "تسمية معلومات الملخص لكائن icalendar"
+ },
+ "icalendarNoSummaryInfo": "(لا يوجد عنوان)",
+ "@icalendarNoSummaryInfo": {
+   "description": "المعلومات المعروضة عند عدم وجود ملخص (لا يوجد عنوان) في كائن icalendar"
+ },
+ "icalendarLabelDescription": "الوصف",
+ "@icalendarLabelDescription": {
+   "description": "تسمية معلومات الوصف لكائن icalendar"
+ },
+ "icalendarLabelStart": "البداية",
+ "@icalendarLabelStart": {
+   "description": "تسمية معلومات تاريخ ووقت بدء كائن icalendar"
+ },
+ "icalendarLabelEnd": "النهاية",
+ "@icalendarLabelEnd": {
+   "description": "تسمية معلومات تاريخ ووقت نهاية كائن icalendar"
+ },
+ "icalendarLabelDuration": "المدة",
+ "@icalendarLabelDuration": {
+   "description": "تسمية معلومات المدة لكائن icalendar"
+ },
+ "icalendarLabelLocation": "الموقع",
+ "@icalendarLabelLocation": {
+   "description": "تسمية معلومات الموقع لكائن icalendar"
+ },
+ "icalendarLabelTeamsUrl": "الرابط",
+ "@icalendarLabelTeamsUrl": {
+   "description": "تسمية معلومات رابط Microsoft Teams لكائن icalendar"
+ },
+ "icalendarLabelRecurrenceRule": "يتكرر",
+ "@icalendarLabelRecurrenceRule": {
+   "description": "تسمية معلومات التكرار لكائن icalendar"
+ },
+ "icalendarLabelParticipants": "المشاركون",
+ "@icalendarLabelParticipants": {
+   "description": "تسمية معلومات المشاركين في كائن icalendar"
+ },
+ "icalendarParticipantStatusNeedsAction": "يُطلب منك الرد على هذه الدعوة.",
+ "@icalendarParticipantStatusNeedsAction": {
+   "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+ },
+ "icalendarParticipantStatusAccepted": "لقد قبلت هذه الدعوة.",
+ "@icalendarParticipantStatusAccepted": {
+   "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+ },
+ "icalendarParticipantStatusDeclined": "لقد رفضت هذه الدعوة.",
+ "@icalendarParticipantStatusDeclined": {
+   "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+ },
+ "icalendarParticipantStatusAcceptedTentatively": "لقد قبلت هذه الدعوة مبدئيًا.",
+ "@icalendarParticipantStatusAcceptedTentatively": {
+   "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+ },
+ "icalendarParticipantStatusDelegated": "لقد فوَّضت هذه الدعوة.",
+  "@icalendarParticipantStatusDelegated": {
+    "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+  },
+  "icalendarParticipantStatusInProcess": "المهمة قيد التنفيذ.",
+  "@icalendarParticipantStatusInProcess": {
+    "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+  },
+  "icalendarParticipantStatusPartial": "المهمة جزئيًا منجزة.",
+  "@icalendarParticipantStatusPartial": {
+    "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+  },
+  "icalendarParticipantStatusCompleted": "تم إنجاز المهمة.",
+  "@icalendarParticipantStatusCompleted": {
+    "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+  },
+  "icalendarParticipantStatusOther": "حالتك غير معروفة.",
+  "@icalendarParticipantStatusOther": {
+    "description": "حالة المشارك للمستخدم الحالي في كائن icalendar"
+  },
+  "icalendarParticipantStatusChangeTitle": "حالتك",
+  "@icalendarParticipantStatusChangeTitle": {
+    "description": "عنوان الحوار لتغيير حالة المشارك"
+  },
+  "icalendarParticipantStatusChangeText": "هل ترغب في قبول هذه الدعوة؟",
+  "@icalendarParticipantStatusChangeText": {
+    "description": "نص الحوار لتغيير حالة المشارك"
+  },
+  "icalendarParticipantStatusSentFailure": "تعذر إرسال الرد.\nاستجاب الخادم بالتفاصيل التالية:\n{details}",
+  "@icalendarParticipantStatusSentFailure": {
+    "description": "رسالة فشل لتغيير حالة الرد",
+    "placeholders": {
+      "details": {
+        "type": "String",
+        "example": "لا توجد اتصال بالإنترنت"
+      }
+    }
+  },
+  "icalendarExportAction": "تصدير",
+  "@icalendarExportAction": {
+    "description": "إجراء لتصدير الدعوة إلى التقويم المحلي"
+  },
+  "icalendarReplyStatusNeedsAction": "{attendee} لم يرد على هذه الدعوة.",
+  "@icalendarReplyStatusNeedsAction": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusAccepted": "{attendee} قبل الموعد.",
+  "@icalendarReplyStatusAccepted": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusDeclined": "{attendee} رفض هذه الدعوة.",
+  "@icalendarReplyStatusDeclined": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusAcceptedTentatively": "{attendee} قبل هذه الدعوة مبدئيًا.",
+  "@icalendarReplyStatusAcceptedTentatively": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusDelegated": "{attendee} فوَّض هذه الدعوة.",
+  "@icalendarReplyStatusDelegated": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusInProcess": "{attendee} بدأ هذه المهمة.",
+  "@icalendarReplyStatusInProcess": {
+    "description": "رد صالح للتقويم",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusPartial": "{attendee} أنجز جزئيًا هذه المهمة.",
+  "@icalendarReplyStatusPartial": {
+    "description": "رد تقويم صالح",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusCompleted": "{attendee} أنهى هذه المهمة.",
+  "@icalendarReplyStatusCompleted": {
+    "description": "رد تقويم صالح",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyStatusOther": "{attendee} أجاب بحالة غير معروفة.",
+  "@icalendarReplyStatusOther": {
+    "description": "رد تقويم صالح",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "icalendarReplyWithoutParticipants": "هذا الرد في التقويم لا يحتوي على مشاركين.",
+  "@icalendarReplyWithoutParticipants": {
+    "description": "رد تقويم بدون أي مشارك"
+  },
+  "icalendarReplyWithoutStatus": "{attendee} رد دون حالة مشاركة.",
+  "@icalendarReplyWithoutStatus": {
+    "description": "رد تقويم بدون أي حالة للمشارك",
+    "placeholders": {
+      "attendee": {
+        "type": "String",
+        "example": "اسم المستخدم <user.name@domain.com>"
+      }
+    }
+  },
+  "composeAppointmentTitle": "إنشاء موعد",
+  "@composeAppointmentTitle": {
+    "description": "عنوان شاشة إضافة موعد جديد"
+  },
+  "composeAppointmentLabelDay": "اليوم",
+  "@composeAppointmentLabelDay": {
+    "description": "تسمية زر اختيار اليوم"
+  },
+  "composeAppointmentLabelTime": "الوقت",
+  "@composeAppointmentLabelTime": {
+    "description": "تسمية زر اختيار الوقت"
+  },
+  "composeAppointmentLabelAllDayEvent": "طوال اليوم",
+  "@composeAppointmentLabelAllDayEvent": {
+    "description": "تسمية لتبديل الحدث طوال اليوم"
+  },
+  "composeAppointmentLabelRepeat": "تكرار",
+  "@composeAppointmentLabelRepeat": {
+    "description": "تسمية لقائمة التكرار المنسدلة"
+  },
+  "composeAppointmentLabelRepeatOptionNever": "أبدًا",
+  "@composeAppointmentLabelRepeatOptionNever": {
+    "description": "خيار للتكرار من قائمة الخيارات"
+  },
+  "composeAppointmentLabelRepeatOptionDaily": "يوميًا",
+  "@composeAppointmentLabelRepeatOptionDaily": {
+    "description": "خيار للتكرار من قائمة الخيارات"
+  },
+  "composeAppointmentLabelRepeatOptionWeekly": "أسبوعيًا",
+  "@composeAppointmentLabelRepeatOptionWeekly": {
+    "description": "خيار للتكرار من قائمة الخيارات"
+  },
+  "composeAppointmentLabelRepeatOptionMonthly": "شهريًا",
+  "@composeAppointmentLabelRepeatOptionMonthly": {
+    "description": "خيار للتكرار من قائمة الخيارات"
+  },
+  "composeAppointmentLabelRepeatOptionYearly": "سنويًا",
+  "@composeAppointmentLabelRepeatOptionYearly": {
+    "description": "خيار للتكرار من قائمة الخيارات"
+  },
+  "composeAppointmentRecurrenceFrequencyLabel": "التكرار",
+  "@composeAppointmentRecurrenceFrequencyLabel": {
+    "description": "تسمية لقائمة التكرار"
+  },
+  "composeAppointmentRecurrenceIntervalLabel": "الفاصل الزمني",
+  "@composeAppointmentRecurrenceIntervalLabel": {
+    "description": "تسمية لقائمة الفاصل الزمني"
+  },
+  "composeAppointmentRecurrenceDaysLabel": "في الأيام",
+  "@composeAppointmentRecurrenceDaysLabel": {
+    "description": "تسمية لمنطقة اختيار الأيام في التكرار الأسبوعي أو الشهري"
+  },
+  "composeAppointmentRecurrenceUntilLabel": "حتى",
+  "@composeAppointmentRecurrenceUntilLabel": {
+    "description": "تسمية لاختيار تاريخ نهاية التكرار"
+  },
+  "composeAppointmentRecurrenceUntilOptionUnlimited": "غير محدود",
+  "@composeAppointmentRecurrenceUntilOptionUnlimited": {
+    "description": "خيار لعدم وجود تاريخ نهاية للتكرار"
+  },
+  "composeAppointmentRecurrenceUntilOptionRecommended": "موصى به ({duration})",
+  "@composeAppointmentRecurrenceUntilOptionRecommended": {
+    "description": "خيار لتاريخ نهاية قياسي للتكرار مع المدة المحددة",
+    "placeholders": {
+      "duration": {
+        "type": "String",
+        "example": "3 أشهر"
+      }
+    }
+  },
+  "composeAppointmentRecurrenceUntilOptionSpecificDate": "حتى تاريخ معين",
+  "@composeAppointmentRecurrenceUntilOptionSpecificDate": {
+    "description": "خيار لتحديد تاريخ نهاية للتكرار"
+  },
+  "composeAppointmentRecurrenceMonthlyOnDayOfMonth": "في اليوم {day} من الشهر",
+  "@composeAppointmentRecurrenceMonthlyOnDayOfMonth": {
+    "description": "خيار لتكرار الحدث دائمًا في ذلك اليوم من الشهر",
+    "placeholders": {
+      "day": {
+        "type": "int",
+        "example": "3",
+        "format": "compactLong"
+      }
+    }
+  },
+  "composeAppointmentRecurrenceMonthlyOnWeekDay": "يوم الأسبوع في الشهر",
+  "@composeAppointmentRecurrenceMonthlyOnWeekDay": {
+    "description": "التكرار الشهري في يوم من الأسبوع في أسبوع مختار"
+  },
+  "composeAppointmentRecurrenceFirst": "الأول",
+  "@composeAppointmentRecurrenceFirst": {
+    "description": "خيار يوم شهري"
+  },
+  "composeAppointmentRecurrenceSecond": "الثاني",
+  "@composeAppointmentRecurrenceSecond": {
+    "description": "خيار يوم شهري"
+  },
+  "composeAppointmentRecurrenceThird": "الثالث",
+  "@composeAppointmentRecurrenceThird": {
+    "description": "خيار يوم شهري"
+  },
+  "composeAppointmentRecurrenceLast": "الأخير",
+  "@composeAppointmentRecurrenceLast": {
+    "description": "خيار يوم شهري"
+  },
+  "composeAppointmentRecurrenceSecondLast": "قبل الأخير",
+  "@composeAppointmentRecurrenceSecondLast": {
+    "description": "خيار يوم شهري"
+  },
+  "durationYears": "{number,plural, =1{1 سنة} other{{number} سنوات}}",
+  "@durationYears": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationMonths": "{number,plural, =1{1 شهر} other{{number} أشهر}}",
+  "@durationMonths": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationWeeks": "{number,plural, =1{1 أسبوع} other{{number} أسابيع}}",
+  "@durationWeeks": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationDays": "{number,plural, =1{1 يوم} other{{number} أيام}}",
+  "@durationDays": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationHours": "{number,plural, =1{1 ساعة} other{{number} ساعات}}",
+  "@durationHours": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationMinutes": "{number,plural, =1{1 دقيقة} other{{number} دقائق}}",
+  "@durationMinutes": {
+    "description": "المدة. الرسالة تم تنسيقها باستخدام مخطط الجمع في JSON.",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "2",
+        "format": "compactLong"
+      }
+    }
+  },
+  "durationEmpty": "لا توجد مدة",
+  "@durationEmpty": {
+    "description": "النص المعروض عندما تكون المدة 0"
+  }
+}

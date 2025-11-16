@@ -13,14 +13,16 @@ class WebViewScreen extends StatelessWidget {
   final WebViewConfiguration configuration;
 
   @override
-  Widget build(BuildContext context) => BasePage(
-        title: configuration.title ?? configuration.uri.host,
-        content: SafeArea(
-          child: webview.InAppWebView(
-            initialUrlRequest: webview.URLRequest(
-              url: webview.WebUri.uri(configuration.uri),
-            ),
+  Widget build(BuildContext context) {
+    return BasePage(
+      title: configuration.title ?? configuration.uri.host,
+      content: SafeArea(
+        child: webview.InAppWebView(
+          initialUrlRequest: webview.URLRequest(
+            url: webview.WebUri.uri(configuration.uri),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

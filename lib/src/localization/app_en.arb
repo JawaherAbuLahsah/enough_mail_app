@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "signature": "Sent with Maily",
+  "signature": "Sent with SAM",
   "@signature": {
     "description": "Default signature text"
   },  
@@ -56,23 +56,23 @@
   "@actionAddressSearch": {
     "description": "Search action for email addresses"
   },
-  "splashLoading1": "Maily starting...",
+  "splashLoading1": "SAM starting...",
   "@splashLoading1": {
     "description": "Message shown on splash screen while loading"
   },
-  "splashLoading2": "Getting your Maily engine ready...",
+  "splashLoading2": "Getting your SAM engine ready...",
   "@splashLoading2": {
     "description": "Message shown on splash screen while loading"
   },
-  "splashLoading3": "Launching Maily in 10, 9, 8...",
+  "splashLoading3": "Launching SAM in 10, 9, 8...",
   "@splashLoading3": {
     "description": "Message shown on splash screen while loading"
   },
-  "welcomePanel1Title": "Maily",
+  "welcomePanel1Title": "SAM",
   "@welcomePanel1Title": {
     "description": "Welcome panel title"
   },
-  "welcomePanel1Text": "Welcome to Maily, your friendly and fast email helper!",
+  "welcomePanel1Text": "Welcome to SAM, your friendly and fast email helper!",
   "@welcomePanel1Text": {
     "description": "Welcome message shown on first panel"
   },
@@ -344,7 +344,7 @@
       }
     }
   },
-  "drawerEntryAbout": "About Maily",
+  "drawerEntryAbout": "About SAM",
   "@drawerEntryAbout": {
     "description": "Menu entry for about."
   },
@@ -752,7 +752,7 @@
       }
     }  
   },
-  "legaleseUsage": "By using Maily you agree to our [PP] and to our [TC].",
+  "legaleseUsage": "By using SAM you agree to our [PP] and to our [TC].",
   "@legaleseUsage": {
     "description": "Legal info shown on initial welcome screen and later in about. [PP] is replaced with the legalesePrivacyPolicy text and [TC] with legaleseTermsAndConditions."
   },
@@ -764,7 +764,7 @@
   "@legaleseTermsAndConditions": {
     "description": "Translation of Terms & Conditions "
   },
-  "aboutApplicationLegalese": "Maily is free software published under the GNU General Public License.",
+  "aboutApplicationLegalese": "SAM is free software published under the GNU General Public License.",
   "@aboutApplicationLegalese": {
     "description": "Legal info shown in about dialog."
   },
@@ -776,7 +776,7 @@
   "@feedbackActionReportProblem": {
     "description": "Action to report a problem."
   },
-  "feedbackActionHelpDeveloping": "Help developing Maily",
+  "feedbackActionHelpDeveloping": "Help developing SAM",
   "@feedbackActionHelpDeveloping": {
     "description": "Action to help developing."
   },
@@ -784,7 +784,7 @@
   "@feedbackTitle": {
     "description": "Title of feedback settings screen."
   },
-  "feedbackIntro": "Thank you for testing Maily!",
+  "feedbackIntro": "Thank you for testing SAM!",
   "@feedbackIntro": {
     "description": "Intro for feedback settings screen."
   },
@@ -828,7 +828,7 @@
   "@settingsSecurityMessageRenderingPlainText": {
     "description": "Option for how to render messages."
   },
-  "settingsSecurityLaunchModeLabel": "How should Maily open links?",
+  "settingsSecurityLaunchModeLabel": "How should SAM open links?",
   "@settingsSecurityLaunchModeLabel": {
     "description": "Option for how to launch URLs."
   },
@@ -836,7 +836,7 @@
   "@settingsSecurityLaunchModeExternal": {
     "description": "Option for how to launch URLs."
   },
-  "settingsSecurityLaunchModeInApp": "Open links in Maily",
+  "settingsSecurityLaunchModeInApp": "Open links in SAM",
   "@settingsSecurityLaunchModeInApp": {
     "description": "Option for how to launch URLs."
   },
@@ -880,7 +880,7 @@
   "@folderNamesIntroduction": {
     "description": "Introduction for folder names setting."
   },
-  "folderNamesSettingLocalized": "Names given by Maily",
+  "folderNamesSettingLocalized": "Names given by SAM",
   "@folderNamesSettingLocalized": {
     "description": "Folder name setting option."
   },
@@ -1054,19 +1054,19 @@
   "@securitySettingsIntro": {
     "description": "Introduction of security settings screen."
   },
-  "securityUnlockWithFaceId": "Unlock Maily with Face ID.",
+  "securityUnlockWithFaceId": "Unlock SAM with Face ID.",
   "@securityUnlockWithFaceId": {
     "description": "iOS-specific unlock reason."
   },
-  "securityUnlockWithTouchId": "Unlock Maily with Touch ID.",
+  "securityUnlockWithTouchId": "Unlock SAM with Touch ID.",
   "@securityUnlockWithTouchId": {
     "description": "iOS-specific unlock reason."
   },
-  "securityUnlockReason": "Unlock Maily.",
+  "securityUnlockReason": "Unlock SAM.",
   "@securityUnlockReason": {
     "description": "Generic unlock reason."
   },
-  "securityUnlockDisableReason": "Unlock Maily to turn off lock.",
+  "securityUnlockDisableReason": "Unlock SAM to turn off lock.",
   "@securityUnlockDisableReason": {
     "description": "Generic unlock disable reason."
   },
@@ -1074,15 +1074,15 @@
   "@securityUnlockNotAvailable": {
     "description": "Message when biometric authentication is not available."
   },
-  "securityUnlockLabel": "Lock Maily",
+  "securityUnlockLabel": "Lock SAM",
   "@securityUnlockLabel": {
     "description": "Label of biometric authentication lock feature."
   },
-  "securityUnlockDescriptionTitle": "Lock Maily",
+  "securityUnlockDescriptionTitle": "Lock SAM",
   "@securityUnlockDescriptionTitle": {
     "description": "Title to explain lock feature via biometric authentication."
   },
-  "securityUnlockDescriptionText": "You can choose to lock access to Maily, so that others cannot read your email even when they have access to your device.",
+  "securityUnlockDescriptionText": "You can choose to lock access to SAM, so that others cannot read your email even when they have access to your device.",
   "@securityUnlockDescriptionText": {
     "description": "Text explaining lock feature via biometric authentication."
   },
@@ -1098,11 +1098,11 @@
   "@securityLockAfter30Minutes": {
     "description": "Lock timing option."
   },
-  "lockScreenTitle": "Maily is locked",
+  "lockScreenTitle": "SAM is locked",
   "@lockScreenTitle": {
     "description": "Title of lock screen."
   },
-  "lockScreenIntro": "Maily is locked, please authenticate to proceed.",
+  "lockScreenIntro": "SAM is locked, please authenticate to proceed.",
   "@lockScreenIntro": {
     "description": "Text on lock screen."
   },
@@ -1277,7 +1277,7 @@
       }
     }  
   },
-  "editAccountFailureToConnectInfo": "Maily could not connect {name}.",
+  "editAccountFailureToConnectInfo": "SAM could not connect {name}.",
   "@editAccountFailureToConnectInfo": {
     "description": "Info about not being able to connect to the named service. Most common causes are temporary network problems or a changed password.",
     "placeholders": {
@@ -1499,7 +1499,7 @@
   "@accountProviderCustom": {
     "description": "When no standard provider is chosen."
   },
-  "accountDetailsErrorHostProblem": "Maily cannot reach the specified mail server. Please check your incoming server setting \"{incomingHost}\" and your outgoing server setting \"{outgoingHost}\".",
+  "accountDetailsErrorHostProblem": "SAM cannot reach the specified mail server. Please check your incoming server setting \"{incomingHost}\" and your outgoing server setting \"{outgoingHost}\".",
   "@accountDetailsErrorHostProblem": {
     "description": "Error details when no connection to server could be established at all",
     "placeholders": {
@@ -1785,7 +1785,7 @@
   "@languageSettingTitle": {
     "description": "Title of language setting screen"
   },
-  "languageSettingLabel": "Choose the language for Maily:",
+  "languageSettingLabel": "Choose the language for SAM:",
   "@languageSettingLabel": {
     "description": "Label for language setting dropdown screen"
   },
@@ -1793,7 +1793,7 @@
   "@languageSettingSystemOption": {
     "description": "Option to use the system's settings"
   },
-  "languageSettingConfirmationTitle": "Use English for Maily?",
+  "languageSettingConfirmationTitle": "Use English for SAM?",
   "@languageSettingConfirmationTitle": {
     "description": "Title of dialog to confirm when switching the language"
   },
@@ -1801,13 +1801,13 @@
   "@languageSettingConfirmationQuery": {
     "description": "Query to be confirmed by user when switching the language"
   },
-  "languageSetInfo": "Maily is now shown in English.",
+  "languageSetInfo": "SAM is now shown in English.",
   "@languageSetInfo": {
     "description": "Info text after having specified the language."
   },
-  "languageSystemSetInfo": "Maily will now use the system's language or English if the system's language is not supported.",
+  "languageSystemSetInfo": "SAM will now use the system's language or English if the system's language is not supported.",
   "@languageSystemSetInfo": {
-    "description": "Info text after choosing the system's language for Maily."
+    "description": "Info text after choosing the system's language for SAM."
   },
   "swipeSettingTitle": "Swipe gestures",
   "@swipeSettingTitle": {
@@ -2021,7 +2021,7 @@
   "@extensionsTitle": {
     "description": "Title of extension section within the development settings"
   },
-  "extensionsIntro": "With extensions e-mail service providers, companies and developers can adapt Maily with useful functionalities.",
+  "extensionsIntro": "With extensions e-mail service providers, companies and developers can adapt SAM with useful functionalities.",
   "@extensionsIntro": {
     "description": "Explanation of extensions"
   },
@@ -2052,7 +2052,7 @@
     "placeholders": {
       "url": {
         "type": "String",
-        "example": "https://domain.com/.maily.json"
+        "example": "https://domain.com/.SAM.json"
       }
     }  
   },

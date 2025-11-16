@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../enough_mail_app.dart';
 import '../../account/model.dart';
 import '../../account/provider.dart';
 import '../../localization/app_localizations.g.dart';
@@ -24,23 +26,34 @@ class SettingsAccountsScreen extends HookConsumerWidget {
     final accounts = ref.watch(realAccountsProvider);
     final localizations = ref.text;
 
-    return BasePage(
-      title: localizations.accountsTitle,
-      content: reorderAccountsState.value
-          ? _buildReorderableListView(
-              context,
-              localizations,
-              ref,
-              reorderAccountsState,
-              accounts,
-            )
-          : _buildAccountSettings(
-              context,
-              localizations,
-              ref,
-              reorderAccountsState,
-              accounts,
-            ),
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.accountsTitle,
+        content: reorderAccountsState.value
+            ? _buildReorderableListView(
+                context,
+                localizations,
+                ref,
+                reorderAccountsState,
+                accounts,
+              )
+            : _buildAccountSettings(
+                context,
+                localizations,
+                ref,
+                reorderAccountsState,
+                accounts,
+              ),
+      ),
     );
   }
 

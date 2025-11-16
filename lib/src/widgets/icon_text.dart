@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IconText extends StatelessWidget {
   const IconText({
@@ -33,7 +34,12 @@ class IconText extends StatelessWidget {
     );
 
     return brightness != null
-        ? Theme(data: ThemeData(brightness: brightness), child: content)
+        ? Theme(
+            data: ThemeData(
+              brightness: brightness,
+              textTheme: GoogleFonts.cairoTextTheme(),
+            ),
+            child: content)
         : content;
   }
 }

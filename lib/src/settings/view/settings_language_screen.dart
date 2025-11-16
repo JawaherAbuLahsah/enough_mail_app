@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ import '../../localization/extension.dart';
 import '../../screens/base.dart';
 import '../../util/localized_dialog_helper.dart';
 import '../provider.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class SettingsLanguageScreen extends HookConsumerWidget {
   const SettingsLanguageScreen({super.key});
@@ -17,9 +20,8 @@ class SettingsLanguageScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final displayNames = {
-      'de': 'deutsch',
+      'ar': 'العربية',
       'en': 'English',
-      'es': 'español',
     };
     final available = AppLocalizations.supportedLocales
         .map(
@@ -47,88 +49,103 @@ class SettingsLanguageScreen extends HookConsumerWidget {
     final selectedLanguageState = useState(selectedLanguage);
     final selectedLocalizationsState = useState<AppLocalizations?>(null);
 
-    return BasePage(
-      title: localizations.languageSettingTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.languageSettingLabel,
-                  style: theme.textTheme.bodySmall,
-                ),
-                PlatformDropdownButton<_Language>(
-                  value: selectedLanguage,
-                  onChanged: (value) async {
-                    final locale = value?.locale;
-                    final settings = ref.read(settingsProvider);
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
 
-                    if (locale == null) {
-                      systemSettingApplied.value = true;
-                      await ref
-                          .read(settingsProvider.notifier)
-                          .update(settings.removeLanguageTag());
-
-                      return;
-                    }
-
-                    final selectedLocalizations =
-                        await AppLocalizations.delegate.load(locale);
-                    selectedLocalizationsState.value = selectedLocalizations;
-                    if (context.mounted) {
-                      final confirmed =
-                          await LocalizedDialogHelper.showTextDialog(
-                        ref,
-                        selectedLocalizations.languageSettingConfirmationTitle,
-                        selectedLocalizations.languageSettingConfirmationQuery,
-                        actions: [
-                          PlatformTextButton(
-                            child: Text(
-                              selectedLocalizations.actionCancel,
-                            ),
-                            onPressed: () => context.pop(false),
-                          ),
-                          PlatformTextButton(
-                            child: Text(selectedLocalizations.actionOk),
-                            onPressed: () => context.pop(true),
-                          ),
-                        ],
-                      );
-                      if (confirmed) {
-                        selectedLanguageState.value = value;
-
-                        await ref.read(settingsProvider.notifier).update(
-                              settings.copyWith(
-                                languageTag: locale.toLanguageTag(),
-                              ),
-                            );
-                      }
-                    }
-                  },
-                  selectedItemBuilder: (context) => languages
-                      .map((language) => Text(language.displayName ?? ''))
-                      .toList(),
-                  items: languages
-                      .map((language) => DropdownMenuItem(
-                            value: language,
-                            child: Text(language.displayName ?? ''),
-                          ))
-                      .toList(),
-                ),
-                if (selectedLocalizationsState.value != null)
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.languageSettingTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
-                    selectedLocalizationsState.value?.languageSetInfo ?? '',
-                    style: theme.textTheme.titleMedium,
-                  )
-                else if (systemSettingApplied.value)
-                  Text(
-                    localizations.languageSystemSetInfo,
-                    style: theme.textTheme.titleMedium,
+                    localizations.languageSettingLabel,
+                    style: theme.textTheme.bodySmall,
                   ),
-              ],
+                  PlatformDropdownButton<_Language>(
+                    value: selectedLanguage,
+                    onChanged: (value) async {
+                      final locale = value?.locale;
+                      final settings = ref.read(settingsProvider);
+
+                      if (locale == null) {
+                        systemSettingApplied.value = true;
+                        await ref
+                            .read(settingsProvider.notifier)
+                            .update(settings.removeLanguageTag());
+
+                        return;
+                      }
+
+                      final selectedLocalizations =
+                          await AppLocalizations.delegate.load(locale);
+                      selectedLocalizationsState.value = selectedLocalizations;
+                      if (context.mounted) {
+                        final confirmed = true;
+                        // final confirmed =
+                        //     await LocalizedDialogHelper.showTextDialog(
+                        //   ref,
+                        //   selectedLocalizations.languageSettingConfirmationTitle,
+                        //   selectedLocalizations.languageSettingConfirmationQuery,
+                        //   actions: [
+                        //     PlatformTextButton(
+                        //       child: Text(
+                        //         selectedLocalizations.actionCancel,
+                        //       ),
+                        //       onPressed: () => context.pop(false),
+                        //     ),
+                        //     PlatformTextButton(
+                        //       child: Text(selectedLocalizations.actionOk),
+                        //       onPressed: () {
+                        //         print("######closing popup");
+                        //         context.pop(context);
+                        //       },
+                        //     ),
+                        //   ],
+                        // );
+                        if (confirmed) {
+                          selectedLanguageState.value = value;
+
+                          await ref.read(settingsProvider.notifier).update(
+                                settings.copyWith(
+                                  languageTag: locale.toLanguageTag(),
+                                ),
+                              );
+                        }
+                        Phoenix.rebirth(context);
+                      }
+                    },
+                    selectedItemBuilder: (context) => languages
+                        .map((language) => Text(language.displayName ?? ''))
+                        .toList(),
+                    items: languages
+                        .map((language) => DropdownMenuItem(
+                              value: language,
+                              child: Text(language.displayName ?? ''),
+                            ))
+                        .toList(),
+                  ),
+                  if (selectedLocalizationsState.value != null)
+                    Text(
+                      selectedLocalizationsState.value?.languageSetInfo ?? '',
+                      style: theme.textTheme.titleMedium,
+                    )
+                  else if (systemSettingApplied.value)
+                    Text(
+                      localizations.languageSystemSetInfo,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                ],
+              ),
             ),
           ),
         ),

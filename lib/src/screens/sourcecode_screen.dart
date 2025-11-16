@@ -2,6 +2,7 @@ import 'package:enough_mail/mime.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../util/direction_helper.dart';
 import 'base.dart';
 
 class SourceCodeScreen extends StatelessWidget {
@@ -20,7 +21,6 @@ class SourceCodeScreen extends StatelessWidget {
           ? 'Size: ${sizeFormat.format(sizeKb)} kb  /   ${sizeFormat.format(sizeMb)} mb'
           : 'Size: ${sizeFormat.format(sizeKb)} kb  /   ${mimeMessage.size} bytes';
     }
-
     return BasePage(
       title: mimeMessage.decodeSubject() ?? '<no subject>',
       content: SingleChildScrollView(

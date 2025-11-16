@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -29,67 +31,77 @@ class SettingsDeveloperModeScreen extends HookConsumerWidget {
     );
 
     final developerModeState = useState(isDeveloperModeEnabled);
-
-    return BasePage(
-      title: localizations.settingsDevelopment,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.developerModeTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                Text(
-                  localizations.developerModeIntroduction,
-                  style: theme.textTheme.bodySmall,
-                ),
-                PlatformCheckboxListTile(
-                  value: isDeveloperModeEnabled,
-                  onChanged: (value) async {
-                    developerModeState.value = value ?? false;
-                    final settings = ref.read(settingsProvider);
-                    await ref.read(settingsProvider.notifier).update(
-                          settings.copyWith(
-                            enableDeveloperMode: value ?? false,
-                          ),
-                        );
-                  },
-                  title: Text(localizations.developerModeEnable),
-                ),
-                const Divider(),
-                Text(
-                  localizations.extensionsTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                Text(
-                  localizations.extensionsIntro,
-                  style: theme.textTheme.bodySmall,
-                ),
-                PlatformTextButton(
-                  child: Text(localizations.extensionsLearnMoreAction),
-                  onPressed: () => launchUrl(
-                    Uri.parse(
-                      'https://github.com/Enough-Software/enough_mail_app/wiki/Extensions',
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.settingsDevelopment,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    localizations.developerModeTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  Text(
+                    localizations.developerModeIntroduction,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  PlatformCheckboxListTile(
+                    value: isDeveloperModeEnabled,
+                    onChanged: (value) async {
+                      developerModeState.value = value ?? false;
+                      final settings = ref.read(settingsProvider);
+                      await ref.read(settingsProvider.notifier).update(
+                            settings.copyWith(
+                              enableDeveloperMode: value ?? false,
+                            ),
+                          );
+                    },
+                    title: Text(localizations.developerModeEnable),
+                  ),
+                  const Divider(),
+                  Text(
+                    localizations.extensionsTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  Text(
+                    localizations.extensionsIntro,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  PlatformTextButton(
+                    child: Text(localizations.extensionsLearnMoreAction),
+                    onPressed: () => launchUrl(
+                      Uri.parse(
+                        'https://github.com/Enough-Software/enough_mail_app/wiki/Extensions',
+                      ),
                     ),
                   ),
-                ),
-                PlatformListTile(
-                  title: Text(localizations.extensionsReloadAction),
-                  onTap: () => _reloadExtensions(context, ref),
-                ),
-                PlatformListTile(
-                  title: Text(localizations.extensionDeactivateAllAction),
-                  onTap: () => _deactivateAllExtensions(ref),
-                ),
-                PlatformListTile(
-                  title: Text(localizations.extensionsManualAction),
-                  onTap: () => _loadExtensionManually(context, ref),
-                ),
-              ],
+                  PlatformListTile(
+                    title: Text(localizations.extensionsReloadAction),
+                    onTap: () => _reloadExtensions(context, ref),
+                  ),
+                  PlatformListTile(
+                    title: Text(localizations.extensionDeactivateAllAction),
+                    onTap: () => _deactivateAllExtensions(ref),
+                  ),
+                  PlatformListTile(
+                    title: Text(localizations.extensionsManualAction),
+                    onTap: () => _loadExtensionManually(context, ref),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

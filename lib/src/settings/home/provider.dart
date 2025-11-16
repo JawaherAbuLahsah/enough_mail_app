@@ -34,26 +34,26 @@ class SettingsUiElements extends _$SettingsUiElements {
         title: text.settingsActionAccounts,
         onTap: () => context.pushNamed(Routes.settingsAccounts),
       ),
-      UiSettingsElement(
-        type: UiSettingsType.swipe,
-        title: text.swipeSettingTitle,
-        onTap: () => context.pushNamed(Routes.settingsSwipe),
-      ),
-      UiSettingsElement(
-        type: UiSettingsType.signature,
-        title: text.signatureSettingsTitle,
-        onTap: () => context.pushNamed(Routes.settingsSignature),
-      ),
+      // UiSettingsElement(
+      //   type: UiSettingsType.swipe,
+      //   title: text.swipeSettingTitle,
+      //   onTap: () => context.pushNamed(Routes.settingsSwipe),
+      // ),
+      // UiSettingsElement(
+      //   type: UiSettingsType.signature,
+      //   title: text.signatureSettingsTitle,
+      //   onTap: () => context.pushNamed(Routes.settingsSignature),
+      // ),
       UiSettingsElement(
         type: UiSettingsType.defaultSender,
         title: text.defaultSenderSettingsTitle,
         onTap: () => context.pushNamed(Routes.settingsDefaultSender),
       ),
-      UiSettingsElement(
-        type: UiSettingsType.design,
-        title: text.settingsActionDesign,
-        onTap: () => context.pushNamed(Routes.settingsDesign),
-      ),
+      // UiSettingsElement(
+      //   type: UiSettingsType.design,
+      //   title: text.settingsActionDesign,
+      //   onTap: () => context.pushNamed(Routes.settingsDesign),
+      // ),
       UiSettingsElement(
         type: UiSettingsType.language,
         title: text.languageSettingTitle,
@@ -74,22 +74,22 @@ class SettingsUiElements extends _$SettingsUiElements {
         title: text.replySettingsTitle,
         onTap: () => context.pushNamed(Routes.settingsReplyFormat),
       ),
-      UiSettingsElement.divider(),
-      UiSettingsElement(
-        type: UiSettingsType.feedback,
-        title: text.settingsActionFeedback,
-        onTap: () => context.pushNamed(Routes.settingsFeedback),
-      ),
-      UiSettingsElement(
-        type: UiSettingsType.about,
-        title: text.drawerEntryAbout,
-        onTap: () => LocalizedDialogHelper.showAbout(ref),
-      ),
-      UiSettingsElement(
-        type: UiSettingsType.welcome,
-        title: text.settingsActionWelcome,
-        onTap: () => context.pushNamed(Routes.welcome),
-      ),
+      // UiSettingsElement.divider(),
+      // UiSettingsElement(
+      //   type: UiSettingsType.feedback,
+      //   title: text.settingsActionFeedback,
+      //   onTap: () => context.pushNamed(Routes.settingsFeedback),
+      // ),
+      // UiSettingsElement(
+      //   type: UiSettingsType.about,
+      //   title: text.drawerEntryAbout,
+      //   onTap: () => LocalizedDialogHelper.showAbout(ref),
+      // ),
+      // UiSettingsElement(
+      //   type: UiSettingsType.welcome,
+      //   title: text.settingsActionWelcome,
+      //   onTap: () => context.pushNamed(Routes.welcome),
+      // ),
     ];
   }
 }

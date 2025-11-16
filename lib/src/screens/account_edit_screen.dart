@@ -19,6 +19,7 @@ import '../routes/routes.dart';
 import '../scaffold_messenger/service.dart';
 import '../settings/provider.dart';
 import '../settings/theme/icon_service.dart';
+import '../util/direction_helper.dart';
 import '../util/localized_dialog_helper.dart';
 import '../util/validator.dart';
 import '../widgets/password_field.dart';
@@ -153,14 +154,14 @@ class AccountEditScreen extends HookConsumerWidget {
                         ),
                       ),
                     const Divider(),
-                    Text(
-                      localizations.signatureSettingsTitle,
-                      style: theme.textTheme.titleMedium,
-                    ),
-                    SignatureWidget(
-                      account: account,
-                    ),
-                    const Divider(),
+                    // Text(
+                    //   localizations.signatureSettingsTitle,
+                    //   style: theme.textTheme.titleMedium,
+                    // ),
+                    // SignatureWidget(
+                    //   account: account,
+                    // ),
+                    // const Divider(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(8, 16, 8, 8),
                       child: Text(
@@ -628,87 +629,91 @@ class _PlusAliasTestingDialogState
   @override
   Widget build(BuildContext context) {
     final localizations = ref.text;
-
-    return PlatformAlertDialog(
-      title: Text(
-        localizations.editAccountTestPlusAliasTitle(widget.account.name),
-      ),
-      content: SizedBox(
-        width: double.maxFinite,
-        child: PlatformStepper(
-          onStepCancel: _step == 3 ? null : () => context.pop(),
-          onStepContinue: !_isContinueAvailable
-              ? null
-              : () async {
-                  if (_step < _maxStep) {
-                    _step++;
-                  } else {
-                    context.pop(
-                      widget.account.supportsPlusAliases,
-                    );
-                  }
-                  switch (_step) {
-                    case 1:
-                      setState(() {
-                        _isContinueAvailable = false;
-                      });
-                      // send the email and wait for a response:
-                      final msg = MessageBuilder.buildSimpleTextMessage(
-                        widget.account.fromAddress,
-                        [MailAddress(null, _generatedAliasAddress)],
-                        'This is an automated message testing support '
-                        'for + aliases. Please ignore.',
-                        subject: 'Testing + Alias',
+    final textDirection = DirectionHelper().getDirection(ref);
+    return Directionality(
+      textDirection: textDirection,
+      child: PlatformAlertDialog(
+        title: Text(
+          localizations.editAccountTestPlusAliasTitle(widget.account.name),
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: PlatformStepper(
+            onStepCancel: _step == 3 ? null : () => context.pop(),
+            onStepContinue: !_isContinueAvailable
+                ? null
+                : () async {
+                    if (_step < _maxStep) {
+                      _step++;
+                    } else {
+                      context.pop(
+                        widget.account.supportsPlusAliases,
                       );
-                      // _testMessage = msg;
-                      final mailClient = ref.read(
-                        mailClientSourceProvider(account: widget.account),
-                      );
-                      _mailClient = mailClient;
-                      mailClient.addEventFilter(_filter);
-                      await mailClient.sendMessage(msg, appendToSent: false);
-                      break;
-                  }
-                },
-          steps: [
-            Step(
-              title: Text(
-                localizations.editAccountTestPlusAliasStepIntroductionTitle,
-              ),
-              content: Text(
-                localizations.editAccountTestPlusAliasStepIntroductionText(
-                  widget.account.name,
-                  _generatedAliasAddress,
+                    }
+                    switch (_step) {
+                      case 1:
+                        setState(() {
+                          _isContinueAvailable = false;
+                        });
+                        // send the email and wait for a response:
+                        final msg = MessageBuilder.buildSimpleTextMessage(
+                          widget.account.fromAddress,
+                          [MailAddress(null, _generatedAliasAddress)],
+                          'This is an automated message testing support '
+                          'for + aliases. Please ignore.',
+                          subject: 'Testing + Alias',
+                        );
+                        // _testMessage = msg;
+                        final mailClient = ref.read(
+                          mailClientSourceProvider(account: widget.account),
+                        );
+                        _mailClient = mailClient;
+                        mailClient.addEventFilter(_filter);
+                        await mailClient.sendMessage(msg, appendToSent: false);
+                        break;
+                    }
+                  },
+            steps: [
+              Step(
+                title: Text(
+                  localizations.editAccountTestPlusAliasStepIntroductionTitle,
                 ),
-                style: const TextStyle(fontSize: 12),
+                content: Text(
+                  localizations.editAccountTestPlusAliasStepIntroductionText(
+                    widget.account.name,
+                    _generatedAliasAddress,
+                  ),
+                  style: const TextStyle(fontSize: 12),
+                ),
+                isActive: _step == 0,
               ),
-              isActive: _step == 0,
-            ),
-            Step(
-              title:
-                  Text(localizations.editAccountTestPlusAliasStepTestingTitle),
-              content: const Center(child: PlatformProgressIndicator()),
-              isActive: _step == 1,
-            ),
-            Step(
-              title:
-                  Text(localizations.editAccountTestPlusAliasStepResultTitle),
-              content: widget.account.supportsPlusAliases
-                  ? Text(
-                      localizations.editAccountTestPlusAliasStepResultSuccess(
-                        widget.account.name,
+              Step(
+                title: Text(
+                    localizations.editAccountTestPlusAliasStepTestingTitle),
+                content: const Center(child: PlatformProgressIndicator()),
+                isActive: _step == 1,
+              ),
+              Step(
+                title:
+                    Text(localizations.editAccountTestPlusAliasStepResultTitle),
+                content: widget.account.supportsPlusAliases
+                    ? Text(
+                        localizations.editAccountTestPlusAliasStepResultSuccess(
+                          widget.account.name,
+                        ),
+                      )
+                    : Text(
+                        localizations
+                            .editAccountTestPlusAliasStepResultNoSuccess(
+                          widget.account.name,
+                        ),
                       ),
-                    )
-                  : Text(
-                      localizations.editAccountTestPlusAliasStepResultNoSuccess(
-                        widget.account.name,
-                      ),
-                    ),
-              isActive: _step == 3,
-              state: StepState.complete,
-            ),
-          ],
-          currentStep: _step,
+                isActive: _step == 3,
+                state: StepState.complete,
+              ),
+            ],
+            currentStep: _step,
+          ),
         ),
       ),
     );

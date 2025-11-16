@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,34 +23,46 @@ class SettingsSwipeScreen extends ConsumerWidget {
 
     final theme = Theme.of(context);
     final localizations = ref.text;
-
-    return BasePage(
-      title: localizations.swipeSettingTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  localizations.swipeSettingLeftToRightLabel,
-                  style: theme.textTheme.bodySmall,
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.swipeSettingTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      localizations.swipeSettingLeftToRightLabel,
+                      style: theme.textTheme.bodySmall,
+                    ),
+                    _SwipeSetting(
+                      swipeAction: leftToRightAction,
+                      isLeftToRight: true,
+                    ),
+                    const Divider(),
+                    Text(
+                      localizations.swipeSettingRightToLeftLabel,
+                      style: theme.textTheme.bodySmall,
+                    ),
+                    _SwipeSetting(
+                      swipeAction: rightToLeftAction,
+                      isLeftToRight: false,
+                    ),
+                  ],
                 ),
-                _SwipeSetting(
-                  swipeAction: leftToRightAction,
-                  isLeftToRight: true,
-                ),
-                const Divider(),
-                Text(
-                  localizations.swipeSettingRightToLeftLabel,
-                  style: theme.textTheme.bodySmall,
-                ),
-                _SwipeSetting(
-                  swipeAction: rightToLeftAction,
-                  isLeftToRight: false,
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -147,10 +161,12 @@ class _SwipeSetting extends HookConsumerWidget {
             swipeAction: swipeActionState.value,
           ),
         ),
-        PlatformTextButtonIcon(
-          onPressed: onPressed,
-          icon: const Icon(Icons.edit),
-          label: Text(localizations.swipeSettingChangeAction),
+        Container(
+          child: PlatformTextButtonIcon(
+            onPressed: onPressed,
+            icon: const Icon(Icons.edit),
+            label: Text(localizations.swipeSettingChangeAction),
+          ),
         ),
       ],
     );

@@ -123,6 +123,10 @@ class IconService {
 
       case MediaToptype.other:
         return Icons.attachment;
+
+      // ignore: no_default_cases
+      default:
+        return Icons.attachment;
     }
   }
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
@@ -9,6 +10,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
+import '../../../enough_mail_app.dart';
 import '../../localization/extension.dart';
 import '../../scaffold_messenger/service.dart';
 import '../../screens/base.dart';
@@ -66,88 +68,98 @@ class _SettingsFeedbackScreenState
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final localizations = ref.text;
-
-    return BasePage(
-      title: localizations.feedbackTitle,
-      content: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text(
-                    localizations.feedbackIntro,
-                    style: theme.textTheme.titleMedium,
-                  ),
-                ),
-                if (info == null)
-                  const Padding(
-                    padding: EdgeInsets.all(8),
-                    child: PlatformProgressIndicator(),
-                  )
-                else ...[
+    final languageTag =
+        ref.watch(settingsProvider.select((settings) => settings.languageTag));
+    final locale = languageTag != null
+        ? Locale(languageTag)
+        : PlatformDispatcher.instance.locale;
+    print("languageTag : $languageTag");
+    final textDirection =
+        (locale.languageCode == 'ar') ? TextDirection.rtl : TextDirection.ltr;
+    return Directionality(
+      textDirection: textDirection,
+      child: BasePage(
+        title: localizations.feedbackTitle,
+        content: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      localizations.feedbackProvideInfoRequest,
-                      style: theme.textTheme.bodySmall,
+                      localizations.feedbackIntro,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                  ),
+                  if (info == null)
+                    const Padding(
+                      padding: EdgeInsets.all(8),
+                      child: PlatformProgressIndicator(),
+                    )
+                  else ...[
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        localizations.feedbackProvideInfoRequest,
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(info ?? ''),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: PlatformIconButton(
+                        icon: Icon(CommonPlatformIcons.copy),
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: info ?? ''));
+                          ScaffoldMessengerService.instance.showTextSnackBar(
+                            localizations,
+                            localizations.feedbackResultInfoCopied,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: PlatformTextButton(
+                      child: Text(localizations.feedbackActionSuggestFeature),
+                      onPressed: () async {
+                        await launcher.launchUrl(
+                            Uri.parse('https://maily.userecho.com/'));
+                      },
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Text(info ?? ''),
+                    child: PlatformTextButton(
+                      child: Text(localizations.feedbackActionReportProblem),
+                      onPressed: () async {
+                        await launcher.launchUrl(
+                            Uri.parse('https://maily.userecho.com/'));
+                      },
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8),
-                    child: PlatformIconButton(
-                      icon: Icon(CommonPlatformIcons.copy),
-                      onPressed: () {
-                        Clipboard.setData(ClipboardData(text: info ?? ''));
-                        ScaffoldMessengerService.instance.showTextSnackBar(
-                          localizations,
-                          localizations.feedbackResultInfoCopied,
+                    child: PlatformTextButton(
+                      child: Text(localizations.feedbackActionHelpDeveloping),
+                      onPressed: () async {
+                        await launcher.launchUrl(
+                          Uri.parse(
+                            'https://github.com/Enough-Software/enough_mail_app',
+                          ),
                         );
                       },
                     ),
                   ),
                 ],
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: PlatformTextButton(
-                    child: Text(localizations.feedbackActionSuggestFeature),
-                    onPressed: () async {
-                      await launcher
-                          .launchUrl(Uri.parse('https://maily.userecho.com/'));
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: PlatformTextButton(
-                    child: Text(localizations.feedbackActionReportProblem),
-                    onPressed: () async {
-                      await launcher
-                          .launchUrl(Uri.parse('https://maily.userecho.com/'));
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: PlatformTextButton(
-                    child: Text(localizations.feedbackActionHelpDeveloping),
-                    onPressed: () async {
-                      await launcher.launchUrl(
-                        Uri.parse(
-                          'https://github.com/Enough-Software/enough_mail_app',
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

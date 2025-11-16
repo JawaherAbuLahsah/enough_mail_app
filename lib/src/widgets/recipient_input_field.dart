@@ -2,9 +2,8 @@ import 'package:enough_mail/enough_mail.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_contact_picker_plus/flutter_native_contact_picker_plus.dart';
+//import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../app_lifecycle/provider.dart';
 import '../contact/model.dart';
@@ -156,8 +155,7 @@ class _RecipientInputFieldState extends ConsumerState<RecipientInputField> {
           ),
         );
       },
-      onAcceptWithDetails: (details) {
-        final mailAddress = details.data;
+      onAccept: (mailAddress) {
         if (!widget.addresses.contains(mailAddress)) {
           widget.addresses.add(mailAddress);
         }
@@ -212,7 +210,9 @@ class _RecipientInputFieldState extends ConsumerState<RecipientInputField> {
             suffixIcon: widget.additionalSuffixIcon == null
                 ? PlatformIconButton(
                     icon: const Icon(Icons.contacts),
-                    onPressed: () => _pickContact(textEditingController),
+                    onPressed: () => {
+                      // _pickContact(textEditingController);
+                    },
                   )
                 : Row(
                     mainAxisSize: MainAxisSize.min,
@@ -220,7 +220,7 @@ class _RecipientInputFieldState extends ConsumerState<RecipientInputField> {
                       widget.additionalSuffixIcon ?? const SizedBox.shrink(),
                       PlatformIconButton(
                         icon: const Icon(Icons.contacts),
-                        onPressed: () => _pickContact(textEditingController),
+                        // onPressed: () => {_pickContact(textEditingController)},
                       ),
                     ],
                   ),
@@ -281,38 +281,27 @@ class _RecipientInputFieldState extends ConsumerState<RecipientInputField> {
     }
   }
 
-  Future<bool> _requestContactPermission() async {
-    final status = await Permission.contacts.request();
-    return status.isGranted;
-  }
-
-  Future<void> _pickContact(TextEditingController controller) async {
-    if (!await _requestContactPermission()) {
-      return;
-    }
-    try {
-      ref
-          .read(appLifecycleProvider.notifier)
-          .ignoreNextInactivationCycle(timeout: const Duration(seconds: 120));
-
-      final contact = await FlutterContactPickerPlus().selectContact();
-      if (contact == null) {
-        return;
-      }
-      final email = contact.emailAddresses?.first.email;
-      if (email != null) {
-        widget.addresses.add(
-          MailAddress(
-            contact.fullName,
-            email,
-          ),
-        );
-      }
-      setState(() {});
-    } catch (e, s) {
-      logger.e('Unable to pick contact $e', error: e, stackTrace: s);
-    }
-  }
+  // Future<void> _pickContact(TextEditingController controller) async {
+  //   try {
+  //     ref
+  //         .read(appLifecycleProvider.notifier)
+  //         .ignoreNextInactivationCycle(timeout: const Duration(seconds: 120));
+  //
+  //     final contact = await FlutterContactPicker.pickEmailContact();
+  //     final email = contact.email?.email;
+  //     if (email != null) {
+  //       widget.addresses.add(
+  //         MailAddress(
+  //           contact.fullName,
+  //           email,
+  //         ),
+  //       );
+  //     }
+  //     setState(() {});
+  //   } catch (e, s) {
+  //     logger.e('Unable to pick contact $e', error: e, stackTrace: s);
+  //   }
+  // }
 }
 
 class _AddressChip<T> extends StatelessWidget {

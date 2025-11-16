@@ -78,6 +78,7 @@ class EnoughMailApp extends HookConsumerWidget {
       ),
     );
     if (languageTag == null) {
+      print("return app");
       return app;
     }
 
@@ -107,9 +108,10 @@ class _InitializationScreenState extends ConsumerState<InitializationScreen> {
   }
 
   Future<void> _initApp() async {
+    // Initialize background service
+    await ref.read(backgroundProvider.notifier).init();
     await ref.read(settingsProvider.notifier).init();
     await ref.read(realAccountsProvider.notifier).init();
-    await ref.read(backgroundProvider.notifier).init();
 
     if (context.mounted) {
       // TODO(RV): check if the context is really needed for NotificationService
