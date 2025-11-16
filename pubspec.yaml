@@ -82,6 +82,10 @@ dependencies:
   shimmer_animation: ^2.1.0+1
   url_launcher: ^6.0.17
   webview_flutter: ^4.0.2
+  workmanager:
+    git:
+      url: https://github.com/fluttercommunity/flutter_workmanager.git
+      ref: b783000
 
 dependency_overrides: null
 # collection: ^1.18.0
