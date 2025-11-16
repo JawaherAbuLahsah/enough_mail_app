@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:badges/badges.dart' as badges;
 import 'package:collection/collection.dart';
 import 'package:enough_mail/enough_mail.dart';
-import '../screens/mail_screen_for_default_account.dart';
+import 'package:enough_mail_app/src/screens/mail_screen_for_default_account.dart';
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

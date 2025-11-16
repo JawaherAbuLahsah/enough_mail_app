@@ -1,4 +1,4 @@
-import '../util/custom_line_indicator_bottom_navbar.dart';
+import 'package:enough_mail_app/src/util/custom_line_indicator_bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
