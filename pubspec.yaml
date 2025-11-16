@@ -104,40 +104,40 @@ dependency_overrides:
   # out-comment the following to enable git-based development:
   enough_mail:
     git:
-      url: https://github.com/ahmedbenahmed/enough_mail.git
+      url: https://github.com/JawaherAbuLahsah/enough_mail.git
   enough_mail_html:
     git:
-      url: https://github.com/ahmedbenahmed/enough_mail_html.git
+      url: https://github.com/JawaherAbuLahsah/enough_mail_html.git
   enough_mail_flutter:
     git:
-      url: https://github.com/ahmedbenahmed/enough_mail_flutter.git
+      url: https://github.com/JawaherAbuLahsah/enough_mail_flutter.git
   enough_media:
     git:
-      url: https://github.com/ahmedbenahmed/enough_media.git
+      url: https://github.com/JawaherAbuLahsah/enough_media.git
   enough_icalendar:
     git:
-      url: https://github.com/ahmedbenahmed/enough_icalendar.git
+      url: https://github.com/JawaherAbuLahsah/enough_icalendar.git
   enough_mail_icalendar:
     git:
-      url: https://github.com/ahmedbenahmed/enough_mail_icalendar.git
+      url: https://github.com/JawaherAbuLahsah/enough_mail_icalendar.git
   enough_icalendar_export:
     git:
-      url: https://github.com/ahmedbenahmed/enough_icalendar_export.git
+      url: https://github.com/JawaherAbuLahsah/enough_icalendar_export.git
   enough_html_editor:
     git:
-      url: https://github.com/ahmedbenahmed/enough_html_editor.git
+      url: https://github.com/JawaherAbuLahsah/enough_html_editor.git
   enough_text_editor:
     git:
-      url: https://github.com/ahmedbenahmed/enough_text_editor.git
+      url: https://github.com/JawaherAbuLahsah/enough_text_editor.git
   enough_ascii_art:
     git:
-      url: https://github.com/ahmedbenahmed/enough_ascii_art.git
+      url: https://github.com/JawaherAbuLahsah/enough_ascii_art.git
   enough_giphy_flutter:
     git:
       url: https://github.com/Enough-Software/enough_giphy_flutter.git
   enough_platform_widgets:
     git:
-      url: https://github.com/ahmedbenahmed/enough_platform_widgets.git
+      url: https://github.com/JawaherAbuLahsah/enough_platform_widgets.git
   # out-comment the following to enable local development:
   # enough_mail:
   #   path: ../enough_mail
