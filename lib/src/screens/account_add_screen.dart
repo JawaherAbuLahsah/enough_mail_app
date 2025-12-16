@@ -152,7 +152,7 @@ class _AccountAddScreenState extends ConsumerState<AccountAddScreen> {
               height: 150,
             ),
             Image.asset(
-              'assets/images/one.png',
+              'assets/images/one.jpg',
               height: 100,
               fit: BoxFit.cover,
               package: 'enough_mail_app',

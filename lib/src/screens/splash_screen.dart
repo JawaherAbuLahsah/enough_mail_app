@@ -34,20 +34,26 @@ class SplashScreen extends ConsumerWidget {
             : Colors.black87;
 
     return PlatformScaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            'assets/images/maily.png',
+      body: Center(
+        child: Image.asset(
+            'assets/images/mail.png',
             package: 'enough_mail_app',
           ),
-          Text(
-            text,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-        ],
       ),
+      // Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+      //     Image.asset(
+      //       'assets/images/mail.png',
+      //       package: 'enough_mail_app',
+      //     ),
+      //     // Text(
+      //     //   text,
+      //     //   style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      //     // ),
+      //   ],
+      // ),
     );
   }
 }

@@ -7,7 +7,7 @@ part of 'provider.dart';
 // **************************************************************************
 
 String _$currentAppLocalizationHash() =>
-    r'c18983e4ccf75e45ed6f0a56e73423a2c1e5fa10';
+    r'efed52e98cb9d4d765dc46976824314e2192be26';
 
 /// See also [CurrentAppLocalization].
 @ProviderFor(CurrentAppLocalization)

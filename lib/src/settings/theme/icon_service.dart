@@ -88,6 +88,13 @@ class IconService {
   IconData get folderSent => CommunityMaterialIcons.inbox_arrow_up;
   IconData get folderArchive => CommunityMaterialIcons.archive_outline;
   IconData get folderJunk => CommunityMaterialIcons.bug_outline;
+  String get folderInboxSvg => 'assets/images/icon_service/icon9-1.svg';
+  String get folderDraftsSvg => 'assets/images/icon_service/icon8-1.svg';
+  String get folderTrashSvg => 'assets/images/icon_service/icon7-1.svg';
+  String get folderGenericSvg => 'assets/images/icon_service/icon6-1.svg';
+  String get folderSentSvg => 'assets/images/icon_service/icon5-1.svg';
+  String get folderArchiveSvg => 'assets/images/icon_service/icon4-1.svg';
+  String get folderJunkSvg => 'assets/images/icon_service/icon1-1.svg';
 
   IconData getForMediaType(MediaType? mediaType) {
     if (mediaType == null) {
