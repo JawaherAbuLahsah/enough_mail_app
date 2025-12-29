@@ -74,7 +74,7 @@ class Background extends _$Background {
           requiresDeviceIdle: false,
           requiresStorageNotLow: false,
         ),
-        existingWorkPolicy: ExistingWorkPolicy.keep,
+        existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
         backoffPolicy: BackoffPolicy.linear,
         backoffPolicyDelay: const Duration(minutes: 15),
       );
